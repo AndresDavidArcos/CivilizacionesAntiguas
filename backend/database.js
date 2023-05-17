@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MONGO_URI = "mongodb+srv://aztec:aztec@cluster0.tmyxlvj.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URI = "secreto";
 
 module.exports = mongoose.connect(MONGO_URI)
 .then(()=>{
