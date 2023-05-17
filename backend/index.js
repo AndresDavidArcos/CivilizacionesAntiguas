@@ -15,6 +15,7 @@ app.use("/api",require("./routes/login"));
 
 //manejador de errores
 app.use((err,req,res,next)=>{
+    console.log(err)
     res.json({message: err});
 })
 

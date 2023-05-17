@@ -1,4 +1,6 @@
 const User = require("../models/usuarios")
+const bcrypt = require('bcrypt-nodejs');
+
 module.exports = {
    async register(req, res, next){
       try {         
@@ -6,7 +8,15 @@ module.exports = {
          await User.create(user);
          res.status(200).send({ message: "Usuario registrado exitosamente"});
       } catch (err) {
-         next(err)
+         if(err.code === 11000){
+            let newErr = {};
+            newErr.detail = 'El usuario de nombre '+err.keyValue.nombre+' ya existe';
+            newErr.status = 400;
+            next(newErr)
+         }else{
+            next(err)
+         }
+
       }
    },
 
@@ -18,11 +28,19 @@ module.exports = {
             return res.status(404).send({message: "Usuario no encontrado"});
          }
          const realUserPassword = userCoincidences[0].clave;
-         if(realUserPassword != user.clave){
-            return res.status(404).send({message: "Contraseña incorrecta"});
-         }
+         bcrypt.compare(user.clave, realUserPassword, (err, isMatch) => {
+            if (err) {
+              return next(err);
+            }
+      
+            if (!isMatch) {
+              return res.status(404).send({ message: "Contraseña incorrecta" });
+            }
 
-         res.status(200).send({ data: userCoincidences[0]});
+            res.status(200).send({ data: {nombre: userCoincidences[0].nombre, id: userCoincidences[0]._id }});
+
+         });
+
       } catch (err) {
          next(err)
       }
