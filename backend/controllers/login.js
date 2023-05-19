@@ -25,7 +25,7 @@ module.exports = {
          const user = req.body;
          const userCoincidences = await User.find({"nombre": user.nombre});
          if(!userCoincidences){
-            return res.status(404).send({message: "Usuario no encontrado"});
+            return res.status(404).send({message: {detail:"Usuario no encontrado"}});
          }
          const realUserPassword = userCoincidences[0].clave;
          bcrypt.compare(user.clave, realUserPassword, (err, isMatch) => {
@@ -34,7 +34,7 @@ module.exports = {
             }
       
             if (!isMatch) {
-              return res.status(404).send({ message: "Contraseña incorrecta" });
+              return res.status(404).send({ message: {detail:"Contraseña incorrecta"} });
             }
 
             res.status(200).send({ data: {nombre: userCoincidences[0].nombre, id: userCoincidences[0]._id }});

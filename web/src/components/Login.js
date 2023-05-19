@@ -5,9 +5,9 @@ import { Box, Button, TextField } from '@mui/material';
 import errorIcon from "../icons/advertencia.png";
 
 export default function Login() {
-  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":3000/api/";
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const [nombre, setUsername] = useState('');
+  const [clave, setPassword] = useState('');
   const [errors, setErrors] = useState('');
   const navigate = useNavigate()
 
@@ -21,17 +21,17 @@ export default function Login() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username: username,
-          password: password
+          nombre: nombre,
+          clave: clave
         })
       });
 
       const data = await response.json();
       if (response.status === 200) {
         console.log(data);
-        navigate('/', { state: { user: data.user } })
+        navigate('/menuSelection', { state: { user: data.user } })
       } else {
-        setErrors(data.detail)
+        setErrors(data.message.detail)
       }
 
     } catch (error) {
@@ -53,7 +53,7 @@ export default function Login() {
         sx={{width:'15rem'}}
           id="usuario-login"
           label="Usuario"
-          value={username}
+          value={nombre}
           onChange={(event) => setUsername(event.target.value)}
           variant="outlined" />
         <br />
@@ -62,7 +62,7 @@ export default function Login() {
           id="contrasena-login"
           label="Contraseña"
           type='password'
-          value={password}
+          value={clave}
           onChange={(event) => setPassword(event.target.value)}
           variant="filled" />
         <br></br>

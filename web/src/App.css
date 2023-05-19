@@ -1,0 +1,23 @@
+#three-canvas-container {
+  height: 100vh !important;
+}
+
+.errorMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorMsg img {
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+}
+
+.errorMsg p {
+  color: red;
+}
+
+.registerForm{
+  margin-top: 150px;
+}
