@@ -46,8 +46,8 @@ export default function SelectionMenu(){
     return (
         <>
           {/* Camera */}
-          <PerspectiveCamera ref={camera} makeDefault position={[-20, 4, 0]} />
-          <CameraControls  minPolarAngle={angleToRadians(60)} maxPolarAngle={angleToRadians(80)} />    
+          {/* <PerspectiveCamera ref={camera} makeDefault position={[-20, 4, 0]} />
+          <CameraControls  minPolarAngle={angleToRadians(60)} maxPolarAngle={angleToRadians(80)} />     */}
 
           {/* light */}
           <ambientLight args={["#ffffff", 0.25]}/>
