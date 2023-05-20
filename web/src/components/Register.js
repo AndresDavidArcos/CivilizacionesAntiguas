@@ -28,8 +28,8 @@ export default function Register() {
         })
       });
       const data = await response.json();
-      if (data.message.status === 200 || response.status === 200) {
-        console.log("eh?")
+      console.log(data)
+      if (data.message.status === 200) {
         navigate('/login')
       } else {
         setErrors(data.message.detail)
