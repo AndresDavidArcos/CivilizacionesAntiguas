@@ -24,7 +24,8 @@ module.exports = {
       try {
          const user = req.body;
          const userCoincidences = await User.find({"nombre": user.nombre});
-         if(!userCoincidences){
+
+         if(userCoincidences == false){
             return res.status(404).send({message: {detail:"Usuario no encontrado"}});
          }
          const realUserPassword = userCoincidences[0].clave;
@@ -36,7 +37,6 @@ module.exports = {
             if (!isMatch) {
               return res.status(404).send({ message: {detail:"Contraseña incorrecta"} });
             }
-
             res.status(200).send({ data: {nombre: userCoincidences[0].nombre, id: userCoincidences[0]._id }});
 
          });

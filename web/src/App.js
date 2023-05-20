@@ -4,6 +4,8 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from './components/Register';
 import SelectionMenu from './components/SelectionMenu';
+import RetroDialog from './components/RetroDialog';
+import Agricultura from './components/Agricultura';
 function App() {
   return (
     <div className="App">
@@ -12,11 +14,15 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path='/register' element={<Register/>}/>
           <Route path="/" element={<Navigate to="/login" />} />
+          <Route path='/agricultura' element={<Agricultura/>}/>
           <Route path='/menuSelection' element={
+            <>
           <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>          
           <SelectionMenu/>
-          </Canvas>          
-          }/>
+          </Canvas>     
+        <RetroDialog/>
+          </>
+          }/>          
         </Routes>
       </Router>
     </div>

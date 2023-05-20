@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBarClean from './NavBarClean'
 import { Box, Button, TextField } from '@mui/material';
 import errorIcon from "../icons/advertencia.png";
+import { useUserData } from '../contexts/user';
 
 export default function Login() {
   const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const {setUser} = useUserData();
   const [nombre, setUsername] = useState('');
   const [clave, setPassword] = useState('');
   const [errors, setErrors] = useState('');
@@ -28,8 +30,8 @@ export default function Login() {
 
       const data = await response.json();
       if (response.status === 200) {
-        console.log(data);
-        navigate('/menuSelection', { state: { user: data.user } })
+        setUser(data)
+        navigate('/menuSelection', { state: { user: data } })
       } else {
         setErrors(data.message.detail)
       }
@@ -79,7 +81,6 @@ export default function Login() {
         </Button>
 
       </Box>
-
     </>
   );
 }
