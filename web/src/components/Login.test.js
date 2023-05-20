@@ -15,7 +15,7 @@ describe('Login component', () => {
     const submitButton = getByText('Iniciar sesión');
     global.fetch = jest.fn().mockResolvedValue({
         status: 404,
-        json: () => Promise.resolve({ detail: 'User not found!' }),
+        json: () => Promise.resolve({ message: {detail: 'User not found!' }}),
       });
     fireEvent.change(emailInput, { target: { value: 'unrecognized@example.com' } });
     fireEvent.change(passwordInput, { target: { value: 'password' } });
@@ -38,7 +38,7 @@ describe('Login component', () => {
     const submitButton = getByText('Iniciar sesión');
     global.fetch = jest.fn().mockResolvedValue({
         status: 404,
-        json: () => Promise.resolve({ detail: 'Incorrect password!' }),
+        json: () => Promise.resolve({ message: {detail: 'Incorrect password!' }}),
       });
     fireEvent.change(emailInput, { target: { value: 'example@example.com' } });
     fireEvent.change(passwordInput, { target: { value: 'password' } });
@@ -71,14 +71,14 @@ describe('Login component', () => {
   
     await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
   
-    expect(mockFetch).toHaveBeenCalledWith('http://localhost:3000/api/login', {
+    expect(mockFetch).toHaveBeenCalledWith('http://localhost:4000/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: 'usuario1',
-        password: 'password1'
+        nombre: 'usuario1',
+        clave: 'password1'
       })
     });
   });
