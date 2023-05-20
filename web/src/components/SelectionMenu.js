@@ -45,6 +45,9 @@ export default function SelectionMenu(){
         case 'agricultura':
           navigator('/agricultura')
           break;
+        case 'instrumentos':
+          navigator('/instrumentos')
+          break;
       
         default:
           break;
@@ -70,6 +73,7 @@ export default function SelectionMenu(){
           <group position={[0,-0.5,0]}>
           <RigidBody type="fixed" colliders="hull">
           <AztecPyramid rotation={[0,-3.1,0]}/>
+
           </RigidBody>
           <RigidBody type="fixed" colliders="cuboid"
            onCollisionEnter={({ manifold, target, other }) => {
@@ -77,13 +81,21 @@ export default function SelectionMenu(){
               "Collision at world position ",
               manifold.solverContactPoint(0)
             );
-
             handleNavCollision('agricultura')
           }}
           >
           <StoneGate position={[0,7,4]} map={painting.map}/>
+
           </RigidBody>
-          <RigidBody type="fixed" colliders="cuboid">
+          <RigidBody type="fixed" colliders="cuboid"
+           onCollisionEnter={({ manifold, target, other }) => {
+            console.log(
+              "Collision at world position ",
+              manifold.solverContactPoint(0)
+            );
+            handleNavCollision('instrumentos')
+          }}
+          >
           <StoneGate position={[0,7,-4]} map={painting.map1}/>
 
           </RigidBody >
