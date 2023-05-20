@@ -29,7 +29,7 @@ export default function Register() {
       });
       const data = await response.json();
       console.log(data)
-      if (data.message.status === 200) {
+      if (data.message.status !== 400) {
         navigate('/login')
       } else {
         setErrors(data.message.detail)
