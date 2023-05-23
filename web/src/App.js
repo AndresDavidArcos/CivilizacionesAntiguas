@@ -13,18 +13,34 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path='/register' element={<Register/>}/>
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Navigate to="/login" />} />
-          <Route path='/agricultura' element={<Agricultura/>}/>
-          <Route path='/instrumentos' element={<Instrumentos/>}/>
-          <Route path='/menuSelection' element={
-            <>
-          <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>          
-          <SelectionMenu/>
-          </Canvas>     
-        <RetroDialog/>
-          </>
-          }/>          
+          <Route path="/agricultura" element={<Agricultura />} />
+          <Route
+            path="/instrumentos"
+            element={
+              <>
+                <Instrumentos />
+                <Canvas id="three-canvas-container">
+                </Canvas>
+              </>
+            }
+          />
+          <Route
+            path="/menuSelection"
+            element={
+              <>
+                <Canvas
+                  id="three-canvas-container-2"
+                  camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                  shadows
+                >
+                  <SelectionMenu />
+                </Canvas>
+                <RetroDialog />
+              </>
+            }
+          />
         </Routes>
       </Router>
     </div>
