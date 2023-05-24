@@ -6,7 +6,7 @@ import errorIcon from "../icons/advertencia.png";
 import { useUserData } from '../contexts/user';
 
 export default function Login() {
-  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const baseUrl = window.location.protocol + "//" + window.location.hostname + "/api/";
   const {setUser} = useUserData();
   const [nombre, setUsername] = useState('');
   const [clave, setPassword] = useState('');
