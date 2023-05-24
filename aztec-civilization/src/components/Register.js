@@ -1,83 +1,76 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import NavBarClean from './NavBarClean'
+import NavBarClean from './NavBarClean';
 import { Box, Button, TextField } from '@mui/material';
-import errorIcon from "../icons/advertencia.png";
-import { useUserData } from '../contexts/user';
+import errorIcon from '../icons/advertencia.png'
 
-export default function Login() {
-  const baseUrl = window.location.protocol + "//" + window.location.hostname + "/api/";
-  const {setUser} = useUserData();
-  const [nombre, setUsername] = useState('');
+export default function Register() {
+  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const [nombre, setNombre] = useState('');
   const [clave, setPassword] = useState('');
   const [errors, setErrors] = useState('');
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(baseUrl + 'login', {
+      const response = await fetch(baseUrl + 'register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          clave: clave,
           nombre: nombre,
-          clave: clave
         })
       });
-
       const data = await response.json();
-      if (response.status === 200) {
-        setUser(data)
-        navigate('/menuSelection', { state: { user: data } })
+      console.log(data)
+      if (data.message.status !== 400) {
+        navigate('/login')
       } else {
         setErrors(data.message.detail)
       }
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
-
-
 
 
   return (
     <>
       <NavBarClean></NavBarClean>
-      <Box
-        sx={{display:'grid', alignItems:'center', justifyContent:'center', gap:'5px'}}
-        component="form">
-        <br />
+      <Box className='registerForm'
+        sx={{ display: 'grid', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
         <TextField
-        sx={{width:'15rem'}}
-          id="usuario-login"
-          label="Usuario"
+          sx={{ width: '15rem' }}
+          id="nombre-registrarse"
+          label="Nombre"
           value={nombre}
-          onChange={(event) => setUsername(event.target.value)}
+          onChange={(event) => setNombre(event.target.value)}
           variant="outlined" />
-        <br />
         <TextField
-          sx={{width:'15rem'}}
-          id="contrasena-login"
+          sx={{ width: '15rem' }}
+          id="contrasena-registrarse"
           label="Contraseña"
           type='password'
           value={clave}
           onChange={(event) => setPassword(event.target.value)}
           variant="filled" />
-        <br></br>
         {errors && (
                           <div className="errorMsg">
                             <img src={errorIcon}></img>
                              <p>{errors}</p>
                           </div>
-                        )}
-        <Button variant="contained" onClick={handleSubmit}>Iniciar sesión</Button>
+                        )}        
+        <Button variant="contained" onClick={handleSubmit}>REGISTRARSE</Button>
         <br></br>
         <Button variant="text">
-          <Link to="/register">Registrarse</Link>
+          <Link to="/login">INICIAR SESION</Link>
         </Button>
 
       </Box>

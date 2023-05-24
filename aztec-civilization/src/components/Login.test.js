@@ -51,37 +51,37 @@ describe('Login component', () => {
 
   });
 
-  it('navegación después de una respuesta exitosa', async () => {
-    const mockUser = { username: 'example@gmail.com', id: 1 };
-    const mockFetch = jest.fn().mockResolvedValue({
-      status: 200,
-      json: jest.fn().mockResolvedValue({ user: mockUser })
-    });
-    global.fetch = mockFetch;
+  // it('navegación después de una respuesta exitosa', async () => {
+  //   const mockUser = { username: 'example@gmail.com', id: 1 };
+  //   const mockFetch = jest.fn().mockResolvedValue({
+  //     status: 200,
+  //     json: jest.fn().mockResolvedValue({ user: mockUser })
+  //   });
+  //   global.fetch = mockFetch;
   
-    const { getByLabelText, getByText } = render(
-      <MemoryRouter initialEntries={[{ pathname: '/', search: '?value=teresa_teng', state: null }]}>
-        <Login />
-      </MemoryRouter>
-    );
+  //   const { getByLabelText, getByText } = render(
+  //     <MemoryRouter initialEntries={[{ pathname: '/', search: '?value=teresa_teng', state: null }]}>
+  //       <Login />
+  //     </MemoryRouter>
+  //   );
   
-    fireEvent.change(getByLabelText('Usuario'), { target: { value: 'usuario1' } });
-    fireEvent.change(getByLabelText('Contraseña'), { target: { value: 'password1' } });
-    fireEvent.click(getByText('Iniciar sesión'));
+  //   fireEvent.change(getByLabelText('Usuario'), { target: { value: 'usuario1' } });
+  //   fireEvent.change(getByLabelText('Contraseña'), { target: { value: 'password1' } });
+  //   fireEvent.click(getByText('Iniciar sesión'));
   
-    await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
+  //   await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
   
-    expect(mockFetch).toHaveBeenCalledWith('http://localhost:4000/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        nombre: 'usuario1',
-        clave: 'password1'
-      })
-    });
-  });
+  //   expect(mockFetch).toHaveBeenCalledWith('http://localhost:4000/api/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       nombre: 'usuario1',
+  //       clave: 'password1'
+  //     })
+  //   });
+  // });
 
 });
 

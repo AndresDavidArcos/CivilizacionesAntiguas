@@ -1,10 +1,7 @@
-import { CameraControls, Environment, Float, Html, KeyboardControls, PerspectiveCamera, PointerLockControls, Text3D, useEnvironment, useTexture} from "@react-three/drei";
+import {Environment,KeyboardControls, PointerLockControls, useEnvironment, useTexture} from "@react-three/drei";
 import { angleToRadians } from "../utils/angle";
-import { useEffect, useRef } from "react";
 import AztecPyramid from "./AztecPyramid";
-import * as dat from 'dat.gui'
 import { StoneGate } from "./StoneGate";
-import gsap from "gsap";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useLocation, useNavigate } from "react-router-dom";
