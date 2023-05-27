@@ -12,9 +12,9 @@ export function StoneGate(props) {
   const tPathS = '../../texturas/acientStone/';
   const stoneGateTextures = useTexture({
     map: tPathS+'Stonegate_None_BaseColor.1001.png',
-    emmisiveMap: tPathS+'Stonegate_None_Emissive.1001.png',
+    // emmisiveMap: tPathS+'Stonegate_None_Emissive.1001.png',
     displacementMap: tPathS+'Stonegate_None_Emissive.1001.png',
-    metallicMap: tPathS+'Stonegate_None_Emissive.1001.png',
+    // metallicMap: tPathS+'Stonegate_None_Emissive.1001.png',
     normalMap: tPathS+"Stonegate_None_Emissive.1001.png",
     roughnessMap: tPathS+"Stonegate_None_Emissive.1001.png",
   })

@@ -11,9 +11,9 @@ import gsap from "gsap";
 
 export default function SelectionMenu(){
   const location = useLocation();
-  const datosProps = location.state;
+  const datosProps = location.state.user;
 
-  console.log(datosProps.user.data.nombre)
+  console.log(datosProps)
     const tPathI = '../../imagenes/'
     const painting = useTexture({
       map: tPathI+"agricultura.jpg",
@@ -46,7 +46,7 @@ export default function SelectionMenu(){
           navigator('/agricultura')
           break;
         case 'instrumentos':
-          navigator('/instrumentos')
+          navigator('/instrumentos', {state: {user: datosProps}})
           break;
       
         default:

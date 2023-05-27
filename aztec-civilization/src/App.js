@@ -7,6 +7,7 @@ import SelectionMenu from './components/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
 import Agricultura from './components/Agricultura';
 import Instrumentos from './components/Instrumentos';
+import Galeria from './components/Galeria';
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
           <Route path='/register' element={<Register/>}/>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path='/agricultura' element={<Agricultura/>}/>
+          <Route path='/galeria' element={
+              <>
+                <Galeria />
+                <Canvas id="three-canvas-container">
+                </Canvas>
+              </>
+            }
+          />
+
           <Route path='/instrumentos' element={
               <>
                 <Instrumentos />

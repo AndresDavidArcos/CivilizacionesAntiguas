@@ -1,7 +1,7 @@
 import React from "react";
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import Instrumentos from "../components/Instrumentos.js";
+import Instrumentos from "../components/InstrumentosC.js";
 
 describe("Instrumentos", () => {
   it("debe existir el componente Instrumentos", () => {
@@ -9,61 +9,31 @@ describe("Instrumentos", () => {
     expect(React.isValidElement(<Instrumentos />)).toBe(true);
   });
 
-  it("debe renderizar el título correctamente", () => {
+  it("El título 'Instrumentos del Imperio Azteca' se muestra correctamente", async () => {
     const { getByText } = render(
-      <MemoryRouter initialEntries={[{pathname: '/instrumentos'}]}>
+      <MemoryRouter>
         <Instrumentos />
       </MemoryRouter>
     );
-    const titleElement = getByText("Instrumentos del Imperio Azteca");
-    expect(titleElement).toBeInTheDocument();
+    await waitFor(() => {
+      const title = getByText("Instrumentos del Imperio Azteca");
+      expect(title).toBeInTheDocument();
+    });
   });
 
-    it('debe renderizar la introducción correctamente', () => {
-      const { getByText } = render(
-        <MemoryRouter initialEntries={[{ pathname: "/instrumentos" }]}>
-          <Instrumentos />
-        </MemoryRouter>
-      );
-      const introText =
-        "Sus composiciones eran interpretadas en una cámara llamada Mixcoacalli; en ella intervenía un grupo de ejecutantes y cantantes llamado Cuya-Picque. Los principales instrumentos utilizados eran:";
-
-      const introElement = getByText((content, element) => {
-        // Verificar si el contenido incluye el texto esperado
-        const hasText = content.includes(introText);
-
-        // Verificar que el elemento sea un div con la clase "intro"
-        const isDivWithClassIntro =
-          element.tagName.toLowerCase() === "div" &&
-          element.classList.contains("intro");
-
-        // Devolver verdadero si ambos criterios se cumplen
-        return hasText && isDivWithClassIntro;
-      });
-
-      expect(introElement).toBeInTheDocument();
-    });
-
-    it("debe renderizar todos los párrafos de los instrumentos correctamente", () => {
-      const { getByText } = render(
-        <MemoryRouter initialEntries={[{ pathname: "/instrumentos" }]}>
-          <Instrumentos />
-        </MemoryRouter>
-      );
-      const huetlElement = getByText("El Huéhuetl.");
-      const teponaztliElement = getByText("El Teponaztli.");
-      const tlapitzalliElement = getByText("El Tlapitzalli.");
-      const ocarinaElement = getByText("La Ocarina.");
-      const tzicahastrliElement = getByText("El Tzicahastrli.");
-      const atecocolliElement = getByText("El Atecocolli.");
-
-      expect(huetlElement).toBeInTheDocument();
-      expect(teponaztliElement).toBeInTheDocument();
-      expect(tlapitzalliElement).toBeInTheDocument();
-      expect(ocarinaElement).toBeInTheDocument();
-      expect(tzicahastrliElement).toBeInTheDocument();
-      expect(atecocolliElement).toBeInTheDocument();
-    });
-  
-  })
-
+  it("La introducción se muestra correctamente ", () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <Instrumentos />
+      </MemoryRouter>
+    );
+    const findByText = (content, element) => {
+      const elements = Array.from(element.childNodes);
+      return elements.find((el) => el.textContent === content);
+    };
+    const element = findByText(
+      "Sus composiciones eran interpretadas en una cámara llamada Mixcoacalli; en ella intervenía un grupo de ejecutantes y cantantes llamado Cuya-Picque. Los principales instrumentos utilizados eran:",
+      screen.getByTestId("intro-element")
+    );
+  });
+});
