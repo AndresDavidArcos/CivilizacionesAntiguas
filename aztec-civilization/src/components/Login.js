@@ -42,9 +42,6 @@ export default function Login() {
     }
   };
 
-
-
-
   return (
     <>
       <NavBarClean></NavBarClean>

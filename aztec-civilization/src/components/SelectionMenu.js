@@ -1,10 +1,13 @@
-import {Environment,KeyboardControls, PointerLockControls, useEnvironment, useTexture} from "@react-three/drei";
-import { angleToRadians } from "../utils/angle";
 import AztecPyramid from "./AztecPyramid";
 import { StoneGate } from "./StoneGate";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useLocation, useNavigate } from "react-router-dom";
+import { CameraControls, Environment, Float, Html, KeyboardControls, PerspectiveCamera, PointerLockControls, Text3D, useEnvironment, useTexture} from "@react-three/drei";
+import { angleToRadians } from "../utils/angle";
+import { useEffect, useRef } from "react";
+import * as dat from 'dat.gui'
+import gsap from "gsap";
 
 export default function SelectionMenu(){
   const location = useLocation();

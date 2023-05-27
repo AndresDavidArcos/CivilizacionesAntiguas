@@ -4,6 +4,16 @@
   height: 100vh !important;
 }
 
+#three-canvas-container-2 {
+  box-sizing: border-box;
+  
+  position: absolute;
+  width: 699px;
+  height: 1024px;
+  left: 741px;
+  top: 0px;
+}
+
 .errorMsg {
   display: flex;
   justify-content: center;
