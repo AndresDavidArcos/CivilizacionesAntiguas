@@ -1,16 +1,17 @@
-import {Environment,KeyboardControls, PointerLockControls, useEnvironment, useTexture} from "@react-three/drei";
-import { angleToRadians } from "../utils/angle";
 import AztecPyramid from "./AztecPyramid";
 import { StoneGate } from "./StoneGate";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Environment,  KeyboardControls, PointerLockControls, useEnvironment, useTexture} from "@react-three/drei";
+import { angleToRadians } from "../utils/angle";
+
 
 export default function SelectionMenu(){
   const location = useLocation();
-  const datosProps = location.state;
+  const datosProps = location.state.user;
 
-  console.log(datosProps.user.data.nombre)
+  console.log(datosProps)
     const tPathI = '../../imagenes/'
     const painting = useTexture({
       map: tPathI+"agricultura.jpg",
@@ -43,7 +44,7 @@ export default function SelectionMenu(){
           navigator('/agricultura')
           break;
         case 'instrumentos':
-          navigator('/instrumentos')
+          navigator('/instrumentos', {state: {user: datosProps}})
           break;
       
         default:
@@ -53,8 +54,6 @@ export default function SelectionMenu(){
     return (
         <>
           {/* Camera */}
-          {/* <PerspectiveCamera ref={camera} makeDefault position={[-20, 4, 0]} />
-          <CameraControls  minPolarAngle={angleToRadians(60)} maxPolarAngle={angleToRadians(80)} />     */}
           <Physics>
           <KeyboardControls
                 map={[
