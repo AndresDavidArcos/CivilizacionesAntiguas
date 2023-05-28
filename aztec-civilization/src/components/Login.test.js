@@ -4,7 +4,7 @@ import Login from './Login';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Login component', () => {
-  it('should display an error message for unrecognized email', async () => {
+  it('it should display an error message for unrecognized email', async () => {
     const { getByLabelText, getByText } = render(
     <MemoryRouter initialEntries={[{ pathname: '/', search: '?value=teresa_teng', state: null }]}>
     <Login />
@@ -27,7 +27,7 @@ describe('Login component', () => {
     });
   });
 
-  it('should display an error message for incorrect password', async () => {
+  it('it should display an error message for incorrect password', async () => {
     const { getByLabelText, getByText } = render(
         <MemoryRouter initialEntries={[{ pathname: '/', search: '?value=teresa_teng', state: null }]}>
         <Login />
