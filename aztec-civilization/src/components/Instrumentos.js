@@ -99,7 +99,7 @@ const Instrumentos = () => {
         <div className="content_column" id="column_right">
           <button
             className="boton"
-            style={{ position: "absolute", top: "0px", left: "1000px" }} onClick={useHandleNavigateMenu}>
+            style={{ top: "0px", left: "1000px" }} onClick={useHandleNavigateMenu}>
             Regresar al inicio
           </button>
 
