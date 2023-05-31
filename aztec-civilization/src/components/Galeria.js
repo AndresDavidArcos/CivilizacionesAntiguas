@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 
 export default function Galeria(props) {
   const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos.glb");
@@ -46,7 +46,7 @@ export default function Galeria(props) {
         </group>
       </group>
       <group
-        position={[-2.11, 1.19, 2.92]}
+        position={[-2.11, 1.56, 2.92]}
         rotation={[-Math.PI / 2, 0, 0]}
         scale={0.06}
       >
@@ -56,10 +56,15 @@ export default function Galeria(props) {
           geometry={nodes.Object_2.geometry}
           material={materials["material_0.002"]}
         />
+        <Html>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p>MARACA</p>
+          </div>
+        </Html>
       </group>
       <group
-        position={[2.03, 1.15, 2.94]}
-        rotation={[2.28, 0.07, -0.18]}
+        position={[2.03, 1.519, 2.94]}
+        rotation={[2.187, 0.07, -0.18]}
         scale={0.39}
       >
         <group position={[-0.42, -0.41, -0.47]}>
@@ -69,6 +74,11 @@ export default function Galeria(props) {
             geometry={nodes.Object_2001.geometry}
             material={materials["material_0.003"]}
           />
+          <Html>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+              <p>OCARINA</p>
+            </div>
+          </Html>
         </group>
       </group>
       <mesh
@@ -84,7 +94,12 @@ export default function Galeria(props) {
         material={nodes.Цилиндр001.material}
         position={[-0.11, 0.31, 2.92]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
-      />
+      >
+      <Html>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <p>INSTRUMENTOS DEL SUELO</p>
+        </div>
+      </Html></mesh>
       <mesh
         castShadow
         receiveShadow
