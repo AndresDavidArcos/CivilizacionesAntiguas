@@ -1,21 +1,17 @@
 import React from 'react';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import './Instrumentos.css';
 
 const Instrumentos = () => {
-  const location = useLocation();
-  const datosProps = location.state;
-
-  console.log(datosProps.user)
 
   const navigate = useNavigate();
   const useHandleNavigateMenu = () => {
-    navigate('/menuSelection', { state: { user: datosProps } });
+    navigate('/menuSelection');
   };
 
   const useHandleNavigateGaleria = () => {
-    navigate('/galeria', { state: { user: datosProps } });
+    navigate('/galeria');
   };
 
   return (
