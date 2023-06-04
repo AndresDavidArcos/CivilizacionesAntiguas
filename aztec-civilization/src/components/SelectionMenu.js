@@ -42,7 +42,8 @@ export default function SelectionMenu(){
         case 'instrumentos':
           navigator('/instrumentos')
           break;
-      
+        case 'arquitectura':
+          navigator('/arquitectura')
         default:
           break;
       }
@@ -90,8 +91,17 @@ export default function SelectionMenu(){
           >
           <StoneGate position={[0,7,-4]} map={painting.map1}/>
 
+          {/* Se maneja el redirrecionamiento a la ruta "arquitectura" */}
           </RigidBody >
-          <RigidBody type="fixed" colliders="cuboid">
+          <RigidBody type="fixed" colliders="cuboid"
+           onCollisionEnter={({ manifold, target, other }) => {
+            console.log(
+              "Collision at world position ",
+              manifold.solverContactPoint(0)
+            );
+            handleNavCollision('arquitectura')
+          }}
+          >
           <StoneGate position={[4,7,0]} rotation={[0,angleToRadians(90),0]} map={painting.map2}/>
 
           </RigidBody>   

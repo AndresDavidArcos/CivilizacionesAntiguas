@@ -7,6 +7,7 @@ import SelectionMenu from './components/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
 import Agricultura from './components/Agricultura';
 import Instrumentos from './components/Instrumentos';
+import Arquitectura from './components/Arquitectura';
 import Galeria from './components/Galeria';
 import { OrbitControls } from '@react-three/drei';
 import VolumeSlider from './components/VolumeSlider';
@@ -19,6 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path='/register' element={<Register/>}/>
           <Route path="/" element={<Navigate to="/login" />} />
+          {/* Ruta que nos permite llamar al componente Arquitectura */}
+          <Route path='/arquitectura' element={<Arquitectura/>}/>
           <Route path='/agricultura' element={<Agricultura/>}/>
           <Route path='/galeria' element={
               <>
