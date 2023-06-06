@@ -44,7 +44,7 @@ const Arquitectura = () => {
   };
 
   return (
-    <div>
+    <div className='background'>
       <div>
         <button className='buttonVolver' onClick={handleVolver}>Volver atrás</button>
         <button className='buttonAnterior' onClick={handlePrevSlide}>Anterior</button>
