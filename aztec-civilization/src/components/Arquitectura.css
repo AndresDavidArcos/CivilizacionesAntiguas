@@ -1,3 +1,24 @@
+.background {
+  background-color: #999ddb;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: rgb(47, 74, 194);
+}
+
 .slide-container {
   width: 800px;
   margin: 0 auto;
@@ -27,12 +48,27 @@
   background-color: white;
   padding: 20px;
   border: 1px solid black;
-  border-radius: 10%;
+  border-radius: 30px;
   margin-top: 5%;
   font-size: 25px;
   margin-bottom: 20px;
   text-align: justify;
   letter-spacing: 3px;
+}
+
+.buttonVolver {
+  background-color: #db4c4c;
+  border: 1px solid black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .buttonAnterior {
@@ -82,7 +118,7 @@
   left: 45%;
 }
 
-.buttonVolver {
+.buttonCerrar {
   background-color: #db4c4c;
   border: 1px solid black;
   color: white;
@@ -92,28 +128,23 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  position: absolute;
+  position: relative;
   top: 10px;
-  left: 10px;
 }
 
-.background {
-  background-color: #999ddb;
-  position: absolute;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: 100%;
-  z-index: -2;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.background::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  width: 100%;
-  height: 30%;
-  border-radius: 50%;
-  background-color: rgb(47, 74, 194);
+.modal-content {
+  background-color: white;
+  padding: 20px;
 }
