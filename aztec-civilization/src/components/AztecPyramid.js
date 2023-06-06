@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.1.4 aztecPyramid.glb
 */
 
 import React, { useRef } from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
+import { useGLTF, useTexture } from "@react-three/drei";
 import { MeshStandardMaterial, RepeatWrapping } from 'three';
 
 export default function AztecPyramid(props) {

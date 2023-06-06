@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 
 export default function Galeria(props) {
-  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos.glb");
+  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos1.glb");
   return (
     <group {...props} dispose={null}>
       <group position={[-0.14, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -45,20 +45,16 @@ export default function Galeria(props) {
           </group>
         </group>
       </group>
-      <group
-        position={[-2.11, 1.56, 2.92]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.06}
-      >
+      <group position={[-2.11, 1.56, 2.92]} rotation={[-Math.PI / 2, 0, 0]} scale={0.06}>
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_2.geometry}
-          material={materials["material_0.002"]}
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_2.geometry}
+        material={materials["material_0.002"]}
         />
         <Html>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <p>MARACA</p>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>MARACAS</p>
           </div>
         </Html>
       </group>
@@ -76,109 +72,157 @@ export default function Galeria(props) {
           />
           <Html>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <p>OCARINA</p>
+              <p style={{ fontFamily: 'Arial', color: 'white' }}>OCARINA</p>
             </div>
           </Html>
         </group>
       </group>
-      <mesh
+      <group rotation={[-Math.PI / 2, 0, 0]}
+        position={[-0.66, 0, -0.4]}
+         scale={0.02}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <group rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.defaultMaterial.geometry}
+              material={materials["Base.001"]}
+            />
+          </group>
+        </group>
+      </group>
+      <group rotation={[-Math.PI / 2, 0, 0]} 
+        position={[0.7, 0, -0.4]}
+        scale={0.02}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <group 
+            rotation={[-Math.PI / 2, 0, 0]}
+            >
+            <mesh //pilar de cuerdas
+              castShadow
+              receiveShadow
+              geometry={nodes.defaultMaterial001.geometry}
+              material={materials["Base.003"]}
+            />
+          </group>
+        </group>
+      </group>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh //circulo dorado
+            castShadow
+            receiveShadow
+            geometry={nodes.defaultMaterial003.geometry}
+            material={materials["DefaultMaterial.001"]}
+          />
+        </group>
+      </group>
+      <mesh //circulo central en la pared
         castShadow
         receiveShadow
         geometry={nodes.uploads_files_629209_aztec.geometry}
         material={nodes.uploads_files_629209_aztec.material}
+        position={[-1.49, 1.46, 4.21]}
+        scale={0.02}
       />
-      <mesh
+      <mesh //tambor grande
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр001.geometry}
         material={nodes.Цилиндр001.material}
-        position={[-0.11, 0.31, 2.92]}
-        rotation={[-Math.PI, 0.19, -Math.PI]}
-      >
-      <Html>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-          <p>INSTRUMENTOS DEL SUELO</p>
-        </div>
-      </Html></mesh>
-      <mesh
+        position={[2.05, 0.32, 1.75]}
+        rotation={[Math.PI, -1.45*3, Math.PI]}
+      />
+      <mesh //tambor peque
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр002.geometry}
         material={nodes.Цилиндр002.material}
-        position={[0.33, 0.08, 3]}
-        rotation={[-Math.PI, 0.19, -Math.PI]}
+        position={[2.12, 1.4968, 1.06]}
+        rotation={[Math.PI, -1.45, Math.PI]}
         scale={0.95}
       />
-      <mesh
+      <mesh //tambor mediano
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр004.geometry}
         material={nodes.Цилиндр004.material}
-        position={[-0.5, 0.39, 2.85]}
-        rotation={[-Math.PI, 0.19, -Math.PI]}
+        position={[1.82, 0.4, 0.65]}
+        rotation={[Math.PI, -1.45, Math.PI]}
         scale={0.93}
       />
-      <mesh
+      <mesh //arpa
         castShadow
         receiveShadow
         geometry={nodes.Retopo_Цилиндр005.geometry}
         material={nodes.Retopo_Цилиндр005.material}
-        position={[-0.24, 0.33, 3.13]}
-        rotation={[1.32, 1.24, 0]}
+        position={[-2.1, 1.414, 1.1]}
+        rotation={[0, 1.24, 0]}
         scale={0.92}
       />
-      <mesh
+      <Html position={[-2.1, 1.514, 1.1]}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>ARPA</p>
+          </div>
+        </Html>
+      <mesh //xilofono
         castShadow
         receiveShadow
         geometry={nodes.Куб.geometry}
         material={nodes.Куб.material}
-        position={[-0.12, 0.62, 2.92]}
-        rotation={[Math.PI, -0.34, Math.PI]}
+        position={[1.88, 1.414, 1.27]}
+        rotation={[0, -1.17, 0]}
         scale={1.08}
       />
-      <mesh
+      <Html position={[1.88, 1.414, 1.27]}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>PERCUSIÓN</p>
+          </div>
+        </Html>
+      <mesh //viento
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр017.geometry}
-        material={nodes.Цилиндр017.material}
-        position={[0.32, 0.35, 2.97]}
+        material={materials.Material}
+        position={[1.84, 1.414, 2.72]}
         rotation={[Math.PI, -1.55, Math.PI]}
       />
-      <mesh
+      <mesh //flauta
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр.geometry}
         material={nodes.Цилиндр.material}
-        position={[-0.45, 0.43, 2.82]}
+        position={[-0.45, 0.7824, -0.25]}
         rotation={[-Math.PI, 0.84, -Math.PI]}
       />
-      <mesh
+      <mesh //maraca
         castShadow
         receiveShadow
         geometry={nodes.Куб001.geometry}
         material={nodes.Куб001.material}
-        position={[-0.49, 0.44, 2.85]}
+        position={[-0.49, 0.794, 2.85]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
       />
-      <mesh
+      <mesh //maraca
         castShadow
         receiveShadow
         geometry={nodes.Куб002.geometry}
         material={nodes.Куб002.material}
-        position={[-0.56, 0.44, 2.91]}
+        position={[-0.56, 0.794, 2.91]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
       />
-      <mesh
+      <mesh //palo
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр006.geometry}
         material={nodes.Цилиндр006.material}
-        position={[-0.2, 0.62, 2.77]}
-        rotation={[-2.85, 0.23, -3.09]}
+        position={[2.04, 0.682, 0.731]}
+        rotation={[-2.83, 0.43, 3.13]}
         scale={0.02}
       />
     </group>
   );
 }
 
-useGLTF.preload("../../modelos/galeria_de_instrumentos.glb");
+
+useGLTF.preload("../../modelos/galeria_de_instrumentos1.glb");
