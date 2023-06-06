@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Arquitectura.css';
 
 const Arquitectura = () => {
@@ -17,7 +18,7 @@ const Arquitectura = () => {
     {
       title: 'Mercados en Tenochtitlan',
       image: process.env.PUBLIC_URL + "/imagenes/mercadoTenochtitlan.jpg",
-      content: 'Los mercados de Tenochtitlán eran puntos de encuentro vitales para el intercambio y comercio en la antigua ciudad. Organizados en secciones especializadas, ofrecían una amplia variedad de productos, desde alimentos básicos hasta artesanías y bienes de lujo. Los comerciantes establecían sus puestos en áreas designadas, donde se congregaban compradores en busca de artículos específicos. Los mercados utilizaban un sistema de trueque basado en el cacao como medio de cambio. Además de su función económica, los mercados también eran importantes lugares de encuentro social y cultural. Reflejaban la diversidad y sofisticación de la vida en Tenochtitlán, donde la ciudad cobraba vida a través del bullicio y la interacción en estos vibrantes espacios.',
+      content: 'Los mercados de Tenochtitlán eran puntos de encuentro vitales para el intercambio y comercio en la antigua ciudad. Organizados en secciones especializadas, ofrecían una amplia variedad de productos, desde alimentos básicos hasta artesanías y bienes de lujo. Los comerciantes establecían sus puestos en áreas designadas, donde se congregaban compradores en busca de artículos específicos.',
     },
   ];
 
@@ -33,14 +34,27 @@ const Arquitectura = () => {
 
   const { title, image, content } = slides[currentSlide];
 
+  const handleModelo = () => {
+    window.open('https://sketchfab.com/3d-models/tenochtitlan-aztec-capital-3d-model-1e2b2b2b0b9a4b6e9b2b2b2b2b2b2b2b');
+  };
+
+  const navigate = useNavigate();
+  const handleVolver = () => {
+    navigate('/menuSelection');
+  };
+
   return (
-    <div className="slide-container">
-      <h2>{title}</h2>
-      <img src={image} alt={title} />
-      <p>{content}</p>
-      <div className="button-container">
-        <button onClick={handlePrevSlide}>Anterior</button>
-        <button onClick={handleNextSlide}>Siguiente</button>
+    <div>
+      <div>
+        <button className='buttonVolver' onClick={handleVolver}>Volver atrás</button>
+        <button className='buttonAnterior' onClick={handlePrevSlide}>Anterior</button>
+        <button className='buttonSiguiente' onClick={handleNextSlide}>Siguiente</button>
+        <button className='buttonModelo' onClick={handleModelo}>Ver modelo</button>
+      </div>
+      <div className="slide-container">
+        <h2>{title}</h2>
+        <img src={image} alt={title} />
+        <p>{content}</p>
       </div>
     </div>
   );
