@@ -10,7 +10,7 @@ const Arquitectura = () => {
       title: 'Templo Mayor',
       image: process.env.PUBLIC_URL + "/imagenes/temploMayor.jpg",
       content: 'El Templo Mayor de Tenochtitlan era un imponente complejo religioso ubicado en el centro de la ciudad de Tenochtitlan, que fue la capital del Imperio Azteca en el siglo XV y XVI. Era considerado el centro religioso y político más importante de la cultura azteca y una de las estructuras más grandes y emblemáticas de la América precolombina.',
-      model: 'Modelo 3d del Templo Mayor',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="TEMPLO MAYOR DE TENOCHTITLAN - ADV Estudio/2022" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="640" height="480" src="https://sketchfab.com/models/9a7ea4d4451f42328325fc7298ef0ff7/embed"> </iframe> </div>,
     },
     {
       title: 'Diseño de canales de agua',
