@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 import './Instrumentos.css';
 
 const Instrumentos = () => {
   const location = useLocation();
   const datosProps = location.state;
+  const [open, setOpen] = React.useState(false);
 
   console.log(datosProps.user)
 
@@ -16,6 +20,14 @@ const Instrumentos = () => {
 
   const useHandleNavigateGaleria = () => {
     navigate('/galeria', { state: { user: datosProps } });
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -33,13 +45,43 @@ const Instrumentos = () => {
           }}
         />
       </div>
+      <div>
+        <img
+          src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
+          alt="Imagen"
+          style={{
+            width: "30px",
+            height: "30px",
+            position: "fixed",
+            top: "0px",
+            left: "0px",
+          }}
+          onClick={handleOpen}
+        />
+        <Modal open={open} onClose={handleClose}>
+          <Box className="instrucciones">
+            <Typography className="Body">Text in a modal</Typography>
+            <Typography className="Body">
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+          <button
+            className="boton"
+            style={{
+              position: "absolute",
+              top: "100px",
+              left: "50px",
+            }}
+            onClick={() => setOpen(false)}
+          >
+            Cerrar
+          </button>
+        </Modal>
+      </div>
+
       <div className="content_row">
         <div className="content_column" id="column_left">
-          <div
-            className="title"
-          >
-            Instrumentos del Imperio Azteca
-          </div>
+          <div className="title">Instrumentos del Imperio Azteca</div>
           <div className="intro" data-testid="intro-element">
             Sus composiciones eran interpretadas en una cámara llamada
             Mixcoacalli; en ella intervenía un grupo de ejecutantes y cantantes
@@ -98,7 +140,9 @@ const Instrumentos = () => {
         <div className="content_column" id="column_right">
           <button
             className="boton"
-            style={{ top: "0px", left: "1000px" }} onClick={useHandleNavigateMenu}>
+            style={{ top: "0px", left: "1000px" }}
+            onClick={useHandleNavigateMenu}
+          >
             Regresar al inicio
           </button>
 

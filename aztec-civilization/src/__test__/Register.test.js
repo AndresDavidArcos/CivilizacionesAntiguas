@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import Register from './Register.js';
+import Register from '../components/Register.js';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Register component', () => {
