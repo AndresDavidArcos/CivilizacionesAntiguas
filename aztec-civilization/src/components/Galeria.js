@@ -172,35 +172,13 @@ export default function Galeria(props) {
         rotation={[Math.PI, -1.45, Math.PI]}
         scale={0.93}
       />
-      <mesh //arpa
-        castShadow
-        receiveShadow
-        geometry={nodes.Retopo_Цилиндр005.geometry}
-        material={nodes.Retopo_Цилиндр005.material}
-        position={[-2.1, 1.414, 1.1]}
-        rotation={[0, 1.24, 0]}
-        scale={0.92}
-      />
-      <Html position={[-2.1, 1.514, 1.1]}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <p style={{ fontFamily: 'Arial', color: 'white' }}>ARPA</p>
-          </div>
-        </Html>
-      <mesh //xilofono
-        castShadow
-        receiveShadow
-        geometry={nodes.Куб.geometry}
-        material={nodes.Куб.material}
-        position={[1.88, 1.414, 1.27]}
-        rotation={[0, -1.17, 0]}
-        scale={1.08}
-      />
       <Html position={[1.88, 1.414, 1.27]}>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <p style={{ fontFamily: 'Arial', color: 'white' }}>PERCUSIÓN</p>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>Algunos tambores de la civilización azteca son: El Teponaztli, el Huehuetl y el Chicahuaztli</p>
           </div>
         </Html>
-      <mesh //viento
+
+      <mesh //flauta de pan
         castShadow
         receiveShadow
         geometry={nodes.Цилиндр017.geometry}
@@ -208,6 +186,12 @@ export default function Galeria(props) {
         position={[1.84, 1.414, 2.66]}
         rotation={[Math.PI, -1.55, Math.PI]}
       />
+      <Html position={[1.74, 1.414, 2.66]}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>La antara es una especie de flauta de Pan, hecha con cañas de carrizo dispuestas en escalera, adecuadamente afinadas y aseguradas por convenientes amarras de hilo.</p>
+          </div>
+        </Html>
+
       <mesh //flauta
         castShadow
         receiveShadow
@@ -217,6 +201,12 @@ export default function Galeria(props) {
         rotation={[-Math.PI, 0.84, -Math.PI]}
         scale={3}
       />
+      <Html position={[2.1, 1.414, 2.66]}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>Un tlapitzalli es un instrumento musical conocido por las culturas de Mesoamérica, particularmente los aztecas. Por lo general tiene forma de flauta. Generalmente está hecho de barro o madera, decorado con motivos naturales o dibujos de las deidades aztecas.</p>
+          </div>
+        </Html>
+
       <mesh //maraca
         castShadow
         receiveShadow
@@ -233,6 +223,12 @@ export default function Galeria(props) {
         position={[-0.56, 0.794, 2.91]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
       />
+      <Html position={[-2, 1.3, 2.8]}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>La maraca o chac-chac es un instrumento tradicional de música étnica en México, América Latina y los caribes. Par coloridas sonajas ornamentadas hechas de calabazas, conocidas porque aun se conservan a día de hoy.</p>
+          </div>
+        </Html>
+
       <mesh //palo
         castShadow
         receiveShadow
