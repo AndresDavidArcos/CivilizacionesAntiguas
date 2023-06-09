@@ -1,17 +1,13 @@
 import AztecPyramid from "./AztecPyramid";
 import { StoneGate } from "./StoneGate";
+import Ancient_arch_portal from "./Ancient_arch_portal";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Environment,  KeyboardControls, PointerLockControls, useEnvironment, useTexture} from "@react-three/drei";
 import { angleToRadians } from "../utils/angle";
 
-
 export default function SelectionMenu(){
-  const location = useLocation();
-  const datosProps = location.state.user;
-
-  console.log(datosProps)
     const tPathI = '../../imagenes/'
     const painting = useTexture({
       map: tPathI+"agricultura.jpg",
@@ -44,9 +40,10 @@ export default function SelectionMenu(){
           navigator('/agricultura')
           break;
         case 'instrumentos':
-          navigator('/instrumentos', {state: {user: datosProps}})
+          navigator('/instrumentos')
           break;
-      
+        case 'arquitectura':
+          navigator('/arquitectura')
         default:
           break;
       }
@@ -94,12 +91,21 @@ export default function SelectionMenu(){
           >
           <StoneGate position={[0,7,-4]} map={painting.map1}/>
 
+          {/* Se maneja el redirrecionamiento a la ruta "arquitectura" */}
           </RigidBody >
-          <RigidBody type="fixed" colliders="cuboid">
+          <RigidBody type="fixed" colliders="cuboid"
+           onCollisionEnter={({ manifold, target, other }) => {
+            console.log(
+              "Collision at world position ",
+              manifold.solverContactPoint(0)
+            );
+            handleNavCollision('arquitectura')
+          }}
+          >
           <StoneGate position={[4,7,0]} rotation={[0,angleToRadians(90),0]} map={painting.map2}/>
 
-          </RigidBody>                    
-
+          </RigidBody>   
+          {/* <Ancient_arch_portal position={[0,10,0]} rotation={[0,angleToRadians(90),0]} scale={[4,4,2]} map={painting.map2} />               */}
           </group>
               
             {/* Floor */}
@@ -141,7 +147,8 @@ export default function SelectionMenu(){
                       {...wallTexture}
                         />
                 </mesh>  
-            </RigidBody>                         
+            </RigidBody> 
+                                    
 
           </Physics>
         

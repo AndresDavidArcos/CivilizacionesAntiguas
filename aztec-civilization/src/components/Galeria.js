@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { Html, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 
 export default function Galeria(props) {
-  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos1.glb");
+  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos.glb");
   return (
     <group {...props} dispose={null}>
       <group position={[-0.14, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -227,4 +227,4 @@ export default function Galeria(props) {
 }
 
 
-useGLTF.preload("../../modelos/galeria_de_instrumentos1.glb");
+useGLTF.preload("../../modelos/galeria_de_instrumentos.glb");
