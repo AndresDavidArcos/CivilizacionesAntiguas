@@ -35,8 +35,6 @@ function App() {
           <Route path='/instrumentos' element={
               <>
                 <Instrumentos />
-                <Canvas id="three-canvas-container">
-                </Canvas>
               </>
             }
           />
