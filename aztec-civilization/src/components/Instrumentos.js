@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import { useNavigate, useLocation } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -8,19 +8,15 @@ import Modal from "@mui/material/Modal";
 import './Instrumentos.css';
 
 const Instrumentos = () => {
-  const location = useLocation();
-  const datosProps = location.state;
   const [open, setOpen] = React.useState(false);
-
-  console.log(datosProps.user)
 
   const navigate = useNavigate();
   const useHandleNavigateMenu = () => {
-    navigate('/menuSelection', { state: { user: datosProps } });
+    navigate('/menuSelection');
   };
 
   const useHandleNavigateGaleria = () => {
-    navigate('/galeria', { state: { user: datosProps } });
+    navigate('/galeria');
   };
 
   const handleOpen = () => {

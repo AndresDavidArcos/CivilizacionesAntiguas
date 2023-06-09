@@ -9,6 +9,7 @@ import Agricultura from './components/Agricultura';
 import Instrumentos from './components/Instrumentos';
 import Galeria from './components/Galeria';
 import { OrbitControls } from '@react-three/drei';
+import VolumeSlider from './components/VolumeSlider';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <SelectionMenu/>
           </Canvas>     
         <RetroDialog/>
+        <VolumeSlider/>
           </>
           }/>          
         </Routes>
