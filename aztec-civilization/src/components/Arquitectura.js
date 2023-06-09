@@ -68,9 +68,11 @@ const Arquitectura = () => {
         {showModal && <Modelos modelo={slides[currentSlide].model} onClose={handleCloseModal} />}
       </div>
       <div className="slide-container">
-        <h2>{title}</h2>
-        <img src={image} alt={title} />
-        <p>{content}</p>
+        <h2 className='titulo'>{title}</h2>
+      </div>
+      <div className="slide-container">
+        <img className='imagen' src={image} alt={title} />
+        <p className='texto'>{content}</p>
       </div>
     </div>
   );
