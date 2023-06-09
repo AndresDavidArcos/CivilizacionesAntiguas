@@ -27,7 +27,7 @@ function App() {
               <>
               <Canvas id="three-canvas-container" camera={{ position: [-2, 1.5, -1], fov: 50 }} shadows>
                 <ambientLight intensity={0.5} />
-                <pointLight position={[0, 0, -1]} intensity={0.8} castShadow />
+                <pointLight position={[0, 3.8, -1]} intensity={0.8} castShadow />
                 <OrbitControls/>
                 <Galeria />
               </Canvas>
