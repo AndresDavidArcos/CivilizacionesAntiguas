@@ -1,9 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { } from 'react';
 import { useNavigate } from "react-router-dom";
-import {
-    useGLTF,
-    KeyboardControls, Html
-} from "@react-three/drei";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

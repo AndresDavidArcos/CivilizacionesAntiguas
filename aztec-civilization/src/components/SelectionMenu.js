@@ -1,6 +1,5 @@
 import AztecPyramid from "./AztecPyramid";
 import { StoneGate } from "./StoneGate";
-import Ancient_arch_portal from "./Ancient_arch_portal";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
@@ -44,6 +43,7 @@ export default function SelectionMenu() {
         break;
       case 'arquitectura':
         navigator('/arquitectura')
+        break;
       default:
         break;
     }
