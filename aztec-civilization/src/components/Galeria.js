@@ -1,10 +1,30 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import {
+  useGLTF,
+  KeyboardControls, Html
+} from "@react-three/drei";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 export default function Galeria(props) {
-  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos.glb");
+
+  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos1.glb");
+
+  const [open, setOpen] = React.useState(false);
+  
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <group {...props} dispose={null}>
+    <>
+      <group {...props} dispose={null}>
       <group position={[-0.14, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
           castShadow
@@ -223,8 +243,55 @@ export default function Galeria(props) {
         scale={0.02}
       />
     </group>
+      <Html>
+        <div>
+          <img
+            src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
+            alt="Imagen"
+            style={{
+              width: "30px",
+              height: "30px",
+              position: "fixed",
+              top: "-400px",
+              left: "-700px",
+            }}
+            onClick={handleOpen}
+          />
+
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box className="instrucciones">
+              <Typography id="modal-modal-title" variant="h5" component="h2">
+                Intrucciones
+              </Typography>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Puede explorar la habitación manteniendo presionado el click
+                izquierdo y deslizando el mouse.
+              </Typography>
+              <Button
+                variant="contained"
+                size="small"
+                className="boton"
+                style={{
+                  position: "absolute",
+                  top: "137px",
+                  left: "50px",
+                  background: "red",
+                }}
+                onClick={() => setOpen(false)}
+              >
+                Cerrar
+              </Button>
+            </Box>
+          </Modal>
+        </div>
+      </Html>
+    </>
   );
 }
 
-
-useGLTF.preload("../../modelos/galeria_de_instrumentos.glb");
+useGLTF.preload("../../modelos/galeria_de_instrumentos1.glb");
