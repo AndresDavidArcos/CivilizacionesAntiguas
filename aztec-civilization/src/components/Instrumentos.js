@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
@@ -58,24 +59,34 @@ const Instrumentos = () => {
           }}
           onClick={handleOpen}
         />
-        <Modal open={open} onClose={handleClose}>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
           <Box className="instrucciones">
-            <Typography className="Body">Text in a modal</Typography>
-            <Typography className="Body">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Intrucciones
             </Typography>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Puede explorar la habitación manteniendo presionado el click izquierdo y deslizando el mouse.
+            </Typography>
+            <Button
+              variant="contained"
+              size="small"
+              className="boton"
+              style={{
+                position: "absolute",
+                top: "137px",
+                left: "50px",
+                background: "red"
+              }}
+              onClick={() => setOpen(false)}
+            >
+              Cerrar
+            </Button>
           </Box>
-          <button
-            className="boton"
-            style={{
-              position: "absolute",
-              top: "100px",
-              left: "50px",
-            }}
-            onClick={() => setOpen(false)}
-          >
-            Cerrar
-          </button>
         </Modal>
       </div>
 
@@ -140,7 +151,7 @@ const Instrumentos = () => {
         <div className="content_column" id="column_right">
           <button
             className="boton"
-            style={{ top: "0px", left: "1000px" }}
+            style={{ top: "0px", left: "1060px" }}
             onClick={useHandleNavigateMenu}
           >
             Regresar al inicio
