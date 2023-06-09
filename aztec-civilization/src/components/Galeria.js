@@ -54,12 +54,12 @@ export default function Galeria(props) {
         />
         <Html>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <p style={{ fontFamily: 'Arial', color: 'white' }}>MARACAS</p>
+            <p style={{ fontFamily: 'Arial', color: 'white' }}>Tiene un mango de madera decorado con cuerdas de algodón de colores con 14 ayoyotes (sonajeros de madera).</p>
           </div>
         </Html>
       </group>
       <group
-        position={[2.03, 1.519, 2.94]}
+        position={[1.8, 1.519, 2.94]}
         rotation={[2.187, 0.07, -0.18]}
         scale={0.39}
       >
@@ -72,7 +72,8 @@ export default function Galeria(props) {
           />
           <Html>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <p style={{ fontFamily: 'Arial', color: 'white' }}>OCARINA</p>
+              <p style={{ fontFamily: 'Arial', color: 'white' }}>Para unos el origen de la ocarina se remonta a la América Prehispánica.</p>
+              <p style={{ fontFamily: 'Arial', color: 'white' }}>Es un pequeño instrumento de viento sin llaves descendiente de primitivos silbatos hechos con barro o hueso.</p>
             </div>
           </Html>
         </group>
@@ -82,7 +83,7 @@ export default function Galeria(props) {
          scale={0.02}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
-            <mesh
+            <mesh //columna
               castShadow
               receiveShadow
               geometry={nodes.defaultMaterial.geometry}
@@ -184,7 +185,7 @@ export default function Galeria(props) {
         receiveShadow
         geometry={nodes.Цилиндр017.geometry}
         material={materials.Material}
-        position={[1.84, 1.414, 2.72]}
+        position={[1.84, 1.414, 2.66]}
         rotation={[Math.PI, -1.55, Math.PI]}
       />
       <mesh //flauta
@@ -192,8 +193,9 @@ export default function Galeria(props) {
         receiveShadow
         geometry={nodes.Цилиндр.geometry}
         material={nodes.Цилиндр.material}
-        position={[-0.45, 0.7824, -0.25]}
+        position={[-5.8, -0.464507, -6.44]}
         rotation={[-Math.PI, 0.84, -Math.PI]}
+        scale={3}
       />
       <mesh //maraca
         castShadow
