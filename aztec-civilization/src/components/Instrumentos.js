@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-
 import './Instrumentos.css';
 
 const Instrumentos = () => {
@@ -42,11 +41,11 @@ const Instrumentos = () => {
           src={process.env.PUBLIC_URL + "/imagenes/instrumentos.jpg"}
           alt="Imagen"
           style={{
-            width: "670px",
-            height: "782px",
+            width: "580px",
+            height: "750px",
             position: "fixed",
             top: "0px",
-            left: "715px",
+            right: "0px",
           }}
         />
       </div>
