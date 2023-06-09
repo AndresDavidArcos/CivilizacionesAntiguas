@@ -1,7 +1,8 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { getByTestId, render, screen, waitFor, fireEvent, queryByTestId } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import Arquitectura from "../components/Arquitectura.js";
+import Modelos from "../components/Arquitecturas.js";
 
 describe("Arquitectura", () => {
     it("debe existir el componente Arquitectura", () => {
@@ -16,8 +17,8 @@ describe("Arquitectura", () => {
             </MemoryRouter>
         );
         await waitFor(() => {
-            const title = getByText("Anterior");
-            expect(title).toBeInTheDocument();
+            const boton = getByText("Anterior");
+            expect(boton).toBeInTheDocument();
         });
     });
 
@@ -28,8 +29,8 @@ describe("Arquitectura", () => {
             </MemoryRouter>
         );
         await waitFor(() => {
-            const title = getByText("Siguiente");
-            expect(title).toBeInTheDocument();
+            const boton = getByText("Siguiente");
+            expect(boton).toBeInTheDocument();
         });
     });
 
@@ -40,8 +41,8 @@ describe("Arquitectura", () => {
             </MemoryRouter>
         );
         await waitFor(() => {
-            const title = getByText("Ver modelo");
-            expect(title).toBeInTheDocument();
+            const boton = getByText("Ver modelo");
+            expect(boton).toBeInTheDocument();
         });
     });
 
@@ -56,5 +57,21 @@ describe("Arquitectura", () => {
             expect(title).toBeInTheDocument();
         });
     });
-    
+
+});
+
+describe("Arquitecturas", () => {
+    it("Se debe mostrar las instrucciones del modelo", async () => {
+        const { getByText, queryByTestId } = render(
+            <MemoryRouter>
+                <Arquitectura />
+            </MemoryRouter>
+        );
+
+        const button = getByText('Ver modelo');
+        fireEvent.click(button);
+
+        expect(queryByTestId('instrucciones')).toBeInTheDocument();
+    });
+
 });
