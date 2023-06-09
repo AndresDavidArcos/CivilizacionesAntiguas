@@ -10,18 +10,21 @@ const Arquitectura = () => {
       title: 'Templo Mayor',
       image: process.env.PUBLIC_URL + "/imagenes/temploMayor.jpg",
       content: 'El Templo Mayor de Tenochtitlan era un imponente complejo religioso ubicado en el centro de la ciudad de Tenochtitlan, que fue la capital del Imperio Azteca en el siglo XV y XVI. Era considerado el centro religioso y político más importante de la cultura azteca y una de las estructuras más grandes y emblemáticas de la América precolombina.',
+      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: <div class="sketchfab-embed-wrapper"> <iframe title="TEMPLO MAYOR DE TENOCHTITLAN - ADV Estudio/2022" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="640" height="480" src="https://sketchfab.com/models/9a7ea4d4451f42328325fc7298ef0ff7/embed"> </iframe> </div>,
     },
     {
       title: 'Diseño de canales de agua',
       image: process.env.PUBLIC_URL + "/imagenes/callesTenochtitlan.jpg",
       content: 'Las calles de Tenochtitlan eran canales navegables anchos y bien trazados que conectaban los barrios y mercados. Los puentes de madera y piedra eran impresionantes y algunos eran móviles. La ciudad estaba dividida en una cuadrícula de barrios con su propio templo y mercado.',
+      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: 'Modelo 3d de los canales de agua',
     },
     {
       title: 'Mercados en Tenochtitlan',
       image: process.env.PUBLIC_URL + "/imagenes/mercadoTenochtitlan.jpg",
       content: 'Los mercados de Tenochtitlán eran puntos de encuentro vitales para el intercambio y comercio en la antigua ciudad. Organizados en secciones especializadas, ofrecían una amplia variedad de productos, desde alimentos básicos hasta artesanías y bienes de lujo. Los comerciantes establecían sus puestos en áreas designadas, donde se congregaban compradores en busca de artículos específicos.',
+      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: 'Modelo 3d de los mercados de Tenochtitlan',
     },
   ];
@@ -65,7 +68,7 @@ const Arquitectura = () => {
         <button className='buttonAnterior' onClick={handlePrevSlide}>Anterior</button>
         <button className='buttonSiguiente' onClick={handleNextSlide}>Siguiente</button>
         <button className='buttonModelo' onClick={handleButtonClick}>Ver modelo</button>
-        {showModal && <Modelos modelo={slides[currentSlide].model} onClose={handleCloseModal} />}
+        {showModal && <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />}
       </div>
       <div className="slide-container">
         <h2 className='titulo'>{title}</h2>

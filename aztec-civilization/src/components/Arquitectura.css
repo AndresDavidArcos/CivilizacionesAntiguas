@@ -154,6 +154,9 @@
 }
 
 .modal-content {
-  background-color: white;
+  width: 700px;
+  justify-content: center;
+  align-items: center;
+  background-color: #999ddb;
   padding: 20px;
 }
