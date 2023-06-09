@@ -253,7 +253,7 @@ export default function Galeria(props) {
               height: "30px",
               position: "fixed",
               top: "-400px",
-              left: "-700px",
+              right: "-700px",
             }}
             onClick={handleOpen}
           />

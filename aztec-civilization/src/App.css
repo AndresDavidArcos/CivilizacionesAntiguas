@@ -58,6 +58,12 @@
   overflow: hidden;
 }
 
+.breadCrumb-Container{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .breadCrumb {
   background-color: #db4c4c;
   border: 1px solid black;
