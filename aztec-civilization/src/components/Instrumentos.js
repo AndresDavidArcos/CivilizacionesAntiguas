@@ -27,6 +27,14 @@ const Instrumentos = () => {
     setOpen(false);
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleMenu = () => {
+    navigate('/menuSelection');
+  };
+
   return (
     <>
       <div>
@@ -43,6 +51,9 @@ const Instrumentos = () => {
         />
       </div>
       <div>
+        <button className='breadCrumb' onClick={handleLogin}>Login</button>
+        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+        <button className='breadCrumbDisabled' >Instrumentos</button>
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
           alt="Imagen"
@@ -51,7 +62,7 @@ const Instrumentos = () => {
             height: "30px",
             position: "fixed",
             top: "0px",
-            left: "0px",
+            right: "0px",
           }}
           onClick={handleOpen}
         />
@@ -145,14 +156,6 @@ const Instrumentos = () => {
         </div>
 
         <div className="content_column" id="column_right">
-          <button
-            className="boton"
-            style={{ top: "0px", left: "1060px" }}
-            onClick={useHandleNavigateMenu}
-          >
-            Regresar al inicio
-          </button>
-
           <button className="boton" onClick={useHandleNavigateGaleria}>
             Click aquí para entrar a la exposición
           </button>
