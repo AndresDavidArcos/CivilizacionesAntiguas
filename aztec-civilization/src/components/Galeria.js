@@ -17,9 +17,38 @@ export default function Galeria(props) {
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [mostrarTextoMaraca, setTextoMaraca] = React.useState(false);
+  const textoMaraca = () => {
+    setTextoMaraca(!mostrarTextoMaraca);
+  };
+
+  const [mostrarTextoPercusion, setTextoPercusion] = React.useState(false);
+  const textoPercusion = () => {
+    setTextoPercusion(!mostrarTextoPercusion);
+  };
+
+  const [mostrarTextoFlauta, setTextoFlauta] = React.useState(false);
+  const textoFlauta = () => {
+    setTextoFlauta(!mostrarTextoFlauta);
+  };
+
+  const [mostrarTextoFlautaDePan, setTextoFlautaDePan] = React.useState(false);
+  const textoFlautaDePan = () => {
+    setTextoFlautaDePan(!mostrarTextoFlautaDePan);
+  };
+
+  const [mostrarTextoFlautaRara, setTextoFlautaRara] = React.useState(false);
+  const textoFlautaRara = () => {
+    setTextoFlautaRara(!mostrarTextoFlautaRara);
+  };
+
+  const [mostrarTextoOcarina, setTextoOcarina] = React.useState(false);
+  const textoOcarina = () => {
+    setTextoOcarina(!mostrarTextoOcarina);
   };
 
   return (
@@ -66,14 +95,15 @@ export default function Galeria(props) {
         </group>
       </group>
       <group position={[-2.11, 1.56, 2.92]} rotation={[-Math.PI / 2, 0, 0]} scale={0.06}>
-        <mesh
+        <mesh //maraca rara
         castShadow
         receiveShadow
         geometry={nodes.Object_2.geometry}
         material={materials["material_0.002"]}
+        onClick={textoFlautaRara}
         />
         <Html>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoFlautaRara ? 'block' : 'none' }}>
             <p style={{ fontFamily: 'Arial', color: 'white' }}>Tiene un mango de madera decorado con cuerdas de algodón de colores con 14 ayoyotes (sonajeros de madera).</p>
           </div>
         </Html>
@@ -84,14 +114,15 @@ export default function Galeria(props) {
         scale={0.39}
       >
         <group position={[-0.42, -0.41, -0.47]}>
-          <mesh
+          <mesh //ocarina
             castShadow
             receiveShadow
             geometry={nodes.Object_2001.geometry}
             material={materials["material_0.003"]}
+            onClick={textoOcarina}
           />
           <Html>
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoOcarina ? 'block' : 'none' }}>
               <p style={{ fontFamily: 'Arial', color: 'white' }}>Para unos el origen de la ocarina se remonta a la América Prehispánica.</p>
               <p style={{ fontFamily: 'Arial', color: 'white' }}>Es un pequeño instrumento de viento sin llaves descendiente de primitivos silbatos hechos con barro o hueso.</p>
             </div>
@@ -108,22 +139,6 @@ export default function Galeria(props) {
               receiveShadow
               geometry={nodes.defaultMaterial.geometry}
               material={materials["Base.001"]}
-            />
-          </group>
-        </group>
-      </group>
-      <group rotation={[-Math.PI / 2, 0, 0]} 
-        position={[0.7, 0, -0.4]}
-        scale={0.02}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
-          <group 
-            rotation={[-Math.PI / 2, 0, 0]}
-            >
-            <mesh //pilar de cuerdas
-              castShadow
-              receiveShadow
-              geometry={nodes.defaultMaterial001.geometry}
-              material={materials["Base.003"]}
             />
           </group>
         </group>
@@ -153,6 +168,7 @@ export default function Galeria(props) {
         material={nodes.Цилиндр001.material}
         position={[2.05, 0.32, 1.75]}
         rotation={[Math.PI, -1.45*3, Math.PI]}
+        onClick={textoPercusion}
       />
       <mesh //tambor peque
         castShadow
@@ -162,6 +178,7 @@ export default function Galeria(props) {
         position={[2.12, 1.4968, 1.06]}
         rotation={[Math.PI, -1.45, Math.PI]}
         scale={0.95}
+        onClick={textoPercusion}
       />
       <mesh //tambor mediano
         castShadow
@@ -171,9 +188,10 @@ export default function Galeria(props) {
         position={[1.82, 0.4, 0.65]}
         rotation={[Math.PI, -1.45, Math.PI]}
         scale={0.93}
+        onClick={textoPercusion}
       />
       <Html position={[1.88, 1.414, 1.27]}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoPercusion ? 'block' : 'none' }}>
             <p style={{ fontFamily: 'Arial', color: 'white' }}>Algunos tambores de la civilización azteca son: El Teponaztli, el Huehuetl y el Chicahuaztli</p>
           </div>
         </Html>
@@ -185,9 +203,10 @@ export default function Galeria(props) {
         material={materials.Material}
         position={[1.84, 1.414, 2.66]}
         rotation={[Math.PI, -1.55, Math.PI]}
+        onClick={textoFlautaDePan}
       />
       <Html position={[1.74, 1.414, 2.66]}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoFlautaDePan ? 'block' : 'none' }}>
             <p style={{ fontFamily: 'Arial', color: 'white' }}>La antara es una especie de flauta de Pan, hecha con cañas de carrizo dispuestas en escalera, adecuadamente afinadas y aseguradas por convenientes amarras de hilo.</p>
           </div>
         </Html>
@@ -200,9 +219,10 @@ export default function Galeria(props) {
         position={[-5.8, -0.464507, -6.44]}
         rotation={[-Math.PI, 0.84, -Math.PI]}
         scale={3}
+        onClick={textoFlauta}
       />
       <Html position={[2.1, 1.414, 2.66]}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoFlauta ? 'block' : 'none' }}>
             <p style={{ fontFamily: 'Arial', color: 'white' }}>Un tlapitzalli es un instrumento musical conocido por las culturas de Mesoamérica, particularmente los aztecas. Por lo general tiene forma de flauta. Generalmente está hecho de barro o madera, decorado con motivos naturales o dibujos de las deidades aztecas.</p>
           </div>
         </Html>
@@ -214,6 +234,7 @@ export default function Galeria(props) {
         material={nodes.Куб001.material}
         position={[-0.49, 0.794, 2.85]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
+        onClick={textoMaraca}
       />
       <mesh //maraca
         castShadow
@@ -222,9 +243,10 @@ export default function Galeria(props) {
         material={nodes.Куб002.material}
         position={[-0.56, 0.794, 2.91]}
         rotation={[-Math.PI, 0.19, -Math.PI]}
+        onClick={textoMaraca}
       />
       <Html position={[-2, 1.3, 2.8]}>
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'gray', display: mostrarTextoMaraca ? 'block' : 'none' }}>
             <p style={{ fontFamily: 'Arial', color: 'white' }}>La maraca o chac-chac es un instrumento tradicional de música étnica en México, América Latina y los caribes. Par coloridas sonajas ornamentadas hechas de calabazas, conocidas porque aun se conservan a día de hoy.</p>
           </div>
         </Html>
@@ -237,6 +259,7 @@ export default function Galeria(props) {
         position={[2.04, 0.682, 0.731]}
         rotation={[-2.83, 0.43, 3.13]}
         scale={0.02}
+        onClick={textoPercusion}
       />
     </group>
       <Html>
