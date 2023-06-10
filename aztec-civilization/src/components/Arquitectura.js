@@ -10,22 +10,36 @@ const Arquitectura = () => {
       title: 'Templo Mayor',
       image: process.env.PUBLIC_URL + "/imagenes/temploMayor.jpg",
       content: 'El Templo Mayor de Tenochtitlan era un imponente complejo religioso ubicado en el centro de la ciudad de Tenochtitlan, que fue la capital del Imperio Azteca en el siglo XV y XVI. Era considerado el centro religioso y político más importante de la cultura azteca y una de las estructuras más grandes y emblemáticas de la América precolombina.',
-      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
-      model: <div class="sketchfab-embed-wrapper"> <iframe title="TEMPLO MAYOR DE TENOCHTITLAN - ADV Estudio/2022" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="640" height="480" src="https://sketchfab.com/models/9a7ea4d4451f42328325fc7298ef0ff7/embed"> </iframe> </div>,
+      instructions: 'Para ver el modelo 3d de El Templo Mayor de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 2. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
     },
     {
-      title: 'Diseño de canales de agua',
-      image: process.env.PUBLIC_URL + "/imagenes/callesTenochtitlan.jpg",
-      content: 'Las calles de Tenochtitlan eran canales navegables anchos y bien trazados que conectaban los barrios y mercados. Los puentes de madera y piedra eran impresionantes y algunos eran móviles. La ciudad estaba dividida en una cuadrícula de barrios con su propio templo y mercado.',
-      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
-      model: 'Modelo 3d de los canales de agua',
+      title: 'Recinto de las Águilas',
+      image: process.env.PUBLIC_URL + "/imagenes/recitoAguilas.png",
+      content: 'El edificio fue construido aprox. en 1480 d.C. Los estudios parecen indicar que se trata de un conjunto destinado a ciertas ceremonias, pues en su interior se han detectado, mediante técnicas de arqueometría y otras, acumulación en determinadas áreas de restos de componentes de la sangre, como en las grandes esculturas de barro, y la presencia de productos que contenían grasas vegetales y animales, así como carbohidratos de una sustancia rica en azúcares y almidones, posiblemente pulque.',
+      instructions: 'Para ver el modelo 3d de Recinto de las Águilas de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 1. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
     },
     {
-      title: 'Mercados en Tenochtitlan',
-      image: process.env.PUBLIC_URL + "/imagenes/mercadoTenochtitlan.jpg",
-      content: 'Los mercados de Tenochtitlán eran puntos de encuentro vitales para el intercambio y comercio en la antigua ciudad. Organizados en secciones especializadas, ofrecían una amplia variedad de productos, desde alimentos básicos hasta artesanías y bienes de lujo. Los comerciantes establecían sus puestos en áreas designadas, donde se congregaban compradores en busca de artículos específicos.',
-      instructions: 'Para ver el modelo 3d del Templo Mayor, haga click en el botón "Ver modelo", con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
-      model: 'Modelo 3d de los mercados de Tenochtitlan',
+      title: 'Templo de Tezcatlipoca',
+      image: process.env.PUBLIC_URL + "/imagenes/temploTezcatlipoca.jpg",
+      content: 'Tezcatlipoca o "espejo humeante" en lenguaje náhuatl fue uno de los dioses más importantes de la cultura mesoamericana del Posclásico y particularmente importante para los toltecas y los aztecas, por lo que tenía su propio templo. Era un dios creador invisible y omnipotente, deidad patrona de los guerreros y, como portador tanto del bien como del mal, era la encarnación misma del cambio a través del conflicto.',
+      instructions: 'Para ver el modelo 3d de Templo de Tezcatlipoca de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 3. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
+    },
+    {
+      title: 'Estadio de Tlachtli',
+      image: process.env.PUBLIC_URL + "/imagenes/estadioTlachtli.jpg",
+      content: 'El juego de pelota mesoamericano (en náhuatl: tlachtli u ollamalistli) fue un deporte con connotaciones rituales y bélicas, jugado desde el año 1400 a. C. por los pueblos precolombinos de Mesoamérica; se practicaba tanto en la vida cotidiana como en celebraciones religiosas. Aparentemente cumplía la función de resolver conflictos de diversa naturaleza: pleitos por tierras, tributo, controles comerciales y otros.',
+      instructions: 'Para ver el modelo 3d de Estadio de Tlachtli de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 4. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
+    },
+    {
+      title: 'Templo Ehécatl-Quetzalcóatl',
+      image: process.env.PUBLIC_URL + "/imagenes/ehecatl.jpg",
+      content: 'Ehécatl era un dios mesoamericano del aire y los vientos, especialmente de los que traían las lluvias. Considerado una manifestación del gran dios «serpiente emplumada». ayudó a crear a la humanidad en el mito de la creación azteca y dio el regalo de la planta del maguey. También se lo asociaba con los puntos cardinales, los colores y varias fechas del calendario.',
+      instructions: 'Para ver el modelo 3d de Templo Ehécatl-Quetzalcóatl de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 5. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
+      model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
     },
   ];
 

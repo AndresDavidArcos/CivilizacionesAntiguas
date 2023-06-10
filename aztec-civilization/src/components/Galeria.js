@@ -1,8 +1,12 @@
 import React, { useRef, useMemo } from "react";
 import {
   useGLTF,
-  Html
+  Html,
 } from "@react-three/drei";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import { AudioListener, AudioLoader, Audio } from "three";
 import { useLoader } from "react-three-fiber";
 import ocarinaMusic from "../musica/ocarina.mp3";
