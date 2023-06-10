@@ -6,7 +6,7 @@
 
 #three-canvas-container-2 {
   box-sizing: border-box;
-  
+
   position: absolute;
   width: 699px;
   height: 1024px;
@@ -30,7 +30,7 @@
   color: red;
 }
 
-.registerForm{
+.registerForm {
   margin-top: 150px;
 }
 
@@ -58,3 +58,32 @@
   overflow: hidden;
 }
 
+.breadCrumb-Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.breadCrumb {
+  background-color: #db4c4c;
+  border: 1px solid black;
+  font-size: 5px;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.breadCrumbDisabled {
+  background-color: #9c7c7c;
+  border: 1px solid black;
+  font-size: 5px;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  position: relative;
+  cursor: block;
+}

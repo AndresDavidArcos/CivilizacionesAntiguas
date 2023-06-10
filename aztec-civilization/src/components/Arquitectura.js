@@ -55,16 +55,22 @@ const Arquitectura = () => {
     setShowModal(false);
   };
 
-  //Volver atrás
   const navigate = useNavigate();
-  const handleVolver = () => {
+  const handleLogin = () => {
+    navigate('/login');
+  };
+  const handleMenu = () => {
     navigate('/menuSelection');
   };
 
   return (
     <div className='background'>
       <div>
-        <button className='buttonVolver' onClick={handleVolver}>Volver atrás</button>
+        <button className='breadCrumb' onClick={handleLogin}>Login</button>
+        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+        <button className='breadCrumbDisabled' >Arquitectura</button>
+      </div>
+      <div>
         <button className='buttonAnterior' onClick={handlePrevSlide}>Anterior</button>
         <button className='buttonSiguiente' onClick={handleNextSlide}>Siguiente</button>
         <button className='buttonModelo' onClick={handleButtonClick}>Ver modelo</button>
