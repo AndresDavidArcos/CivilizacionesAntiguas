@@ -1,5 +1,5 @@
 import AztecPyramid from "./AztecPyramid";
-import { StoneGate } from "./StoneGate";
+import AncientGate from "./AncientGate";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
@@ -66,47 +66,81 @@ export default function SelectionMenu() {
         <group position={[0, -0.5, 0]}>
           <RigidBody type="fixed" colliders="hull">
             <AztecPyramid rotation={[0, -3.1, 0]} />
-
           </RigidBody>
-          <RigidBody type="fixed" colliders="cuboid"
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
             onCollisionEnter={({ manifold, target, other }) => {
-              console.log(
-                "Collision at world position ",
-                manifold.solverContactPoint(0)
-              );
-              handleNavCollision('agricultura')
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('agricultura');
             }}
           >
-            <StoneGate position={[0, 7, 4]} map={painting.map} />
-
+            <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
           </RigidBody>
-          <RigidBody type="fixed" colliders="cuboid"
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
             onCollisionEnter={({ manifold, target, other }) => {
-              console.log(
-                "Collision at world position ",
-                manifold.solverContactPoint(0)
-              );
-              handleNavCollision('instrumentos')
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('instrumentos');
             }}
           >
-            <StoneGate position={[0, 7, -4]} map={painting.map1} />
-
-            {/* Se maneja el redirrecionamiento a la ruta "arquitectura" */}
-          </RigidBody >
-          <RigidBody type="fixed" colliders="cuboid"
+            <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
+          </RigidBody>
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
             onCollisionEnter={({ manifold, target, other }) => {
-              console.log(
-                "Collision at world position ",
-                manifold.solverContactPoint(0)
-              );
-              handleNavCollision('arquitectura')
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('arquitectura');
             }}
           >
-            <StoneGate position={[4, 7, 0]} rotation={[0, angleToRadians(90), 0]} map={painting.map2} />
-
+            <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
           </RigidBody>
-          {/* <Ancient_arch_portal position={[0,10,0]} rotation={[0,angleToRadians(90),0]} scale={[4,4,2]} map={painting.map2} />               */}
         </group>
+
+              
+            {/* Floor */}
+            <RigidBody type="fixed" colliders="cuboid">
+            <mesh  rotation={[-(angleToRadians(90)), 0, 0]} position={[0,0,0]} receiveShadow>
+                    <planeGeometry args={[50, 50]}/>
+                    <meshStandardMaterial {...pyramidTextures}/>
+            </mesh> 
+            </RigidBody>
+            {/* Walls */}
+            <RigidBody type="fixed" colliders="cuboid">
+            <mesh position={[-25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
+                    <boxGeometry args={[50, 8, 1]} />
+                    <meshStandardMaterial color="#F5DEB3"
+                      {...wallTexture}
+                        />
+                </mesh>  
+            </RigidBody>
+            <RigidBody type="fixed" colliders="cuboid">
+            <mesh position={[25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
+                    <boxGeometry args={[50, 8, 1]} />
+                    <meshStandardMaterial color="#F5DEB3"
+                      {...wallTexture}
+                        />
+                </mesh>  
+            </RigidBody>   
+            <RigidBody type="fixed" colliders="cuboid">
+            <mesh position={[0, 0, 25]} rotation={[0, 0, 0]}  receiveShadow>
+                    <boxGeometry args={[50, 8, 1]} />
+                    <meshStandardMaterial color="#F5DEB3"
+                      {...wallTexture}
+                        />
+                </mesh>  
+            </RigidBody>               
+            <RigidBody type="fixed" colliders="cuboid">
+            <mesh position={[0, 0, -25]} rotation={[0, 0, 0]}  receiveShadow>
+                    <boxGeometry args={[50, 8, 1]} />
+                    <meshStandardMaterial color="#F5DEB3"
+                      {...wallTexture}
+                        />
+                </mesh>  
+            </RigidBody> 
+                                    
 
         {/* Floor */}
         <RigidBody type="fixed" colliders="cuboid">
