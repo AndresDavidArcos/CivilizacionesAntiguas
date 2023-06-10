@@ -1,6 +1,5 @@
 import AztecPyramid from "./AztecPyramid";
-import { StoneGate } from "./StoneGate";
-import Ancient_arch_portal from "./Ancient_arch_portal";
+import AncientGate from "./AncientGate";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
@@ -62,51 +61,43 @@ export default function SelectionMenu(){
                 ]}>          
         <Player />
         </KeyboardControls>
-          {/* Models */}
-          <group position={[0,-0.5,0]}>
+        {/* Models */}
+        <group position={[0, -0.5, 0]}>
           <RigidBody type="fixed" colliders="hull">
-          <AztecPyramid rotation={[0,-3.1,0]}/>
-
+            <AztecPyramid rotation={[0, -3.1, 0]} />
           </RigidBody>
-          <RigidBody type="fixed" colliders="cuboid"
-           onCollisionEnter={({ manifold, target, other }) => {
-            console.log(
-              "Collision at world position ",
-              manifold.solverContactPoint(0)
-            );
-            handleNavCollision('agricultura')
-          }}
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
+            onCollisionEnter={({ manifold, target, other }) => {
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('agricultura');
+            }}
           >
-          <StoneGate position={[0,7,4]} map={painting.map}/>
-
+            <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
           </RigidBody>
-          <RigidBody type="fixed" colliders="cuboid"
-           onCollisionEnter={({ manifold, target, other }) => {
-            console.log(
-              "Collision at world position ",
-              manifold.solverContactPoint(0)
-            );
-            handleNavCollision('instrumentos')
-          }}
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
+            onCollisionEnter={({ manifold, target, other }) => {
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('instrumentos');
+            }}
           >
-          <StoneGate position={[0,7,-4]} map={painting.map1}/>
-
-          {/* Se maneja el redirrecionamiento a la ruta "arquitectura" */}
-          </RigidBody >
-          <RigidBody type="fixed" colliders="cuboid"
-           onCollisionEnter={({ manifold, target, other }) => {
-            console.log(
-              "Collision at world position ",
-              manifold.solverContactPoint(0)
-            );
-            handleNavCollision('arquitectura')
-          }}
+            <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
+          </RigidBody>
+          <RigidBody
+            type="fixed"
+            colliders="cuboid"
+            onCollisionEnter={({ manifold, target, other }) => {
+              console.log("Collision at world position ", manifold.solverContactPoint(0));
+              handleNavCollision('arquitectura');
+            }}
           >
-          <StoneGate position={[4,7,0]} rotation={[0,angleToRadians(90),0]} map={painting.map2}/>
+            <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
+          </RigidBody>
+        </group>
 
-          </RigidBody>   
-          {/* <Ancient_arch_portal position={[0,10,0]} rotation={[0,angleToRadians(90),0]} scale={[4,4,2]} map={painting.map2} />               */}
-          </group>
               
             {/* Floor */}
             <RigidBody type="fixed" colliders="cuboid">

@@ -4,15 +4,33 @@ Command: npx gltfjsx@6.2.3 ancientGate.glb
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
+import { MeshStandardMaterial, RepeatWrapping } from 'three';
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/ancientGate.glb')
+export default function AncientGate(props) {
+  const { nodes, materials } = useGLTF('../../modelos/ancientGate.glb')
+  const tPath = '../../texturas/gateTexture/';
+  const wallTexture = useTexture({
+    map: tPath+'Bricks076C_1K_Color.png',
+    normalMap: tPath+"Bricks076C_1K_NormalGL.png",
+    roughnessMap: tPath+"Bricks076C_1K_Roughness.png",
+    displacementMap: tPath+'Bricks076C_1K_Displacement.png',
+    aoMap: tPath + 'Bricks076C_1K_AmbientOcclusion.png'
+  })
+
+
+  const material = new MeshStandardMaterial({...wallTexture});  
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.imagetostl_mesh0.geometry} material={materials.mat0} />
+      <mesh geometry={nodes.imagetostl_mesh0.geometry} material={material} receiveShadow/> 
+      <mesh position={[35, 10, -40]} receiveShadow>
+                    <boxGeometry args={[50, 10, 80]} />
+                    <meshStandardMaterial color="#F5DEB3"
+                    map={props.map}
+                        />
+      </mesh>  
     </group>
   )
 }
 
-useGLTF.preload('/ancientGate.glb')
+useGLTF.preload('../../modelos/ancientGate.glb')
