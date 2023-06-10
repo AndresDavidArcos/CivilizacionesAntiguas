@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Login from "./components/Login";
@@ -11,6 +11,8 @@ import Arquitectura from './components/Arquitectura';
 import Galeria from './components/Galeria';
 import { OrbitControls } from '@react-three/drei';
 import VolumeSlider from './components/VolumeSlider';
+import Menu from './components/BreadCrumb';
+import Galery from './components/BreadCrumbGalery';
 
 function App() {
   return (
@@ -18,40 +20,40 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/register' element={<Register />} />
           <Route path="/" element={<Navigate to="/login" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
-          <Route path='/arquitectura' element={<Arquitectura/>}/>
-          <Route path='/agricultura' element={<Agricultura/>}/>
+          <Route path='/arquitectura' element={<Arquitectura />} />
+          <Route path='/agricultura' element={<Agricultura />} />
           <Route path='/galeria' element={
-              <>
+            <>
               <Canvas id="three-canvas-container" camera={{ position: [-2, 1.5, -1], fov: 50 }} shadows>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[0, 3.8, -1]} intensity={0.8} castShadow />
-                <OrbitControls/>
+                <OrbitControls />
                 <Galeria />
               </Canvas>
-              </>
-            }
+              <Galery />
+            </>
+          }
           />
 
           <Route path='/instrumentos' element={
-              <>
-                <Instrumentos />
-                <Canvas id="three-canvas-container">
-                </Canvas>
-              </>
-            }
+            <>
+              <Instrumentos />
+            </>
+          }
           />
           <Route path='/menuSelection' element={
             <>
-          <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>          
-          <SelectionMenu/>
-          </Canvas>     
-        <RetroDialog/>
-        <VolumeSlider/>
-          </>
-          }/>          
+              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+                <SelectionMenu />
+              </Canvas>
+              <Menu />
+              <RetroDialog />
+              <VolumeSlider />
+            </>
+          } />
         </Routes>
       </Router>
     </div>
