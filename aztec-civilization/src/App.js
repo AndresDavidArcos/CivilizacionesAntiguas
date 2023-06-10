@@ -27,10 +27,10 @@ function App() {
           <Route path='/agricultura' element={<Agricultura />} />
           <Route path='/galeria' element={
             <>
-              <Canvas id="three-canvas-container" camera={{ position: [-2, 1.5, -1], fov: 50 }} shadows>
-                <ambientLight intensity={0.5} />
-                <pointLight position={[0, 3.8, -1]} intensity={0.8} castShadow />
-                <OrbitControls />
+              <Canvas id="three-canvas-container" camera={{ position: [-1, 5, -5], fov: 50 }} shadows>
+                <ambientLight intensity={0.9} />
+                <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
+                <OrbitControls minDistance={1} maxDistance={5} enablePan={true} />
                 <Galeria />
               </Canvas>
               <Galery />

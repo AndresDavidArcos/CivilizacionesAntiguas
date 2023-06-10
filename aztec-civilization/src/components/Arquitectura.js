@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './Arquitectura.css';
+import "../styles/Arquitectura.css";
 import Modelos from './Arquitecturas';
 
 const Arquitectura = () => {
