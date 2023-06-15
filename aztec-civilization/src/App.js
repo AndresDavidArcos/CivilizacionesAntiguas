@@ -31,10 +31,10 @@ function App() {
               <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
                 <ambientLight intensity={0.9} />
                 <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
-                {/* <OrbitControls minDistance={1} maxDistance={5} enablePan={true} /> */}
                 <GaleriaNavigation />
               </Canvas>
               <Galery />
+              <div className="dot" />
             </>
           }
           />
