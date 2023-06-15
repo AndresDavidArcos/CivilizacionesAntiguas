@@ -60,7 +60,7 @@ export default function SelectionMenu() {
             { name: "right", keys: ["ArrowRight", "d", "D"] },
             { name: "jump", keys: ["Space"] },
           ]}>
-          <Player />
+          <Player position={[-11, 5, 0]}/>
         </KeyboardControls>
         {/* Models */}
         <group position={[0, -0.5, 0]}>

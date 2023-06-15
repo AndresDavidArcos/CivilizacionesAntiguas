@@ -10,7 +10,7 @@ const direction = new THREE.Vector3()
 const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 
-export default function Player({ lerp = THREE.MathUtils.lerp }) {
+export default function Player(props, { lerp = THREE.MathUtils.lerp }) {
   const ref = useRef()
   const rapier = useRapier()
 
@@ -34,7 +34,7 @@ export default function Player({ lerp = THREE.MathUtils.lerp }) {
   })
   return (
     <>
-      <RigidBody ref={ref} colliders={false} mass={1} type="dynamic" position={[-11, 5, 0]} enabledRotations={[false, false, false]}>
+      <RigidBody ref={ref} colliders={false} mass={1} type="dynamic" position={props.position} enabledRotations={[false, false, false]}>
         <CapsuleCollider args={[0.75, 0.5]} />
       </RigidBody>
     </>

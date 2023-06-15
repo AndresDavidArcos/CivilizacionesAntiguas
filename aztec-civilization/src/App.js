@@ -13,6 +13,7 @@ import { OrbitControls } from '@react-three/drei';
 import VolumeSlider from './components/VolumeSlider';
 import Menu from './components/BreadCrumb';
 import Galery from './components/BreadCrumbGalery';
+import GaleriaNavigation from './components/GaleriaNavigation';
 
 function App() {
   return (
@@ -27,11 +28,11 @@ function App() {
           <Route path='/agricultura' element={<Agricultura />} />
           <Route path='/galeria' element={
             <>
-              <Canvas id="three-canvas-container" camera={{ position: [-1, 5, -5], fov: 50 }} shadows>
+              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
                 <ambientLight intensity={0.9} />
                 <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
-                <OrbitControls minDistance={1} maxDistance={5} enablePan={true} />
-                <Galeria />
+                {/* <OrbitControls minDistance={1} maxDistance={5} enablePan={true} /> */}
+                <GaleriaNavigation />
               </Canvas>
               <Galery />
             </>
