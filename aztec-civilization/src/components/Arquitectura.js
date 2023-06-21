@@ -105,11 +105,13 @@ const Arquitectura = () => {
         </div>
 
         <div className="content_columnar" id="column_rightar">
+
           <img className='imagen' src={image} alt={title} />
           <div className='image_overlay' onClick={handleButtonClick}>
             <div className='image_title'>{title}</div>
             <p className='image_hovering'>Has click para ver este modelo</p>
           </div>
+
           {showModal && <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />}
         </div>
       </div>
