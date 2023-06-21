@@ -69,6 +69,10 @@
   letter-spacing: 3px;
 }
 
+.icono {
+  height: 25px;
+}
+
 .boton {
   background-color: #000000;
   border: 1px solid black;
@@ -78,6 +82,8 @@
   display: block;
   width: min-content;
   height: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -137,6 +143,7 @@
 
 .image_overlay:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 .image_title {
