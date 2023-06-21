@@ -22,21 +22,21 @@ const Arquitectura = () => {
     },
     {
       title: 'Templo de Tezcatlipoca',
-      image: process.env.PUBLIC_URL + "/imagenes/temploTezcatlipoca.jpg",
+      image: process.env.PUBLIC_URL + "/imagenes/temploTezcatlipoca.png",
       content: 'Tezcatlipoca o "espejo humeante" en lenguaje náhuatl fue uno de los dioses más importantes de la cultura mesoamericana del Posclásico y particularmente importante para los toltecas y los aztecas, por lo que tenía su propio templo. Era un dios creador invisible y omnipotente, deidad patrona de los guerreros y, como portador tanto del bien como del mal, era la encarnación misma del cambio a través del conflicto.',
       instructions: 'Para ver el modelo 3d de Templo de Tezcatlipoca de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 3. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
     },
     {
       title: 'Estadio de Tlachtli',
-      image: process.env.PUBLIC_URL + "/imagenes/estadioTlachtli.jpg",
+      image: process.env.PUBLIC_URL + "/imagenes/estadioTlachtli.png",
       content: 'El juego de pelota mesoamericano (en náhuatl: tlachtli u ollamalistli) fue un deporte con connotaciones rituales y bélicas, jugado desde el año 1400 a. C. por los pueblos precolombinos de Mesoamérica; se practicaba tanto en la vida cotidiana como en celebraciones religiosas. Aparentemente cumplía la función de resolver conflictos de diversa naturaleza: pleitos por tierras, tributo, controles comerciales y otros.',
       instructions: 'Para ver el modelo 3d de Estadio de Tlachtli de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 4. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
     },
     {
       title: 'Templo Ehécatl-Quetzalcóatl',
-      image: process.env.PUBLIC_URL + "/imagenes/ehecatl.jpg",
+      image: process.env.PUBLIC_URL + "/imagenes/ehecatl.png",
       content: 'Ehécatl era un dios mesoamericano del aire y los vientos, especialmente de los que traían las lluvias. Considerado una manifestación del gran dios «serpiente emplumada». ayudó a crear a la humanidad en el mito de la creación azteca y dio el regalo de la planta del maguey. También se lo asociaba con los puntos cardinales, los colores y varias fechas del calendario.',
       instructions: 'Para ver el modelo 3d de Templo Ehécatl-Quetzalcóatl de Tenochtitlan, haga click en el botón "Ver modelo" y luego clic en el numero 5. Con click derecho puede mover el modelo, con click izquierdo puede rotar la cámara y con la rueda del mouse puede hacer zoom.',
       model: <div class="sketchfab-embed-wrapper"> <iframe title="Voxel Tenochtitlan" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/9930fecba35748028991a4dd82b03656/embed"> </iframe> </div>
@@ -79,25 +79,41 @@ const Arquitectura = () => {
 
   return (
     <div className='background'>
-      <div>
-        <button className='breadCrumb' onClick={handleLogin}>Login</button>
-        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-        <button className='breadCrumbDisabled' >Arquitectura</button>
+      <div className='content_rowar'>
+        <div className="content_columnar" id="column_leftar">
+          {/* Breadcrumbs para dirrecionamiento */}
+          <button className='breadCrumb' onClick={handleLogin}>Login</button>
+          <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+          <button className='breadCrumbDisabled' >Arquitectura</button>
+
+          {/* Header con titulo de civilización */}
+          <div className="header">
+            <h2 className="title-azteca">Tenochtitlan</h2>
+            <h2 className='subtitle'>LA CAPITAL AZTECA</h2>
+          </div>
+
+
+          {/* Información de estructura */}
+          <h2 className='titulo'>{title}</h2>
+          <p className='texto'>{content}</p>
+
+          {/* Botones para ver otras estructuras */}
+          <div className='container'>
+            <button className='boton' id='anterior' onClick={handlePrevSlide}>Anterior</button>
+            <button className='boton' id='siguiente' onClick={handleNextSlide}>Siguiente</button>
+          </div>
+        </div>
+
+        <div className="content_columnar" id="column_rightar">
+          <img className='imagen' src={image} alt={title} />
+          <div className='image_overlay' onClick={handleButtonClick}>
+            <div className='image_title'>{title}</div>
+            <p className='image_hovering'>Has click para ver este modelo</p>
+          </div>
+          {showModal && <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />}
+        </div>
       </div>
-      <div>
-        <button className='buttonAnterior' onClick={handlePrevSlide}>Anterior</button>
-        <button className='buttonSiguiente' onClick={handleNextSlide}>Siguiente</button>
-        <button className='buttonModelo' onClick={handleButtonClick}>Ver modelo</button>
-        {showModal && <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />}
-      </div>
-      <div className="slide-container">
-        <h2 className='titulo'>{title}</h2>
-      </div>
-      <div className="slide-container">
-        <img className='imagen' src={image} alt={title} />
-        <p className='texto'>{content}</p>
-      </div>
-    </div>
+    </div >
   );
 };
 
