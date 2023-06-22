@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.content {
+    position: relative;
+    text-align: center;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+    transition: filter 0.3s ease;
+}
+
+.button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.half:hover .image {
+    filter: brightness(50%);
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
