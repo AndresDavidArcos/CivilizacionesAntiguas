@@ -1,5 +1,5 @@
 .background {
-  background-color: #D9D9D9;
+  background-color: #f5f5f5;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -19,11 +19,11 @@
   height: 100%;
   padding: 20px;
   overflow: hidden;
+  background-color: #f5f5f5;
 }
 
 #column_leftar {
   width: 60%;
-  background-color: #a7a8c2;
   transition: margin 1s ease-in;
 }
 
@@ -107,7 +107,6 @@
 #column_rightar {
   padding: 0%;
   overflow: hidden;
-  background-color: #a7a8c2;
   transition: margin 1s ease-in;
 }
 
@@ -172,7 +171,7 @@
   width: 700px;
   justify-content: center;
   align-items: center;
-  background-color: #a7a8c2;
+  background-color: #f5f5f5;
   padding: 20px;
 }
 
