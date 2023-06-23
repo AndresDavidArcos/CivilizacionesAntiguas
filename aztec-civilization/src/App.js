@@ -27,7 +27,6 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
           <Route path='/arquitectura' element={<Arquitectura />} />
-          <Route path='/agricultura' element={<Agricultura />} />
           <Route path='/galeria' element={
             <>
              <Suspense  fallback={<LoaderScreen/>}>
@@ -63,6 +62,17 @@ function App() {
 
             </>
           } />
+
+            <Route path='/agricultura' element={
+            <>
+             <Suspense  fallback={<LoaderScreen/>}>
+              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+                <Agricultura />
+              </Canvas>             
+              </Suspense>              
+
+            </>
+          } />          
         </Routes>
       </Router>
     </div>
