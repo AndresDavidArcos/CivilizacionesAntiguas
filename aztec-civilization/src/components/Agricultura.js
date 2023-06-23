@@ -9,6 +9,7 @@ import BoatPlayer from './BoatPlayer';
 import Tomato from './Tomato';
 import Dirt from './Dirt';
 import Corn from './Corn';
+import Pumpkin from './Pumpkin';
 import { randInt } from 'three/src/math/MathUtils';
 
 const Agricultura = () => {
@@ -139,6 +140,22 @@ const Agricultura = () => {
       <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -4]} />
       <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -4]} />
       <Dirt position={[-29, dirt_heigh, -4]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      {/* Pumpkin plants */}
+      <Pumpkin position={[-22, 2.5, 8]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-29, 2.5, 8]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-36, 2.5, 8]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Dirt position={[-29, dirt_heigh, 8]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Pumpkin position={[-22, 2.5, 18]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-29, 2.5, 18]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-36, 2.5, 18]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Dirt position={[-29, dirt_heigh, 18]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Pumpkin position={[-22, 2.5, 28]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-29, 2.5, 28]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Pumpkin position={[-36, 2.5, 28]} rotation={[0, (angleToRadians(randInt(0, 360))), 0]} />
+      <Dirt position={[-29, dirt_heigh, 28]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
       {/*Right crops fences  */}
       <RigidBody type="fixed" colliders="cuboid">
