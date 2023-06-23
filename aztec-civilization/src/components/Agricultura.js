@@ -8,6 +8,7 @@ import { Physics, RigidBody } from '@react-three/rapier';
 import BoatPlayer from './BoatPlayer';
 import Tomato from './Tomato';
 import Dirt from './Dirt';
+import Corn from './Corn';
 import { randInt } from 'three/src/math/MathUtils';
 
 const Agricultura = () => {
@@ -113,6 +114,31 @@ const Agricultura = () => {
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -49]} />
       <Dirt position={[-29, dirt_heigh, -49]} scale={[0.7, 0.2, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
+      {/* Corn plants */}
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-22, 2, -35]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -35]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -35]} />
+      <Dirt position={[-29, dirt_heigh, -35]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-22, 2, -28]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -28]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -28]} />
+      <Dirt position={[-29, dirt_heigh, -28]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-22, 2, -20]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -20]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -20]} />
+      <Dirt position={[-29, dirt_heigh, -20]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-22, 2, -12]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -12]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -12]} />
+      <Dirt position={[-29, dirt_heigh, -12]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-22, 2, -4]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-29, 2, -4]} />
+      <Corn rotation={[0, (angleToRadians(randInt(0, 360))), 0]} position={[-36, 2, -4]} />
+      <Dirt position={[-29, dirt_heigh, -4]} scale={[0.7, 0.1, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
       {/*Right crops fences  */}
       <RigidBody type="fixed" colliders="cuboid">
