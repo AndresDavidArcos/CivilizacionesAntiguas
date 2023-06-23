@@ -7,10 +7,13 @@ import Player from './Player';
 import { Physics, RigidBody } from '@react-three/rapier';
 import BoatPlayer from './BoatPlayer';
 import Tomato from './Tomato';
+import Dirt from './Dirt';
 import { randInt } from 'three/src/math/MathUtils';
 
 const Agricultura = () => {
   const envMap = useEnvironment({ files: "../../ambientes/industrial_sunset_puresky_1k.hdr" })
+
+  const dirt_heigh = 2;
 
   return (<>
     {/* Testing Camera */}
@@ -93,18 +96,23 @@ const Agricultura = () => {
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-22, 2, -70]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-29, 2, -70]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -70]} />
+      <Dirt position={[-29, dirt_heigh, -70]} scale={[0.7, 0.2, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-22, 2, -63]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-29, 2, -63]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -63]} />
+      <Dirt position={[-29, dirt_heigh, -63]} scale={[0.7, 0.2, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-22, 2, -56]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-29, 2, -56]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -56]} />
+      <Dirt position={[-29, dirt_heigh, -56]} scale={[0.7, 0.2, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
 
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-22, 2, -49]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-29, 2, -49]} />
       <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -49]} />
+      <Dirt position={[-29, dirt_heigh, -49]} scale={[0.7, 0.2, 0.9]} rotation={[0, (angleToRadians(90)), 0]} />
+
 
       {/*Right crops fences  */}
       <RigidBody type="fixed" colliders="cuboid">
