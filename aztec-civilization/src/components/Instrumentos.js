@@ -34,6 +34,10 @@ const Instrumentos = () => {
     navigate('/menuSelection');
   };
 
+  const handleArteOInstrumentos = () => {
+    navigate('/arte-instrumentos');
+  };
+
   return (
     <>
       <div>
@@ -52,6 +56,7 @@ const Instrumentos = () => {
       <div>
         <button className='breadCrumb' onClick={handleLogin}>Login</button>
         <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+        <button className='breadCrumb' onClick={handleArteOInstrumentos}>Cultura</button>
         <button className='breadCrumbDisabled' >Instrumentos</button>
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
