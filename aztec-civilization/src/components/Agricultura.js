@@ -1,4 +1,4 @@
-import { CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
+import { Html, useGLTF, CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
 import React from 'react';
 import { angleToRadians } from '../utils/angle';
 import Fence from './Fence';
@@ -17,6 +17,12 @@ const Agricultura = () => {
   const envMap = useEnvironment({ files: "../../ambientes/industrial_sunset_puresky_1k.hdr" })
 
   const dirt_heigh = 2;
+
+  // Texto de Tomates
+  const [mostrarTextoTomates, setTextoTomates] = React.useState(false);
+  const textoTomates = () => {
+    setTextoTomates(!mostrarTextoTomates);
+  };
 
   return (<>
     {/* Testing Camera */}
@@ -96,7 +102,43 @@ const Agricultura = () => {
       </RigidBody>
 
       {/* Tomato plants */}
-      <group receiveShadow castShadow>
+      <group receiveShadow castShadow onClick={textoTomates}>
+
+        <Html position={[-22, 2, -70]}>
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: "gray",
+              display: mostrarTextoTomates ? "block" : "none",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "Arial",
+                color: "white",
+                width: "200px",
+                height: "auto",
+              }}
+            >
+              Para unos el origen de la ocarina se remonta a la América
+              Prehispánica.
+            </p>
+            <p
+              style={{
+                fontFamily: "Arial",
+                color: "white",
+                width: "200px",
+                height: "auto",
+              }}
+            >
+              Es un pequeño instrumento de viento sin llaves descendiente de
+              primitivos silbatos hechos con barro o hueso.
+            </p>
+          </div>
+        </Html>
         <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-22, 2, -70]} />
         <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-29, 2, -70]} />
         <Tomato rotation={[0, (angleToRadians(randInt(-90, 90))), 0]} position={[-36, 2, -70]} />
