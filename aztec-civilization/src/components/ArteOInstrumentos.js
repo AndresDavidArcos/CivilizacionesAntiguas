@@ -13,13 +13,24 @@ const ArteOInstrumentos = () => {
     navigate('/arte');
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleMenu = () => {
+    navigate('/menuSelection');
+  };
+
   return (
-    <div className="background">
-      <div className="contentrow">
+    <div className='backgroundArte'>
+      <button className='breadCrumb' onClick={handleLogin}>Login</button>
+      <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+      <button className='breadCrumbDisabled'>Cultura</button>
+      <div className='contentrow'>
         <div className="contentcolumn" id="columnleft">
           {/** aquí se carga la imagen que visualiza instrumentos */}
           <img
-            className="imageArte"
+            className="imageCultura"
             src={process.env.PUBLIC_URL + "/imagenes/musica.jpg"}
             alt="Imagen"
           />
@@ -32,7 +43,7 @@ const ArteOInstrumentos = () => {
         <div className="contentcolumn" id="columnright">
           {/** aquí se carga la imagen que visualiza arte */}
           <img
-            className="imageArte"
+            className="imageCultura"
             src={process.env.PUBLIC_URL + "/imagenes/arte.jpg"}
             alt="Imagen"
           />
