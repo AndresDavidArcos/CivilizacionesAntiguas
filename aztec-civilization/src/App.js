@@ -30,7 +30,7 @@ function App() {
           <Route path='/galeria' element={
             <>
              <Suspense  fallback={<LoaderScreen/>}>
-              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 500 }} shadows>
                 <ambientLight intensity={0.9} />
                 <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
                 <GaleriaNavigation />
@@ -66,7 +66,7 @@ function App() {
             <Route path='/agricultura' element={
             <>
              <Suspense  fallback={<LoaderScreen/>}>
-              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+              <Canvas id="three-canvas-container" camera={{ position: [1, 10, 2.5], fov: 50 }} shadows>
                 <Agricultura />
               </Canvas>             
               </Suspense>              
