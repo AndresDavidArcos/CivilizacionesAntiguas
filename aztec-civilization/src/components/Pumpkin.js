@@ -12,8 +12,8 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Pumpkin(props) {
     const { nodes, materials } = useGLTF('../../modelos/pumpkin.glb')
-    console.log("Nodos" + nodes)
-    console.log("Materiales" + materials)
+    console.log(nodes)
+    console.log(materials)
     return (
         <group {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={2.3} position={[0, 0, 0]}>
@@ -27,7 +27,7 @@ export default function Pumpkin(props) {
                 </group>
                 <mesh geometry={nodes.Tija_0.geometry} material={materials['Material.002']} position={[0.009, 0.003, 1.608]} scale={0.261} />
                 {/* <mesh geometry={nodes.Terra_0.geometry} material={materials['Material.001']} /> */}
-                <mesh geometry={nodes.Pumpkin_0.geometry} material={materials['Material.002']} position={[0.013, 0, 0.782]} scale={[1, 1, 0.821]} />
+                <mesh geometry={nodes.Pumpkin_0.geometry} material={materials['Material.001']} position={[0.013, 0, 0.782]} scale={[1, 1, 0.821]} />
                 <mesh geometry={nodes.Leaf004_0.geometry} material={materials['Material.002']} position={[0.783, 1.024, 0.751]} rotation={[-0.173, 0.523, 0.725]} scale={1.46} />
                 <mesh geometry={nodes.Leaf002_0.geometry} material={materials['Material.002']} position={[0.12, 1.241, 0.297]} rotation={[-0.735, 0.068, 0.985]} scale={3.072} />
             </group>
