@@ -1,44 +1,39 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Arte-Instrumentos.css";
 
 const ArteOInstrumentos = () => {
+  const navigate = useNavigate();
+  const handleInstrumentos = () => {
+    navigate('/instrumentos');
+  };
+  const handleArte = () => {
+    navigate('/arte');
+  };
+
   return (
-    <div className="container">
-      <div className="half">
-        <div className="content">
+    <div className='background'>
+      <div className='contentrow'>
+        <div className="contentcolumn" id="columnleft">
           <img
-            className="image"
+            className="imageArte"
             src={process.env.PUBLIC_URL + "/imagenes/musica.jpg"}
             alt="Imagen"
-            style={{
-              width: "655px",
-              height: "665px",
-              position: "fixed",
-              top: "0px",
-              right: "655px",
-            }}
           />
-          <div>
-                      <button className="button" style={{ zIndex: 2 }}>Ir a instrumentos</button>
+          <div className='imageoverlay' onClick={handleInstrumentos}>
+            <div className='imagetitle'>Instrumentos</div>
+            <p className='imagehovering'>Haz click para ir a Instrumentos</p>
           </div>
         </div>
-      </div>
-      <div className="half">
-        <div className="content">
+        <div className="contentcolumn" id="columnright">
           <img
-            className="image"
+            className="imageArte"
             src={process.env.PUBLIC_URL + "/imagenes/arte.jpg"}
             alt="Imagen"
-            style={{
-              width: "655px",
-              height: "665px",
-              position: "fixed",
-              top: "0px",
-              right: "0px",
-            }}
           />
-          <div>
-                      <button className="button" style={{ zIndex: 2 }}>Ir a arte</button>
+          <div className='imageoverlay' onClick={handleArte}>
+            <div className='imagetitle'>Arte</div>
+            <p className='imagehovering'>Haz click para ir a Arte</p>
           </div>
         </div>
       </div>

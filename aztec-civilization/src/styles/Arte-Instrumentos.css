@@ -1,25 +1,41 @@
-.container {
+.imageoverlay {
+    top: 0%;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    align-self: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
     display: flex;
-    height: 100vh;
-}
-
-.half {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    object-fit: cover;
+    flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
 }
 
-.content {
-    position: relative;
-    text-align: center;
+.imageoverlay:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
-.image {
-    width: 300px;
-    height: 300px;
-    transition: filter 0.3s ease;
+.imagetitle {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.imagehovering {
+    font-size: 1.25em;
+    margin-top: 0.25em;
+}
+
+.imageArte {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: flex;
 }
 
 .button {
@@ -27,12 +43,36 @@
     padding: 10px 20px;
     margin-top: 20px;
     transition: transform 0.3s ease;
+    z-index: 3;
 }
 
-.half:hover .image {
-    filter: brightness(50%);
+.contentrow {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
 }
 
-.button:hover {
-    transform: scale(1.1);
+.contentcolumn {
+    width: 50%;
+    height: 100%;
+    padding: 0%;
+    overflow: hidden;
+}
+
+#columnleft {
+    transition: margin 1s ease-in;
+}
+
+#columnright {
+    transition: margin 1s ease-in;
+}
+
+.background {
+    background-color: #f5f5f5;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    overflow: hidden
 }
