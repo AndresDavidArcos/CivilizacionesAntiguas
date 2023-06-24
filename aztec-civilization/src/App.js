@@ -32,6 +32,7 @@ function App() {
             path="/galeria"
             element={
               <>
+            <Suspense fallback={<LoaderScreen/>}>            
                 <Canvas
                   id="three-canvas-container"
                   camera={{ position: [1, 1.5, 2.5], fov: 50 }}
@@ -47,6 +48,7 @@ function App() {
                 </Canvas>
                 <Galery />
                 <div className="dot" />
+                </Suspense>                 
               </>
             }
           />
@@ -71,6 +73,7 @@ function App() {
             path="/menuSelection"
             element={
               <>
+              <Suspense fallback={<LoaderScreen/>}>
                 <Canvas
                   id="three-canvas-container"
                   camera={{ position: [1, 1.5, 2.5], fov: 50 }}
@@ -81,6 +84,7 @@ function App() {
                 <Menu />
                 <RetroDialog />
                 <VolumeSlider />
+                </Suspense>                 
               </>
             }
           />
