@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Agricultura = () => {
-  return <div>Tópico: Agricultura</div>;
+  return <div></div>;
 };
 
 export default Agricultura;

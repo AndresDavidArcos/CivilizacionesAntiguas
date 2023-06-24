@@ -17,16 +17,27 @@ const ArteOInstrumentos = () => {
     navigate('/login');
   };
 
+  const handleInicio = () => {
+    navigate('/pagina-principal');
+  }
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
 
   return (
-    <div className='backgroundArte'>
-      <button className='breadCrumb' onClick={handleLogin}>Login</button>
-      <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-      <button className='breadCrumbDisabled'>Cultura</button>
-      <div className='contentrow'>
+    <div className="backgroundArte">
+      <button className="breadCrumb" onClick={handleLogin}>
+        Login
+      </button>
+      <button className="breadCrumb" onClick={handleInicio}>
+        Inicio
+      </button>
+      <button className="breadCrumb" onClick={handleMenu}>
+        Menú de selección
+      </button>
+      <button className="breadCrumbDisabled">Cultura</button>
+      <div className="contentrow">
         <div className="contentcolumn" id="columnleft">
           {/** aquí se carga la imagen que visualiza instrumentos */}
           <img
@@ -37,7 +48,9 @@ const ArteOInstrumentos = () => {
           {/** este es para acceder al enfoque de los instrumentos */}
           <div className="imageoverlay" onClick={handleInstrumentos}>
             <div className="imagetitle">Instrumentos</div>
-            <p className="imagehovering">Haz click para ir a Instrumentos</p>
+            <p className="imagehovering" data-testid="choose-element">
+              Haz click para ir a Instrumentos
+            </p>
           </div>
         </div>
         <div className="contentcolumn" id="columnright">

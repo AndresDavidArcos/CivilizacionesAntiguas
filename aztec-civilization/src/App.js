@@ -15,6 +15,7 @@ import GaleriaNavigation from './components/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import PaginaPrincipal from './components/PaginaPrincipal';
 
 function App() {
   return (
@@ -64,6 +65,14 @@ function App() {
             element={
               <>
                 <ArteOInstrumentos />
+              </>
+            }
+          />
+          <Route
+            path="/pagina-principal"
+            element={
+              <>
+                <PaginaPrincipal />
               </>
             }
           />

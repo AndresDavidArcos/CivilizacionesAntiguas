@@ -29,6 +29,10 @@ const Instrumentos = () => {
     navigate('/login');
   };
 
+  const handleInicio = () => {
+    navigate("/pagina-principal");
+  };
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
@@ -57,10 +61,19 @@ const Instrumentos = () => {
         {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
          * a cualquiera.
          */}
-        <button className='breadCrumb' onClick={handleLogin}>Login</button>
-        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-        <button className='breadCrumb' onClick={handleArteOInstrumentos}>Cultura</button>
-        <button className='breadCrumbDisabled' >Instrumentos</button>
+        <button className="breadCrumb" onClick={handleLogin}>
+          Login
+        </button>
+        <button className="breadCrumb" onClick={handleInicio}>
+          Inicio
+        </button>
+        <button className="breadCrumb" onClick={handleMenu}>
+          Menú de selección
+        </button>
+        <button className="breadCrumb" onClick={handleArteOInstrumentos}>
+          Cultura
+        </button>
+        <button className="breadCrumbDisabled">Instrumentos</button>
         {/** aquí se carga el icono de ayuda y se le añade un escucha */}
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
@@ -86,7 +99,8 @@ const Instrumentos = () => {
               Intrucciones
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Puede explorar la habitación manteniendo presionado el click izquierdo y deslizando el mouse.
+              Puede explorar la habitación manteniendo presionado el click
+              izquierdo y deslizando el mouse.
             </Typography>
             <Button
               variant="contained"
@@ -96,7 +110,7 @@ const Instrumentos = () => {
                 position: "absolute",
                 top: "137px",
                 left: "50px",
-                background: "red"
+                background: "red",
               }}
               onClick={() => setOpen(false)}
             >
