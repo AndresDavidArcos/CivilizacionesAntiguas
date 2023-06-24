@@ -29,6 +29,10 @@ const Instrumentos = () => {
     navigate('/login');
   };
 
+  const handleInicio = () => {
+    navigate("/pagina-principal");
+  };
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
@@ -91,7 +95,8 @@ const Instrumentos = () => {
               Intrucciones
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Puede explorar la habitación manteniendo presionado el click izquierdo y deslizando el mouse.
+              Puede explorar la habitación manteniendo presionado el click
+              izquierdo y deslizando el mouse.
             </Typography>
             <Button
               variant="contained"
@@ -101,7 +106,7 @@ const Instrumentos = () => {
                 position: "absolute",
                 top: "137px",
                 left: "50px",
-                background: "red"
+                background: "red",
               }}
               onClick={() => setOpen(false)}
             >

@@ -72,6 +72,14 @@ function App() {
             }
           />
           <Route
+            path="/pagina-principal"
+            element={
+              <>
+                <PaginaPrincipal />
+              </>
+            }
+          />
+          <Route
             path="/menuSelection"
             element={
               <>

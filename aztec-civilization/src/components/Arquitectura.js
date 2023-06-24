@@ -70,9 +70,15 @@ const Arquitectura = () => {
   };
 
   const navigate = useNavigate();
+
   const handleLogin = () => {
     navigate('/login');
   };
+
+  const handleInicio = () => {
+    navigate('/pagina-principal');
+  }
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
@@ -82,8 +88,8 @@ const Arquitectura = () => {
   }
 
   return (
-    <div className='background'>
-      <div className='content_rowar'>
+    <div className="background">
+      <div className="content_rowar">
         <div className="content_columnar" id="column_leftar">
           {/* Breadcrumbs para dirrecionamiento */}
           <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
@@ -94,38 +100,48 @@ const Arquitectura = () => {
           {/* Header con titulo de civilización */}
           <div className="header">
             <h2 className="title-azteca">Tenochtitlan</h2>
-            <h2 className='subtitle'>LA CAPITAL AZTECA</h2>
+            <h2 className="subtitle">LA CAPITAL AZTECA</h2>
           </div>
 
           {/* Información de estructura */}
-          <h2 className='titulo'>{title}</h2>
-          <p className='texto'>{content}</p>
+          <h2 className="titulo">{title}</h2>
+          <p className="texto">{content}</p>
 
           {/* Botones para ver otras estructuras */}
-          <div className='container'>
-            <button className='boton' id='anterior' onClick={handlePrevSlide}>
-              <img className='icono' src={process.env.PUBLIC_URL + "/imagenes/left-arrow.jpg"} alt="Imagen" />
+          <div className="container">
+            <button className="boton" id="anterior" onClick={handlePrevSlide}>
+              <img
+                className="icono"
+                src={process.env.PUBLIC_URL + "/imagenes/left-arrow.jpg"}
+                alt="Imagen"
+              />
               <a>Anterior</a>
             </button>
-            <button className='boton' id='siguiente' onClick={handleNextSlide}>
+            <button className="boton" id="siguiente" onClick={handleNextSlide}>
               <a>Siguiente</a>
-              <img className='icono' src={process.env.PUBLIC_URL + "/imagenes/right-arrow.jpg"} alt="Imagen" />
+              <img
+                className="icono"
+                src={process.env.PUBLIC_URL + "/imagenes/right-arrow.jpg"}
+                alt="Imagen"
+              />
             </button>
           </div>
         </div>
 
         <div className="content_columnar" id="column_rightar">
           {/* Imagen de cada arquitectura */}
-          <img className='imagen' src={image} alt={title} />
-          <div className='image_overlay' onClick={handleButtonClick}>
-            <div className='image_title'>{title}</div>
-            <p className='image_hovering'>Haz click para ver este modelo</p>
+          <img className="imagen" src={image} alt={title} />
+          <div className="image_overlay" onClick={handleButtonClick}>
+            <div className="image_title">{title}</div>
+            <p className="image_hovering">Haz click para ver este modelo</p>
           </div>
 
-          {showModal && <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />}
+          {showModal && (
+            <Modelos slide={slides[currentSlide]} onClose={handleCloseModal} />
+          )}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

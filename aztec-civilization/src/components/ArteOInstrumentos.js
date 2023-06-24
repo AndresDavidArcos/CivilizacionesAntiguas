@@ -17,6 +17,10 @@ const ArteOInstrumentos = () => {
     navigate('/login');
   };
 
+  const handleInicio = () => {
+    navigate('/pagina-principal');
+  }
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
@@ -41,7 +45,9 @@ const ArteOInstrumentos = () => {
           {/** este es para acceder al enfoque de los instrumentos */}
           <div className="imageoverlay" onClick={handleInstrumentos}>
             <div className="imagetitle">Instrumentos</div>
-            <p className="imagehovering">Haz click para ir a Instrumentos</p>
+            <p className="imagehovering" data-testid="choose-element">
+              Haz click para ir a Instrumentos
+            </p>
           </div>
         </div>
         <div className="contentcolumn" id="columnright">
