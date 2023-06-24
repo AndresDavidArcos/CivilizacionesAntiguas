@@ -6,13 +6,12 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "../styles/Instrumentos.css";
 
+{/** este componente es el encargado de mostrar todo el enfoque
+de instrumentos */}
 const Instrumentos = () => {
   const [open, setOpen] = React.useState(false);
 
   const navigate = useNavigate();
-  const useHandleNavigateMenu = () => {
-    navigate('/menuSelection');
-  };
 
   const useHandleNavigateGaleria = () => {
     navigate('/galeria');
@@ -30,13 +29,26 @@ const Instrumentos = () => {
     navigate('/login');
   };
 
+  const handleInicio = () => {
+    navigate("/pagina-principal");
+  };
+
   const handleMenu = () => {
     navigate('/menuSelection');
   };
 
+  const handleArteOInstrumentos = () => {
+    navigate('/arte-instrumentos');
+  };
+
+  const handlePagina = () => {
+    navigate('/pagina-principal');
+  }
+
   return (
     <>
       <div>
+        {/** se carga la imagen de instrumentos  */}
         <img
           src={process.env.PUBLIC_URL + "/imagenes/instrumentos.jpg"}
           alt="Imagen"
@@ -50,9 +62,15 @@ const Instrumentos = () => {
         />
       </div>
       <div>
+        {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
+         * a cualquiera.
+         */}
+        <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
         <button className='breadCrumb' onClick={handleLogin}>Login</button>
         <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+        <button className='breadCrumb' onClick={handleArteOInstrumentos}>Cultura</button>
         <button className='breadCrumbDisabled' >Instrumentos</button>
+        {/** aquí se carga el icono de ayuda y se le añade un escucha */}
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
           alt="Imagen"
@@ -65,6 +83,7 @@ const Instrumentos = () => {
           }}
           onClick={handleOpen}
         />
+        {/** aqui se muestran las intrucciones al dar click en ayuda */}
         <Modal
           open={open}
           onClose={handleClose}
@@ -76,7 +95,8 @@ const Instrumentos = () => {
               Intrucciones
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Puede explorar la habitación manteniendo presionado el click izquierdo y deslizando el mouse.
+              Puede explorar la habitación manteniendo presionado el click
+              izquierdo y deslizando el mouse.
             </Typography>
             <Button
               variant="contained"
@@ -86,7 +106,7 @@ const Instrumentos = () => {
                 position: "absolute",
                 top: "137px",
                 left: "50px",
-                background: "red"
+                background: "red",
               }}
               onClick={() => setOpen(false)}
             >
@@ -96,6 +116,7 @@ const Instrumentos = () => {
         </Modal>
       </div>
 
+      {/** aquí se escribe toda la información de los instrumentos */}
       <div className="content_row">
         <div className="content_column" id="column_left">
           <div className="title">Instrumentos del Imperio Azteca</div>
@@ -153,7 +174,7 @@ const Instrumentos = () => {
             </div>
           </div>
         </div>
-
+        {/** este es el botón que permite ingresar al modelo de instrumentos */}
         <div className="content_column" id="column_right">
           <button className="boton" onClick={useHandleNavigateGaleria}>
             Click aquí para entrar a la exposición

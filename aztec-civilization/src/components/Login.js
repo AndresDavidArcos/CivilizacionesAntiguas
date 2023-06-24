@@ -32,7 +32,7 @@ export default function Login() {
       const data = await response.json();
       if (response.status === 200) {
         setUser(data)
-        navigate('/menuSelection', { state: { user: data } })
+        navigate('/pagina-principal', { state: { user: data } })
       } else {
         setErrors(data.message.detail)
       }
