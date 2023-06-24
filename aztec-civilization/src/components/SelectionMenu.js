@@ -39,7 +39,7 @@ export default function SelectionMenu() {
         navigator('/agricultura')
         break;
       case 'instrumentos':
-        navigator('/instrumentos')
+        navigator('/arte-instrumentos')
         break;
       case 'arquitectura':
         navigator('/arquitectura')

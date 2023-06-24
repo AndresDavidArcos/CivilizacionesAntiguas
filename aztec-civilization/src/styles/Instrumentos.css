@@ -73,13 +73,13 @@
 .boton {
     display: flex;
     flex-direction: row;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     padding: 10px 89px;
     gap: 10px;
 
     position: fixed;
-    width: 310px;
+    width: auto;
     height: 50px;
     top: 90%;
 

@@ -1,12 +1,8 @@
 import React, { useRef, useMemo } from "react";
 import {
   useGLTF,
-  Html,
+  Html
 } from "@react-three/drei";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import { AudioListener, AudioLoader, Audio } from "three";
 import { useLoader } from "react-three-fiber";
 import ocarinaMusic from "../musica/ocarina.mp3";
@@ -15,6 +11,8 @@ import TlapitzalliMusic from "../musica/Tlapitzalli.mp3";
 import AyoyoteMusic from "../musica/ayoyote.mp3";
 import "../styles/Instrumentos.css";
 
+{/** este componente carga el modelo de la galería que contiene todos los instrumentos 
+con su descripción y sonido respectivo */}
 export default function Galeria(props) {
 
   const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos1.glb");
@@ -142,6 +140,7 @@ export default function Galeria(props) {
 
   return (
     <>
+      {/** aquí se carga el modelo de la galería que contiene todos los instrumentos */}
       <group {...props} dispose={null}>
         <group position={[-0.14, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <mesh
