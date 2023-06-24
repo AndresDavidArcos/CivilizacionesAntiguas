@@ -1,0 +1,71 @@
+.imageoverlay {
+    top: 0px;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    align-self: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    object-fit: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.imageoverlay:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.imagetitle {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.imagehovering {
+    font-size: 1.25em;
+    margin-top: 0.25em;
+}
+
+.imageCultura {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: flex;
+    z-index: -2;
+}
+
+.contentrow {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.contentcolumn {
+    width: 50%;
+    height: 100%;
+    padding: 0%;
+    overflow: hidden;
+}
+
+#columnleft {
+    transition: margin 1s ease-in;
+}
+
+#columnright {
+    transition: margin 1s ease-in;
+}
+
+.backgroundArte {
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden
+}
