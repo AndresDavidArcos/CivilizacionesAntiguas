@@ -14,6 +14,7 @@ import Galery from './components/BreadCrumbGalery';
 import GaleriaNavigation from './components/GaleriaNavigation';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import BCAgricultura from './components/BreadCrumbAgricultura';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
               <Canvas id="three-canvas-container" camera={{ position: [1, 10, 2.5], fov: 50 }} shadows>
                 <Agricultura />
               </Canvas>             
+              <BCAgricultura /> 
               </Suspense>              
 
             </>
