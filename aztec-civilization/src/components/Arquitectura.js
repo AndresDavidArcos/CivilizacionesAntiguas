@@ -100,10 +100,10 @@ const Arquitectura = () => {
           <div className='container'>
             <button className='boton' id='anterior' onClick={handlePrevSlide}>
               <img className='icono' src={process.env.PUBLIC_URL + "/imagenes/left-arrow.jpg"} alt="Imagen" />
-              <span>Anterior</span>
+              <a>Anterior</a>
             </button>
             <button className='boton' id='siguiente' onClick={handleNextSlide}>
-              <span>Siguiente</span>
+              <a>Siguiente</a>
               <img className='icono' src={process.env.PUBLIC_URL + "/imagenes/right-arrow.jpg"} alt="Imagen" />
             </button>
           </div>

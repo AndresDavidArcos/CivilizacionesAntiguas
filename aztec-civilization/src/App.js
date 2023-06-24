@@ -8,19 +8,20 @@ import RetroDialog from './components/RetroDialog';
 import Agricultura from './components/Agricultura';
 import Instrumentos from './components/Instrumentos';
 import Arquitectura from './components/Arquitectura';
-import Galeria from './components/Galeria';
-import { OrbitControls } from '@react-three/drei';
 import VolumeSlider from './components/VolumeSlider';
 import Menu from './components/BreadCrumb';
 import Galery from './components/BreadCrumbGalery';
 import GaleriaNavigation from './components/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
+import { Suspense } from 'react';
+import LoaderScreen from './components/LoaderScreen';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
+          {/* <Route path="/testingComponents" element={<LoaderScreen/>}/> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Navigate to="/login" />} />
