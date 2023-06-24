@@ -16,7 +16,9 @@ import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
 import BCAgricultura from './components/BreadCrumbAgricultura';
-import PaginaPrincipal from './components/PaginaPrincipal';
+import PaginaPrincipal from './components/PaginaPrincipal';import Art from './components/BreadCrumbArt';
+import ArteNavigation from './components/ArteNavigation';
+
 
 function App() {
   return (
@@ -107,6 +109,20 @@ function App() {
                 <BCAgricultura />
               </Suspense>
 
+            </>
+          } />
+          
+          <Route path='/arte' element={
+            <>
+             <Suspense  fallback={<LoaderScreen/>}>
+              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+                <ambientLight intensity={0.9} />
+                <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
+                <ArteNavigation />
+              </Canvas>
+              <Art />
+              <div className="dot" />
+              </Suspense>
             </>
           }
           />
