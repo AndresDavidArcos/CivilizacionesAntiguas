@@ -6,8 +6,12 @@ const Menu = () => {
     const handleLogin = () => {
         navigate('/login');
     }
+    const handlePagina = () => {
+        navigate('/pagina-principal');
+    }
     return (
         <div className='breadCrumb-Container'>
+            <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
             <button className='breadCrumb' onClick={handleLogin}>Login</button>
             <button className='breadCrumbDisabled' >Menú de selección</button>
         </div>

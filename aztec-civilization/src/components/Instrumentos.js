@@ -37,6 +37,10 @@ const Instrumentos = () => {
     navigate('/arte-instrumentos');
   };
 
+  const handlePagina = () => {
+    navigate('/pagina-principal');
+  }
+
   return (
     <>
       <div>
@@ -57,6 +61,7 @@ const Instrumentos = () => {
         {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
          * a cualquiera.
          */}
+        <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
         <button className='breadCrumb' onClick={handleLogin}>Login</button>
         <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
         <button className='breadCrumb' onClick={handleArteOInstrumentos}>Cultura</button>
