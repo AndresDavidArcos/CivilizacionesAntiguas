@@ -15,6 +15,7 @@ import GaleriaNavigation from './components/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import BCAgricultura from './components/BreadCrumbAgricultura';
 import PaginaPrincipal from './components/PaginaPrincipal';
 
 function App() {
@@ -23,31 +24,33 @@ function App() {
       <Router>
         <Routes>
           {/* <Route path="/testingComponents" element={<LoaderScreen/>}/> */}
+          <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/" element={<Navigate to="/pagina-principal" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
           <Route path="/arquitectura" element={<Arquitectura />} />
-          <Route path="/agricultura" element={<Agricultura />} />
           <Route
             path="/galeria"
             element={
               <>
-                <Canvas
-                  id="three-canvas-container"
-                  camera={{ position: [1, 1.5, 2.5], fov: 50 }}
-                  shadows
-                >
-                  <ambientLight intensity={0.9} />
-                  <pointLight
-                    position={[0, 3.8, -1]}
-                    intensity={0.9}
-                    castShadow
-                  />
-                  <GaleriaNavigation />
-                </Canvas>
-                <Galery />
-                <div className="dot" />
+                <Suspense fallback={<LoaderScreen />}>
+                  <Canvas
+                    id="three-canvas-container"
+                    camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                    shadows
+                  >
+                    <ambientLight intensity={0.9} />
+                    <pointLight
+                      position={[0, 3.8, -1]}
+                      intensity={0.9}
+                      castShadow
+                    />
+                    <GaleriaNavigation />
+                  </Canvas>
+                  <Galery />
+                  <div className="dot" />
+                </Suspense>
               </>
             }
           />
@@ -80,18 +83,32 @@ function App() {
             path="/menuSelection"
             element={
               <>
-                <Canvas
-                  id="three-canvas-container"
-                  camera={{ position: [1, 1.5, 2.5], fov: 50 }}
-                  shadows
-                >
-                  <SelectionMenu />
-                </Canvas>
-                <Menu />
-                <RetroDialog />
-                <VolumeSlider />
+                <Suspense fallback={<LoaderScreen />}>
+                  <Canvas
+                    id="three-canvas-container"
+                    camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                    shadows
+                  >
+                    <SelectionMenu />
+                  </Canvas>
+                  <Menu />
+                  <RetroDialog />
+                  <VolumeSlider />
+                </Suspense>
               </>
-            }
+            } />
+
+          <Route path='/agricultura' element={
+            <>
+              <Suspense fallback={<LoaderScreen />}>
+                <Canvas id="three-canvas-container" camera={{ position: [1, 10, 2.5], fov: 50 }} shadows>
+                  <Agricultura />
+                </Canvas>
+                <BCAgricultura />
+              </Suspense>
+
+            </>
+          }
           />
         </Routes>
       </Router>

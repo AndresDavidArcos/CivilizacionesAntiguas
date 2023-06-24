@@ -25,19 +25,16 @@ const ArteOInstrumentos = () => {
     navigate('/menuSelection');
   };
 
+  const handlePagina = () => {
+    navigate('/pagina-principal');
+  }
   return (
-    <div className="backgroundArte">
-      <button className="breadCrumb" onClick={handleLogin}>
-        Login
-      </button>
-      <button className="breadCrumb" onClick={handleInicio}>
-        Inicio
-      </button>
-      <button className="breadCrumb" onClick={handleMenu}>
-        Menú de selección
-      </button>
-      <button className="breadCrumbDisabled">Cultura</button>
-      <div className="contentrow">
+    <div className='backgroundArte'>
+      <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
+      <button className='breadCrumb' onClick={handleLogin}>Login</button>
+      <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+      <button className='breadCrumbDisabled'>Cultura</button>
+      <div className='contentrow'>
         <div className="contentcolumn" id="columnleft">
           {/** aquí se carga la imagen que visualiza instrumentos */}
           <img

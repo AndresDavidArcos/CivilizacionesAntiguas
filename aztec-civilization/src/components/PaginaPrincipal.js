@@ -34,7 +34,6 @@ const PaginaPrincipal = () => {
             <header>
               <h1>Bienvenido(a) a la Civilización Azteca</h1>
             </header>
-            {/** cargado de la imagen */}
             <img
               src={process.env.PUBLIC_URL + "/imagenes/introduccion.jpeg"}
               alt="Introducción"
@@ -44,7 +43,7 @@ const PaginaPrincipal = () => {
               }}
             />
             {/** una breve introducción del proyecto */}
-            <p data-testid="intro-element">
+            <p>
               Aquí encontrarás información importante de la cultura Azteca como
               su historia y datos curiosos. También tienes un espacio para
               sumergirte en su arte, agricultura, arquitectura y escuchar sus
@@ -56,19 +55,21 @@ const PaginaPrincipal = () => {
               Azteca
             </p>
           </div>
-          {/** breve historia de la civilización */}
+
+          <div className="left-section">
+            <img
+              src={process.env.PUBLIC_URL + "/imagenes/historia.jpeg"}
+              alt="Historia Azteca"
+              style={{
+                width: "580px",
+                height: "400px",
+              }}
+            />
+          </div>
+
           <div className="right-section">
             <div className="section">
               <h2>Historia de la civilización Azteca</h2>
-              {/** cargado de la imagen */}
-              <img
-                src={process.env.PUBLIC_URL + "/imagenes/historia.jpg"}
-                alt="Historia Azteca"
-                style={{
-                  width: "580px",
-                  height: "400px",
-                }}
-              />
               <p>
                 El imperio Azteca fue una de las unidades políticas más
                 importantes de la América precolombina. Gracias a una alianza
@@ -89,12 +90,11 @@ const PaginaPrincipal = () => {
                 Cuauhtémoc, el último de los emperadores aztecas.
               </p>
             </div>
-            {/** tres datos curiosos */}
+
             <div className="section">
               <h2>Datos curiosos de la civilización</h2>
-              {/** cargado de la imagen */}
               <img
-                src={process.env.PUBLIC_URL + "/imagenes/datos-curiosos.jpg"}
+                src={process.env.PUBLIC_URL + "/imagenes/datos-curiosos.jpeg"}
                 alt="Datos Curiosos"
                 style={{
                   width: "580px",
@@ -131,7 +131,6 @@ const PaginaPrincipal = () => {
             </div>
           </div>
         </div>
-        {/** boton que redirige al menú de selección */}
         <button className="sticky-button" onClick={handleMenu}>
           Ver los tópicos
         </button>
