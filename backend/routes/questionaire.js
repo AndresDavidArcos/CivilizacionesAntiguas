@@ -1,9 +1,8 @@
-const {addQuestionaire, updateQuestionaire} = require("../controllers/questionaire");
+const {addQuestionaire} = require("../controllers/questionaire");
 
 const express = require("express");
 const app = express();
 
-app.post("/addQuestionaire", addQuestionaire);
-app.post("/modifyQuestionaire", updateQuestionaire);
+app.post("/add", addQuestionaire);
 
 module.exports = app;

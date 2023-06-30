@@ -34,19 +34,18 @@ const Usuario = new Schema({
     }
 });
 
-Usuario.pre('save', async function(next) {
-  if (!this.isModified('clave')) return next();
-
-  try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(this.clave, salt);
-    this.clave = hash;
-    next();
-  } catch (error) {
-    next(error);
-  }
+Usuario.pre('save', function(next) {
+  let user = this;
+  if (!user.isModified('clave')) return next();
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) return next(err);
+    bcrypt.hash(user.clave, salt, null, (err, hash) => {
+      if (err) return next(err);
+      user.clave = hash;
+      next();
+    });
+  });
 });
-
 
 Usuario.pre('save', async function(next) {
   if (this.isNew) {

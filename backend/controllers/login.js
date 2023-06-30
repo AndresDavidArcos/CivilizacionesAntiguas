@@ -3,9 +3,10 @@ const bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
    async register(req, res, next){
-      try {         
+      try {      
          const user = req.body;
          await User.create(user);
+
          res.status(200).send({ message: "Usuario registrado exitosamente"});
       } catch (err) {
          if(err.code === 11000){
