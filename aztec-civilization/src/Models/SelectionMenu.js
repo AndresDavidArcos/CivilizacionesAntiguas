@@ -1,6 +1,6 @@
 import AztecPyramid from "./AztecPyramid";
 import AncientGate from "./AncientGate";
-import Player from "./Player";
+import Player from "../Models/Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
 import { Environment, KeyboardControls, PointerLockControls, useEnvironment, useTexture } from "@react-three/drei";

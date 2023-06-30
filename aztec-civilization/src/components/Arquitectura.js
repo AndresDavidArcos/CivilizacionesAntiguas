@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../styles/Arquitectura.css";
-import Modelos from './Arquitecturas';
+import Modelos from '../Models/Arquitecturas';
 
 const Arquitectura = () => {
   // Datos de los slides

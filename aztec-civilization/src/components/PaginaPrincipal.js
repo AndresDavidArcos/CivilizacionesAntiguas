@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/PaginaPrincipal.css";
+import "../styles/PaginaPrincipal";
+import AvatarChip from "./AvatarChip";
 
 {/** este componente muestra información general sobre la civilización Azteca: historia, datos curiosos y videos */}
 const PaginaPrincipal = () => {
@@ -23,6 +24,7 @@ const PaginaPrincipal = () => {
         {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
          * a cualquiera.
          */}
+        <AvatarChip />
         <button className="breadCrumb" onClick={handleLogin}>
           Login
         </button>

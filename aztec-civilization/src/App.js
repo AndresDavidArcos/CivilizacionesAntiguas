@@ -3,21 +3,21 @@ import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Login from "./components/Login";
 import Register from './components/Register';
-import SelectionMenu from './components/SelectionMenu';
+import SelectionMenu from './Models/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
-import Agricultura from './components/Agricultura';
+import Agricultura from './Models/Agricultura';
 import Instrumentos from './components/Instrumentos';
 import Arquitectura from './components/Arquitectura';
 import VolumeSlider from './components/VolumeSlider';
 import Menu from './components/BreadCrumb';
 import Galery from './components/BreadCrumbGalery';
-import GaleriaNavigation from './components/GaleriaNavigation';
+import GaleriaNavigation from './Models/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
 import BCAgricultura from './components/BreadCrumbAgricultura';
 import PaginaPrincipal from './components/PaginaPrincipal';import Art from './components/BreadCrumbArt';
-import ArteNavigation from './components/ArteNavigation';
+import ArteNavigation from './Models/ArteNavigation';
 
 
 function App() {
