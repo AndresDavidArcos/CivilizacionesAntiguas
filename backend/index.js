@@ -4,7 +4,10 @@ const app = express();
 const db = require("./database")
 
 //middlewares
-app.use(cors());
+app.use(cors({
+    origin: 'https://civilizaciones-antiguas-xeko.vercel.app'
+  }));
+  
 app.use(express.json());
 
 //configuraciones
