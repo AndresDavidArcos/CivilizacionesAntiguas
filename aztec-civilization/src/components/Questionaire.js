@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const QuestionaireForm = () => {
 
-  const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
-//   const baseUrl = "http://localhost:4000/api/";
+//   const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
+  const baseUrl = "http://localhost:4000/api/";
 
   const initialQuestionaire = {
     nombre: "",
@@ -37,13 +37,22 @@ const QuestionaireForm = () => {
   const handleAgregarRespuesta = (index) => {
     const preguntasRespuestasCopy = [...questionaire.preguntasRespuestas];
     preguntasRespuestasCopy[index].respuestas.push("");
+    preguntasRespuestasCopy[index].respuestaCorrecta = "";
     setQuestionaire({ ...questionaire, preguntasRespuestas: preguntasRespuestasCopy });
   };
 
+
+  const handleRespuestaCorrectaChange = (preguntaIndex, e) => {
+    const preguntasRespuestasCopy = [...questionaire.preguntasRespuestas];
+    const respuestaCorrectaIndex = parseInt(e.target.value);
+    preguntasRespuestasCopy[preguntaIndex].respuestaCorrecta = preguntasRespuestasCopy[preguntaIndex].respuestas[respuestaCorrectaIndex];
+    setQuestionaire({ ...questionaire, preguntasRespuestas: preguntasRespuestasCopy });
+  };
+  
   const handleLimpiarCuestionarios = () => {
     setQuestionaire(initialQuestionaire);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(questionaire);
@@ -87,14 +96,24 @@ const QuestionaireForm = () => {
               placeholder="Ingrese la pregunta"
             />
             {preguntaRespuesta.respuestas.map((respuesta, respuestaIndex) => (
-              <input
-                key={respuestaIndex}
-                type="text"
-                value={respuesta}
-                onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
-                placeholder="Ingrese una respuesta"
-              />
+                <div key={respuestaIndex}>
+                <input
+                    type="text"
+                    value={respuesta}
+                    onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
+                    placeholder="Ingrese una respuesta"
+                />
+                <label htmlFor={`respuestaCorrecta-${index}-${respuestaIndex}`}>Respuesta Correcta:</label>
+                <input
+                    type="radio"
+                    id={`respuestaCorrecta-${index}-${respuestaIndex}`}
+                    name={`respuestaCorrecta-${index}`}
+                    value={respuestaIndex}
+                    onChange={(e) => handleRespuestaCorrectaChange(index, e)}
+                />
+                </div>
             ))}
+
             <button type="button" onClick={() => handleAgregarRespuesta(index)}>
               Agregar respuesta
             </button>

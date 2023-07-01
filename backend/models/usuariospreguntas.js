@@ -77,7 +77,11 @@ const preguntaRespuestaSchema = new Schema({
     respuestas: {
       type: [String],
       required: true
-    }
+    },
+    respuestaCorrecta: {
+        type: String,
+        required: true
+      }
   },{_id: false});
   
   const Temas = new Schema({
