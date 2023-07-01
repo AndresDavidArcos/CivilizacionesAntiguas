@@ -18,6 +18,7 @@ import LoaderScreen from './components/LoaderScreen';
 import BCAgricultura from './components/BreadCrumbAgricultura';
 import PaginaPrincipal from './components/PaginaPrincipal';import Art from './components/BreadCrumbArt';
 import ArteNavigation from './components/ArteNavigation';
+import QuestionaireForm from './components/Questionaire';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route path="/testingComponents" element={<LoaderScreen/>}/> */}
+          {/* <Route path="/testingComponents" element={<QuestionaireForm/>}/> */}
+          <Route path='/addQuestionary' element={<QuestionaireForm />} />
           <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
