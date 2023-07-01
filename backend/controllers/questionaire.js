@@ -1,4 +1,4 @@
-const Tema = require("../models/preguntas");
+const {User, Tema} = require("../models/usuariospreguntas.js")
 
 module.exports = {
   async addQuestionaire(req, res, next) {

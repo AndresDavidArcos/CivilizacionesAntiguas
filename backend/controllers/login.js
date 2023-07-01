@@ -1,4 +1,4 @@
-const User = require("../models/usuarios")
+const {User, Tema} = require("../models/usuariospreguntas.js")
 const bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
