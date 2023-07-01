@@ -26,7 +26,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/testingComponents" element={<QuestionaireForm/>}/>
+          {/* <Route path="/testingComponents" element={<QuestionaireForm/>}/> */}
+          <Route path='/addQuestionary' element={<QuestionaireForm />} />
           <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
