@@ -20,5 +20,13 @@ module.exports = {
     } catch (error) {
       next(error);
     }
+  },
+  async getAll(req, res, next) {
+    try {
+      const cuestionarios = await Tema.find();
+      res.status(200).json(cuestionarios);
+    } catch (error) {
+      next(error);
+    }
   }
 };
