@@ -7,9 +7,12 @@ const Questionnaires = () => {
   useEffect(() => {
     const fetchQuestionnaires = async () => {
       try {
+        console.log("Preparando data")
         const response = await fetch(baseUrl+'questionaire/getAll'); 
+        console.log("Obteniendo data")
+
         const data = await response.json();
-        console.log(data);
+        console.log("Data: ", data);
       }catch(error){
         console.error('Error:', error);
       }
