@@ -38,7 +38,7 @@ module.exports = {
             if (!isMatch) {
               return res.status(404).send({ message: {detail:"Contraseña incorrecta"} });
             }
-            res.status(200).send({ data: {nombre: userCoincidences[0].nombre, id: userCoincidences[0]._id }});
+            res.status(200).send({ data: userCoincidences[0]});
 
          });
 

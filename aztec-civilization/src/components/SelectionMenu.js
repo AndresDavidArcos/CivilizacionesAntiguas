@@ -5,8 +5,12 @@ import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
 import { Environment, KeyboardControls, PointerLockControls, useEnvironment, useTexture } from "@react-three/drei";
 import { angleToRadians } from "../utils/angle";
+import { useUserData } from "../contexts/user";
 
 export default function SelectionMenu() {
+
+  const { user } = useUserData();
+  console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
   const tPathI = '../../imagenes/'
   const painting = useTexture({
     map: tPathI + "agricultura.jpg",
