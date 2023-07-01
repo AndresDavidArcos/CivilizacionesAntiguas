@@ -10,7 +10,7 @@ const ArteOInstrumentos = () => {
     navigate('/instrumentos');
   };
   const handleArte = () => {
-    navigate('/arte');
+    navigate('/arte-info');
   };
 
   const handleLogin = () => {
