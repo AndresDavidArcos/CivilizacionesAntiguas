@@ -3,9 +3,11 @@ import AncientGate from "./AncientGate";
 import Player from "./Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
-import { Environment, KeyboardControls, PointerLockControls, useEnvironment, useTexture } from "@react-three/drei";
+import { Html, useGLTF, CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
 import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
+import Guarda from "./Huey_tlatoani";
+import React from 'react';
 
 export default function SelectionMenu() {
 
@@ -52,6 +54,14 @@ export default function SelectionMenu() {
         break;
     }
   }
+
+
+  const [mostrarTextoPreguntas, setTextoPreguntas] = React.useState(false);
+  const textoPreguntas = () => {
+    setTextoPreguntas(!mostrarTextoPreguntas);
+  };
+
+
   return (
     <>
       {/* Camera */}
@@ -64,9 +74,53 @@ export default function SelectionMenu() {
             { name: "right", keys: ["ArrowRight", "d", "D"] },
             { name: "jump", keys: ["Space"] },
           ]}>
-          <Player position={[-11, 5, 0]}/>
+          <Player position={[-11, 5, 0]} />
         </KeyboardControls>
         {/* Models */}
+
+        {/* Guarda */}
+        <group receiveShadow castShadow onClick={textoPreguntas}>
+          <Html position={[-3.5, 6.5, 3.5]}>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                backgroundColor: "gray",
+                display: mostrarTextoPreguntas ? "block" : "none",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "Arial",
+                  color: "white",
+                  width: "200px",
+                  height: "auto",
+                  padding: '5px',
+                }}
+              >
+                Los aztecas cultivaban tomates de tamaño pequeño y forma redonda, similares a las cerezas.
+              </p>
+              <p
+                style={{
+                  fontFamily: "Arial",
+                  color: "white",
+                  width: "200px",
+                  height: "auto",
+                  padding: '5px',
+                }}
+              >
+                Estos tomates destacaban por su sabor único y su resistencia a enfermedades, adaptándose bien al clima cálido y seco de la región.
+              </p>
+            </div>
+          </Html>
+          <RigidBody type="fixed" colliders="cuboid">
+            <Guarda position={[-3.5, 6.5, 3.5]} rotation={[0, angleToRadians(200), 0]} scale={0.25} />
+          </RigidBody>
+        </group>
+
+
         <group position={[0, -0.5, 0]}>
           <RigidBody type="fixed" colliders="hull">
             <AztecPyramid rotation={[0, -3.1, 0]} />
@@ -103,48 +157,47 @@ export default function SelectionMenu() {
           </RigidBody>
         </group>
 
-              
-            {/* Floor */}
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh  rotation={[-(angleToRadians(90)), 0, 0]} position={[0,0,0]} receiveShadow>
-                    <planeGeometry args={[50, 50]}/>
-                    <meshStandardMaterial {...pyramidTextures}/>
-            </mesh> 
-            </RigidBody>
-            {/* Walls */}
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[-25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>   
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[0, 0, 25]} rotation={[0, 0, 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>               
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[0, 0, -25]} rotation={[0, 0, 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody> 
-                                    
+        {/* Floor */}
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh rotation={[-(angleToRadians(90)), 0, 0]} position={[0, 0, 0]} receiveShadow>
+            <planeGeometry args={[50, 50]} />
+            <meshStandardMaterial {...pyramidTextures} />
+          </mesh>
+        </RigidBody>
+        {/* Walls */}
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[-25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[0, 0, 25]} rotation={[0, 0, 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[0, 0, -25]} rotation={[0, 0, 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+
 
         {/* Floor */}
         <RigidBody type="fixed" colliders="cuboid">
