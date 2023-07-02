@@ -8,6 +8,7 @@ import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
 import Guarda from "./Huey_tlatoani";
 import React from 'react';
+import Questionario from "./VentanaQuestionario";
 
 export default function SelectionMenu() {
 
@@ -57,10 +58,14 @@ export default function SelectionMenu() {
 
 
   const [mostrarTextoPreguntas, setTextoPreguntas] = React.useState(false);
-  const textoPreguntas = () => {
-    setTextoPreguntas(!mostrarTextoPreguntas);
+
+  const mostrarPreguntas = () => {
+    setTextoPreguntas(true);
   };
 
+  const ocultarPreguntas = () => {
+    setTextoPreguntas(false);
+  };
 
   return (
     <>
@@ -79,42 +84,10 @@ export default function SelectionMenu() {
         {/* Models */}
 
         {/* Guarda */}
-        <group receiveShadow castShadow onClick={textoPreguntas}>
-          <Html position={[-3.5, 6.5, 3.5]}>
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "gray",
-                display: mostrarTextoPreguntas ? "block" : "none",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "Arial",
-                  color: "white",
-                  width: "200px",
-                  height: "auto",
-                  padding: '5px',
-                }}
-              >
-                Los aztecas cultivaban tomates de tamaño pequeño y forma redonda, similares a las cerezas.
-              </p>
-              <p
-                style={{
-                  fontFamily: "Arial",
-                  color: "white",
-                  width: "200px",
-                  height: "auto",
-                  padding: '5px',
-                }}
-              >
-                Estos tomates destacaban por su sabor único y su resistencia a enfermedades, adaptándose bien al clima cálido y seco de la región.
-              </p>
-            </div>
-          </Html>
+        <group receiveShadow castShadow onClick={mostrarPreguntas}>
+          {mostrarTextoPreguntas && (
+            <Questionario onClose={ocultarPreguntas} />
+          )}
           <RigidBody type="fixed" colliders="cuboid">
             <Guarda position={[-3.5, 6.5, 3.5]} rotation={[0, angleToRadians(200), 0]} scale={0.25} />
           </RigidBody>
