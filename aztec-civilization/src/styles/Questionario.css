@@ -1,0 +1,26 @@
+.modalQ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contentQ {
+    width: 700px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../public/imagenes/fondo_azteca.jpg');
+    padding: 20px;
+}
+
+.topDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
