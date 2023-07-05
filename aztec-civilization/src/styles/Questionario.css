@@ -54,3 +54,7 @@
     background-position: center;
     background-size: cover;
 }
+
+.preguntas {
+    display: none;
+}

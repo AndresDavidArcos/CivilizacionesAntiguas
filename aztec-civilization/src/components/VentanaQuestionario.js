@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
+import Questionaries from './Questionary';
 
 const Questionario = () => {
 
@@ -13,15 +14,39 @@ const Questionario = () => {
 
     const ocultar = () => {
         document.querySelector('.modalQ').style.display = 'none';
-        // setPointerLocked(true);
+        // document.querySelector('pointerLocked').nodeValue = true; 
     }
 
-    const setPointerLocked = (value) => {
-        document.querySelector('.pointerLock').style.display = value ? 'block' : 'none';
+    const verificarCorrecta = () => {
+        console.log("Verificar respuesta correcta")
+    }
+
+    const mostrarResultado = () => {
+        if (user.aciertos > user.fallos) {
+            console.log("Mostrar resultado")
+        }
     }
 
     const seleccionarTema = (tema) => {
-        console.log("Seleccionar tema: ", tema)
+        var temaSeleccionado = tema;
+        document.querySelector('.divMid').style.display = 'none';
+        document.querySelector('.preguntas').style.display = 'flex';
+        switch (tema) {
+            case 'agricultura':
+                console.log("Agricultura")
+                break;
+            case 'instrumentos':
+                console.log("Instrumentos")
+                break;
+            case 'arte':
+                console.log("Arte")
+                break;
+            case 'arquitectura':
+                console.log("Arquitectura")
+                break;
+            default:
+                break;
+        }
     }
 
     return (
@@ -61,16 +86,17 @@ const Questionario = () => {
                     </div>
                 </div>
 
-                {/* <div className='preguntas'>
-                        <h1>¿Cuál es el nombre de la diosa de la tierra?</h1>
-                        <div className='opciones'>
-                            <button className='opcion'>Tlaloc</button>
-                            <button className='opcion'>Chalchiuhtlicue</button>
-                            <button className='opcion'>Centeotl</button>
-                            <button className='opcion'>Xochiquetzal</button>
-                        </div>
+                <div className='preguntas'>
+                    <Questionaries />
+
+                    {/* <h1>¿Cuál es el nombre de la diosa de la tierra?</h1>
+                    <div className='opciones'>
+                        <button className='opcion'>Tlaloc</button>
+                        <button className='opcion'>Chalchiuhtlicue</button>
+                        <button className='opcion'>Centeotl</button>
+                        <button className='opcion'>Xochiquetzal</button>
                     </div> */}
-                {/* </div> */}
+                </div>
 
             </div>
         </div>
