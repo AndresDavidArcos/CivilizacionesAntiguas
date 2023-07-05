@@ -11,9 +11,17 @@ const Questionario = () => {
         console.log("Mostrar información")
     }
 
-    const onClose = () => {
-        console.log("Cerrar ventana")
-        document.getElementById('modal').style.display = 'none';
+    const ocultar = () => {
+        document.querySelector('.modalQ').style.display = 'none';
+        // setPointerLocked(true);
+    }
+
+    const setPointerLocked = (value) => {
+        document.querySelector('.pointerLock').style.display = value ? 'block' : 'none';
+    }
+
+    const seleccionarTema = (tema) => {
+        console.log("Seleccionar tema: ", tema)
     }
 
     return (
@@ -37,7 +45,7 @@ const Questionario = () => {
                     />
                     <h1>Nombre usuario</h1>
 
-                    <button className="buttonCerrar" onClick={onClose}>
+                    <button className="buttonCerrar" onClick={ocultar}>
                         <span className="close">&times;</span>
                     </button>
 
@@ -46,10 +54,10 @@ const Questionario = () => {
                 <div className='divMid'>
                     <h1>Selecciona el tópico para evaluarte</h1>
                     <div className='opciones'>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { console.log('agricultura'); }}>Agricultura</button>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { console.log('instrumentos'); }}>Instrumentos</button>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { console.log('arte'); }}>Arte</button>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/estadioTlachtli.png)' }} onClick={() => { console.log('arquitectura'); }}>Arquitectura</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { seleccionarTema('instrumentos') }}>Instrumentos</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { seleccionarTema('arte') }}>Arte</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/estadioTlachtli.png)' }} onClick={() => { seleccionarTema('arquitectura') }}>Arquitectura</button>
                     </div>
                 </div>
 

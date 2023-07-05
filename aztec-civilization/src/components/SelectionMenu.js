@@ -7,7 +7,7 @@ import { Html, useGLTF, CameraControls, Environment, KeyboardControls, Perspecti
 import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
 import Guarda from "./Huey_tlatoani";
-import React from 'react';
+import { React, useRef, useState } from 'react';
 
 export default function SelectionMenu() {
 
@@ -55,16 +55,17 @@ export default function SelectionMenu() {
     }
   }
 
-
-  const [mostrarTextoPreguntas, setTextoPreguntas] = React.useState(false);
-
   const mostrarPreguntas = () => {
-    setTextoPreguntas(true);
+    document.querySelector('.modalQ').style.display = 'flex';
+    setPointerLocked(false);
   };
 
-  const ocultarPreguntas = () => {
-    setTextoPreguntas(false);
-  };
+  const activarPointer = () => {
+    setPointerLocked(true);
+  }
+
+  const controlsRef = useRef();
+  const [pointerLocked, setPointerLocked] = useState(true);
 
   return (
     <>
@@ -83,7 +84,7 @@ export default function SelectionMenu() {
         {/* Models */}
 
         {/* Guarda */}
-        <group receiveShadow castShadow>
+        <group receiveShadow castShadow onClick={mostrarPreguntas}>
           <RigidBody type="fixed" colliders="cuboid">
             <Guarda position={[-3.5, 6.5, 3.5]} rotation={[0, angleToRadians(200), 0]} scale={0.25} />
           </RigidBody>
@@ -212,7 +213,7 @@ export default function SelectionMenu() {
 
       </Physics>
 
-      {/* <PointerLockControls /> */} 
+      {pointerLocked && <PointerLockControls ref={controlsRef} />}
 
       {/* light */}
       <ambientLight args={["#ffffff", 0.25]} />
