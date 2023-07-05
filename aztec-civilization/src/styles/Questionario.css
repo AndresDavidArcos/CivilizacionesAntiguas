@@ -35,7 +35,7 @@
 
 .optionButtom {
     width: 48%;
-    height: 80px; 
+    height: 80px;
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 5px;
@@ -49,6 +49,10 @@
     text-size-adjust: auto;
 }
 
+.pregunta {
+    display: flex; 
+}
+
 .preguntas {
     display: none;
 }
@@ -57,7 +61,7 @@
     display: none;
 }
 
-.textoEvaluar{
+.textoEvaluar {
     width: 100%;
     text-align: center;
 }

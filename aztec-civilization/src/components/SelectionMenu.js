@@ -57,10 +57,10 @@ export default function SelectionMenu() {
 
   const mostrarPreguntas = () => {
     setPointerLocked(false);
-    document.querySelector('.modalQ').style.display = 'flex';
-    document.querySelector('.divMid').style.display = 'flex';
-    document.querySelector('.preguntas').style.display = 'none';
-    document.querySelector('.resultado').style.display = 'none';
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('topicos').style.display = 'flex';
+    document.getElementById('pregunta').style.display = 'none';
+    document.getElementById('resultado').style.display = 'none';
   };
 
   const activarPointer = () => {

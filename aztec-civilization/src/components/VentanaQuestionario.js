@@ -31,8 +31,8 @@ const Questionario = () => {
     }
 
     const seleccionarTema = async (tema) => {
-        document.querySelector('.divMid').style.display = 'none';
-        document.querySelector('.preguntas').style.display = 'flex';
+        document.getElementById('topicos').style.display = 'none';
+        document.getElementById('preguntas').style.display = 'flex';
 
         const baseUrl = "http://localhost:4000/api/";
         const response = await fetch(baseUrl + 'questionaire/getAll');
@@ -96,7 +96,7 @@ const Questionario = () => {
                     </button>
                 </div>
 
-                <div className='divContainer'>
+                <div id='topicos' className='divContainer'>
                     <h1 className="textoEvaluar">Selecciona el tópico para evaluarte</h1>
                     <div className='temas'>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura</button>
@@ -106,17 +106,17 @@ const Questionario = () => {
                     </div>
                 </div>
 
-                <div className='preguntas'>
+                <div id='preguntas' className='preguntas'>
                     <h1 className="pregunta" id='pregunta'></h1>
                     <div className='opciones'>
-                        <button id='opcion1' className='opcion'></button>
-                        <button id='opcion2' className='opcion'></button>
-                        <button id='opcion3' className='opcion'></button>
-                        <button id='opcion4' className='opcion'></button>
+                        <button id='opcion1' className='opcion' onClick={verificarCorrecta}></button>
+                        <button id='opcion2' className='opcion' onClick={verificarCorrecta}></button>
+                        <button id='opcion3' className='opcion' onClick={verificarCorrecta}></button>
+                        <button id='opcion4' className='opcion' onClick={verificarCorrecta}></button>
                     </div>
                 </div>
 
-                <div className='resultado'>
+                <div id="resultado" className='resultado'>
                     <h1>Resultado</h1>
                 </div>
 
