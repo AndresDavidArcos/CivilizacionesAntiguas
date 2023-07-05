@@ -15,6 +15,7 @@ import GaleriaNavigation from './components/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import AgriculturaInfo from './components/AgriculturaInfo';
 import BCAgricultura from './components/BreadCrumbAgricultura';
 import PaginaPrincipal from './components/PaginaPrincipal';
 import ArteInfo from './components/ArteInfo';
@@ -76,6 +77,14 @@ function App() {
             element={
               <>
                 <ArteInfo />
+              </>
+            }
+          />
+          <Route
+            path="/agricultura-info"
+            element={
+              <>
+                <AgriculturaInfo />
               </>
             }
           />

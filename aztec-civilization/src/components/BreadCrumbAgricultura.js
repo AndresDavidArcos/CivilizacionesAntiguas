@@ -18,6 +18,10 @@ const BCAgricultura = () => {
         navigate('/pagina-principal');
     }
 
+    const handleInfo = () => {
+        navigate('/agricultura-info');
+    }
+
 
     const [open, setOpen] = React.useState(false);
 
@@ -35,6 +39,7 @@ const BCAgricultura = () => {
             <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
             <button className='breadCrumb' onClick={handleLogin}>Login</button>
             <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
+            <button className='breadCrumb' onClick={handleInfo}>La Agricultura Azteca</button>
             <button className='breadCrumbDisabled' >Agricultura</button>
             <img
                 src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
