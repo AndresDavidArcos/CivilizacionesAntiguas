@@ -3,8 +3,7 @@ import { Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
 
-const Questionario = ({ onClose }) => {
-
+const Questionario = () => {
 
     const { user } = useUserData();
 
@@ -12,8 +11,13 @@ const Questionario = ({ onClose }) => {
         console.log("Mostrar información")
     }
 
+    const onClose = () => {
+        console.log("Cerrar ventana")
+        document.getElementById('modal').style.display = 'none';
+    }
+
     return (
-        <div className="modalQ">
+        <div id='modal' className="modalQ">
             <div className="modal-contentQ">
                 <div className='topDiv'>
                     <img
@@ -33,10 +37,20 @@ const Questionario = ({ onClose }) => {
                     />
                     <h1>Nombre usuario</h1>
 
+                    <button className="buttonCerrar" onClick={onClose}>
+                        <span className="close">&times;</span>
+                    </button>
+
                 </div>
 
                 <div className='divMid'>
-
+                    <h1>Selecciona el tópico para evaluarte</h1>
+                    <div className='opciones'>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { console.log('agricultura'); }}>Agricultura</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { console.log('instrumentos'); }}>Instrumentos</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { console.log('arte'); }}>Arte</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/estadioTlachtli.png)' }} onClick={() => { console.log('arquitectura'); }}>Arquitectura</button>
+                    </div>
                 </div>
 
                 {/* <div className='preguntas'>
@@ -50,8 +64,6 @@ const Questionario = ({ onClose }) => {
                     </div> */}
                 {/* </div> */}
 
-
-                <button className="buttonCerrar" onClick={console.log('cerrar')}>Cerrar</button>
             </div>
         </div>
     );

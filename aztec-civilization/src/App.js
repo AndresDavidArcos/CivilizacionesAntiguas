@@ -97,9 +97,9 @@ function App() {
                   >
                     <SelectionMenu />
                   </Canvas>
-                  <Questionario />
                   <Menu />
                   <RetroDialog />
+                  <Questionario />
                   <VolumeSlider />
                 </Suspense>
               </>
