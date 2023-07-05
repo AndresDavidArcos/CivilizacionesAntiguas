@@ -57,6 +57,8 @@ export default function SelectionMenu() {
 
   const mostrarPreguntas = () => {
     document.querySelector('.modalQ').style.display = 'flex';
+    document.querySelector('.divMid').style.display = 'flex';
+    document.querySelector('.preguntas').style.display = 'none';
     setPointerLocked(false);
   };
 

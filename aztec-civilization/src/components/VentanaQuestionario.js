@@ -2,9 +2,17 @@ import React, { useRef } from "react";
 import { Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
-import Questionaries from './Questionary';
 
-const Questionario = () => {
+const Questionario = async () => {
+
+    const baseUrl = "http://localhost:4000/api/";
+
+    var preguntaActual = 0;
+
+    const response = await fetch(baseUrl + 'questionaire/getAll');
+    const data = await response.json();
+    
+    var preguntas = [];
 
     const { user } = useUserData();
 
@@ -27,19 +35,23 @@ const Questionario = () => {
         }
     }
 
-    const seleccionarTema = (tema) => {
-        var temaSeleccionado = tema;
+    const seleccionarTema = async (tema) => {
         document.querySelector('.divMid').style.display = 'none';
         document.querySelector('.preguntas').style.display = 'flex';
+
         switch (tema) {
             case 'agricultura':
                 console.log("Agricultura")
+                preguntas = data.filter((d) => d.nombre === 'agricultura')
+                console.log(preguntas)
                 break;
             case 'instrumentos':
                 console.log("Instrumentos")
                 break;
             case 'arte':
                 console.log("Arte")
+                preguntas = data.filter((d) => d.nombre === 'Arte')
+                console.log(preguntas)
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
@@ -87,7 +99,8 @@ const Questionario = () => {
                 </div>
 
                 <div className='preguntas'>
-                    <Questionaries />
+
+                    <h1>pregunta {preguntaActual} </h1>
 
                     {/* <h1>¿Cuál es el nombre de la diosa de la tierra?</h1>
                     <div className='opciones'>
