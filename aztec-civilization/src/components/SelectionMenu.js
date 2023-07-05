@@ -56,10 +56,11 @@ export default function SelectionMenu() {
   }
 
   const mostrarPreguntas = () => {
+    setPointerLocked(false);
     document.querySelector('.modalQ').style.display = 'flex';
     document.querySelector('.divMid').style.display = 'flex';
     document.querySelector('.preguntas').style.display = 'none';
-    setPointerLocked(false);
+    document.querySelector('.resultado').style.display = 'none';
   };
 
   const activarPointer = () => {

@@ -26,15 +26,6 @@
     margin-bottom: 20px;
 }
 
-
-.midDiv {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-}
-
 .bottomDiv {
     display: flex;
     justify-content: space-between;
@@ -43,18 +34,34 @@
 }
 
 .optionButtom {
-    width: 40%;
-    height: 60px;
+    width: 48%;
+    height: 80px; 
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 5px;
     flex-basis: 48%;
-    margin: 10px;
+    margin: 1%;
     align-self: center;
     background-position: center;
     background-size: cover;
+    align-self: auto;
+    text-align: center;
+    text-size-adjust: auto;
 }
 
 .preguntas {
     display: none;
+}
+
+.resultado {
+    display: none;
+}
+
+.textoEvaluar{
+    width: 100%;
+    text-align: center;
+}
+
+.temas {
+    width: 100%;
 }

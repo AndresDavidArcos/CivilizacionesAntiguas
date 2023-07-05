@@ -3,15 +3,10 @@ import { Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
 
-const Questionario = async () => {
-
-    const baseUrl = "http://localhost:4000/api/";
+const Questionario = () => {
 
     var preguntaActual = 0;
 
-    const response = await fetch(baseUrl + 'questionaire/getAll');
-    const data = await response.json();
-    
     var preguntas = [];
 
     const { user } = useUserData();
@@ -39,27 +34,41 @@ const Questionario = async () => {
         document.querySelector('.divMid').style.display = 'none';
         document.querySelector('.preguntas').style.display = 'flex';
 
+        const baseUrl = "http://localhost:4000/api/";
+        const response = await fetch(baseUrl + 'questionaire/getAll');
+        const data = await response.json();
+
         switch (tema) {
             case 'agricultura':
                 console.log("Agricultura")
-                preguntas = data.filter((d) => d.nombre === 'agricultura')
-                console.log(preguntas)
+                preguntas = data.filter((d) => d.nombre === 'agricultura')[0]['preguntasRespuestas'];
                 break;
             case 'instrumentos':
                 console.log("Instrumentos")
+                preguntas = data.filter((d) => d.nombre === 'Instrumentos')[0]['preguntasRespuestas'];
                 break;
             case 'arte':
                 console.log("Arte")
-                preguntas = data.filter((d) => d.nombre === 'Arte')
-                console.log(preguntas)
+                preguntas = data.filter((d) => d.nombre === 'Arte')[0]['preguntasRespuestas'];
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
+                preguntas = data.filter((d) => d.nombre === 'Arquitectura')[0]['preguntasRespuestas'];
                 break;
             default:
                 break;
         }
+
+        console.log(preguntas)
+
+        document.getElementById('pregunta').innerHTML = preguntas[preguntaActual].pregunta;
+        document.getElementById('opcion1').innerHTML = preguntas[preguntaActual].respuestas[0];
+        document.getElementById('opcion2').innerHTML = preguntas[preguntaActual].respuestas[1];
+        document.getElementById('opcion3').innerHTML = preguntas[preguntaActual].respuestas[2];
+        document.getElementById('opcion4').innerHTML = preguntas[preguntaActual].respuestas[3];
     }
+
+    console.log(user)
 
     return (
         <div id='modal' className="modalQ">
@@ -80,17 +89,16 @@ const Questionario = async () => {
                         onClick={mostrarInfo}
 
                     />
-                    <h1>Nombre usuario</h1>
+                    <h1>{false ? user.data.nombre : 'Logueate para guardar progreso'}</h1>
 
                     <button className="buttonCerrar" onClick={ocultar}>
                         <span className="close">&times;</span>
                     </button>
-
                 </div>
 
-                <div className='divMid'>
-                    <h1>Selecciona el tópico para evaluarte</h1>
-                    <div className='opciones'>
+                <div className='divContainer'>
+                    <h1 className="textoEvaluar">Selecciona el tópico para evaluarte</h1>
+                    <div className='temas'>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { seleccionarTema('instrumentos') }}>Instrumentos</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { seleccionarTema('arte') }}>Arte</button>
@@ -99,16 +107,17 @@ const Questionario = async () => {
                 </div>
 
                 <div className='preguntas'>
-
-                    <h1>pregunta {preguntaActual} </h1>
-
-                    {/* <h1>¿Cuál es el nombre de la diosa de la tierra?</h1>
+                    <h1 className="pregunta" id='pregunta'></h1>
                     <div className='opciones'>
-                        <button className='opcion'>Tlaloc</button>
-                        <button className='opcion'>Chalchiuhtlicue</button>
-                        <button className='opcion'>Centeotl</button>
-                        <button className='opcion'>Xochiquetzal</button>
-                    </div> */}
+                        <button id='opcion1' className='opcion'></button>
+                        <button id='opcion2' className='opcion'></button>
+                        <button id='opcion3' className='opcion'></button>
+                        <button id='opcion4' className='opcion'></button>
+                    </div>
+                </div>
+
+                <div className='resultado'>
+                    <h1>Resultado</h1>
                 </div>
 
             </div>
