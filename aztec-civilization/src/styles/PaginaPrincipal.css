@@ -1,26 +1,130 @@
-
-.sticky-button {
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lato:wght@300&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid #6a2c00;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .article-image {
+    width: 580px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Agregamos una sombra a las imágenes */
+  }
+  
+  .article-content {
+    flex: 1;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agregamos un efecto de sombra al texto */
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agregamos un efecto de sombra al texto */
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agregamos un efecto de sombra al texto */
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: justify;
+  }
+  
+  .breadCrumb {
+    background-color: #6a2c00;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .sticky-button {
     position: fixed;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
+    right: 20px;
+    background-color: #6a2c00;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
     cursor: pointer;
-}
-
-.questionary-button {
+  }
+  
+  .questionary-button {
     position: fixed;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
+    bottom: 80px;
+    right: 20px;
+    background-color: #6a2c00;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
     cursor: pointer;
-}
+  }
+  
+  .questionary-button:hover,
+  .sticky-button:hover,
+  .breadCrumb:hover {
+    background-color: #8e4300;
+  }
+  
+  .App {
+    background: linear-gradient(135deg, #FF9B00, #1c3344);
+    padding: 20px;
+    color: #ffffff;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Cinzel Decorative', cursive;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+  }
