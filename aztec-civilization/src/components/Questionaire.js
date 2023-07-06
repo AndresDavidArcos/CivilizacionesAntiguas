@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import "../styles/questionary.css";
 
 const QuestionaireForm = () => {
-
   const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
   // const baseUrl = "http://localhost:4000/api/";
 
@@ -41,91 +41,96 @@ const QuestionaireForm = () => {
     setQuestionaire({ ...questionaire, preguntasRespuestas: preguntasRespuestasCopy });
   };
 
-
   const handleRespuestaCorrectaChange = (preguntaIndex, e) => {
     const preguntasRespuestasCopy = [...questionaire.preguntasRespuestas];
     const respuestaCorrectaIndex = parseInt(e.target.value);
-    preguntasRespuestasCopy[preguntaIndex].respuestaCorrecta = preguntasRespuestasCopy[preguntaIndex].respuestas[respuestaCorrectaIndex];
+    preguntasRespuestasCopy[preguntaIndex].respuestaCorrecta =
+      preguntasRespuestasCopy[preguntaIndex].respuestas[respuestaCorrectaIndex];
     setQuestionaire({ ...questionaire, preguntasRespuestas: preguntasRespuestasCopy });
   };
-  
+
   const handleLimpiarCuestionarios = () => {
     setQuestionaire(initialQuestionaire);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(questionaire);
 
     try {
-        const response = await fetch(baseUrl + 'questionaire/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(questionaire)
-        });
-        const data = await response.json();
-        console.log(data)
-        if (data.message.status !== 400) {
-            console.log("se guardo correctamente el cuestionario: ", questionaire)
-        } else {
-            console.log(data)
-        }
-  
-      } catch (error) {
-        console.log(error);
+      const response = await fetch(baseUrl + "questionaire/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(questionaire),
+      });
+      const data = await response.json();
+      console.log(data);
+      if (data.message.status !== 400) {
+        console.log("se guardo correctamente el cuestionario: ", questionaire);
+      } else {
+        console.log(data);
       }
-
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="aztec-form">
       <div>
-        <label htmlFor="nombre">Nombre del cuestionario:</label>
-        <input type="text" id="nombre" value={questionaire.nombre} onChange={handleNombreChange} />
+        <label htmlFor="nombre" className="aztec-label">
+          Nombre del cuestionario:
+        </label>
+        <input type="text" id="nombre" value={questionaire.nombre} onChange={handleNombreChange} className="aztec-input" />
       </div>
       <div>
-        <h3>Preguntas y respuestas:</h3>
+        <h3 className="aztec-heading">Preguntas y respuestas:</h3>
         {questionaire.preguntasRespuestas.map((preguntaRespuesta, index) => (
-          <div key={index}>
+          <div key={index} className="aztec-question-container">
             <input
               type="text"
               value={preguntaRespuesta.pregunta}
               onChange={(e) => handlePreguntaChange(index, e)}
               placeholder="Ingrese la pregunta"
+              className="aztec-question-input"
             />
             {preguntaRespuesta.respuestas.map((respuesta, respuestaIndex) => (
-                <div key={respuestaIndex}>
+              <div key={respuestaIndex} className="aztec-answer-container">
                 <input
-                    type="text"
-                    value={respuesta}
-                    onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
-                    placeholder="Ingrese una respuesta"
+                  type="text"
+                  value={respuesta}
+                  onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
+                  placeholder="Ingrese una respuesta"
+                  className="aztec-answer-input"
                 />
-                <label htmlFor={`respuestaCorrecta-${index}-${respuestaIndex}`}>Respuesta Correcta:</label>
+                <label htmlFor={`respuestaCorrecta-${index}-${respuestaIndex}`} className="aztec-radio-label">
+                  Respuesta Correcta:
+                </label>
                 <input
-                    type="radio"
-                    id={`respuestaCorrecta-${index}-${respuestaIndex}`}
-                    name={`respuestaCorrecta-${index}`}
-                    value={respuestaIndex}
-                    onChange={(e) => handleRespuestaCorrectaChange(index, e)}
+                  type="radio"
+                  id={`respuestaCorrecta-${index}-${respuestaIndex}`}
+                  name={`respuestaCorrecta-${index}`}
+                  value={respuestaIndex}
+                  onChange={(e) => handleRespuestaCorrectaChange(index, e)}
+                  className="aztec-radio-input"
                 />
-                </div>
+              </div>
             ))}
 
-            <button type="button" onClick={() => handleAgregarRespuesta(index)}>
+            <button type="button" onClick={() => handleAgregarRespuesta(index)} className="aztec-add-answer-button">
               Agregar respuesta
             </button>
           </div>
         ))}
-        <button type="button" onClick={handleAgregarPregunta}>
+        <button type="button" onClick={handleAgregarPregunta} className="aztec-add-question-button">
           Agregar pregunta
         </button>
       </div>
       <div>
-        <button type="submit">Agregar cuestionario</button>
-        <button type="button" onClick={handleLimpiarCuestionarios}>
+        <button type="submit" className="aztec-submit-button">Subir cuestionario</button>
+        <button type="button" onClick={handleLimpiarCuestionarios} className="aztec-clear-button">
           Limpiar cuestionarios
         </button>
       </div>
