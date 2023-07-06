@@ -45,7 +45,7 @@ export default function SelectionMenu() {
   const handleNavCollision = (topic) => {
     switch (topic) {
       case 'agricultura':
-        navigator('/agricultura')
+        navigator('/agricultura-info')
         break;
       case 'instrumentos':
         navigator('/arte-instrumentos')

@@ -15,8 +15,11 @@ import GaleriaNavigation from './components/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import AgriculturaInfo from './components/AgriculturaInfo';
 import BCAgricultura from './components/BreadCrumbAgricultura';
-import PaginaPrincipal from './components/PaginaPrincipal'; import Art from './components/BreadCrumbArt';
+import PaginaPrincipal from './components/PaginaPrincipal';
+import ArteInfo from './components/ArteInfo';
+import Art from './components/BreadCrumbArt';
 import ArteNavigation from './components/ArteNavigation';
 import QuestionaireForm from './components/Questionaire';
 import Questionnaires from './components/Questionary';
@@ -66,6 +69,22 @@ function App() {
             element={
               <>
                 <Instrumentos />
+              </>
+            }
+          />
+          <Route
+            path="/arte-info"
+            element={
+              <>
+                <ArteInfo />
+              </>
+            }
+          />
+          <Route
+            path="/agricultura-info"
+            element={
+              <>
+                <AgriculturaInfo />
               </>
             }
           />
