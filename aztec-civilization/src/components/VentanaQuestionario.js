@@ -77,14 +77,18 @@ const Questionario = () => {
 
         if (porcentaje >= 70) {
             document.getElementById('porcentaje').innerHTML = '¡Has aprobado este questionario! obtuviste un ' + porcentaje + '%';
-            const response = await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${true}`, {
-                method: 'PUT',
-            });
+            if (Object.keys(user).length !== 0) {
+                await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${true}`, {
+                    method: 'PUT',
+                })
+            }
         } else {
             document.getElementById('porcentaje').innerHTML = 'Has reprobado este questionario, obtuviste un ' + porcentaje + '%';
-            const response = await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${false}`, {
-                method: 'PUT',
-            });
+            if (Object.keys(user).length !== 0) {
+                await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${false}`, {
+                    method: 'PUT',
+                })
+            }
         }
 
         document.getElementById('final').style.display = 'flex';
@@ -132,8 +136,11 @@ const Questionario = () => {
                 break;
         }
 
-        document.getElementById('aciertosQuiz').innerHTML = '¡Has superado este quiz: ' + user.data.evaluaciones[quiz].aciertos + ' veces!';
-        document.getElementById('fallosQuiz').innerHTML = 'Has fallado este quiz: : ' + user.data.evaluaciones[quiz].fallos + ' veces';
+        const quizBuenos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].aciertos : 0;
+        const quizMalos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].fallos : 0;
+
+        document.getElementById('aciertosQuiz').innerHTML = '¡Has superado este quiz: ' + quizBuenos + ' veces!';
+        document.getElementById('fallosQuiz').innerHTML = 'Has fallado este quiz: : ' + quizMalos + ' veces';
 
         aciertos = 0;
         fallos = 0;
