@@ -5,7 +5,6 @@ const db = require("./database")
 
 //middlewares
 app.use(cors());
-
   
 app.use(express.json());
 
