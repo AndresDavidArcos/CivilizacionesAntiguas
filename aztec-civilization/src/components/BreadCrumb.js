@@ -9,11 +9,14 @@ const Menu = () => {
     const handlePagina = () => {
         navigate('/pagina-principal');
     }
+    const handleMenu = () => {
+        navigate('/menuSelection');
+    }    
     return (
         <div className='breadCrumb-Container'>
             <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
             <button className='breadCrumb' onClick={handleLogin}>Login</button>
-            <button className='breadCrumbDisabled' >Menú de selección</button>
+            <button className='breadCrumb' onClick={handleMenu} >Menú de selección</button>
         </div>
     );
 }

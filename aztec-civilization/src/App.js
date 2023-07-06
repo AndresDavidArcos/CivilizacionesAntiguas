@@ -32,7 +32,11 @@ function App() {
         <Routes>
           {/* <Route path="/testingComponents" element={<QuestionaireForm/>}/> */}
           <Route path="/getQuestionary" element={<Questionnaires />} />
-          <Route path='/addQuestionary' element={<QuestionaireForm />} />
+          <Route path='/addQuestionary' element={
+          <>
+          <Menu/>
+          <QuestionaireForm />
+          </>} />
           <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

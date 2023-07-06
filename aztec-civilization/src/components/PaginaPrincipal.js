@@ -17,6 +17,10 @@ const PaginaPrincipal = () => {
     navigate("/login");
   };
 
+  const handleQuestionary = () => {
+    navigate("/addQuestionary")
+  }
+
   return (
     <>
       <div>
@@ -133,6 +137,9 @@ const PaginaPrincipal = () => {
         </div>
         <button className="sticky-button" onClick={handleMenu}>
           Ver los tópicos
+        </button>
+        <button className="questionary-button" onClick={handleQuestionary}>
+          Añadir cuestionario
         </button>
       </div>
     </>
