@@ -73,6 +73,7 @@
 .textoEvaluar {
     width: 100%;
     text-align: center;
+    align-self: center;
 }
 
 .temas {
