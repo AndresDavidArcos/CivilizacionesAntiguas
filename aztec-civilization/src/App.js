@@ -101,6 +101,7 @@ function App() {
                   <RetroDialog />
                   <Questionario />
                   <VolumeSlider />
+                  <div className="dot" />
                 </Suspense>
               </>
             } />

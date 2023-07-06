@@ -2,8 +2,11 @@ import React, { useRef } from "react";
 import { Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
+import { useMenuSelectionData } from "../contexts/menuSelection";
 
 const Questionario = () => {
+
+    const { pointerLocked, setPointerLocked} = useMenuSelectionData()
 
     var preguntaActual = 0;
 
@@ -17,7 +20,7 @@ const Questionario = () => {
 
     const ocultar = () => {
         document.querySelector('.modalQ').style.display = 'none';
-        // document.querySelector('pointerLocked').nodeValue = true; 
+        setPointerLocked(true)
     }
 
     const verificarCorrecta = () => {
@@ -89,7 +92,7 @@ const Questionario = () => {
                         onClick={mostrarInfo}
 
                     />
-                    <h1>{false ? user.data.nombre : 'Logueate para guardar progreso'}</h1>
+                    <h1>{Object.keys(user).length !== 0 ? user.data.nombre : 'Logueate para guardar progreso'}</h1>
 
                     <button className="buttonCerrar" onClick={ocultar}>
                         <span className="close">&times;</span>

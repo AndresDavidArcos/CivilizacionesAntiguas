@@ -7,10 +7,13 @@ import { Html, useGLTF, CameraControls, Environment, KeyboardControls, Perspecti
 import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
 import Guarda from "./Huey_tlatoani";
-import { React, useRef, useState } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
+import { useMenuSelectionData } from '../contexts/menuSelection';
 
 export default function SelectionMenu() {
 
+  const controlsRef = useRef();
+  const { pointerLocked, setPointerLocked} = useMenuSelectionData()
   const { user } = useUserData();
   console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
   const tPathI = '../../imagenes/'
@@ -67,8 +70,18 @@ export default function SelectionMenu() {
     setPointerLocked(true);
   }
 
-  const controlsRef = useRef();
-  const [pointerLocked, setPointerLocked] = useState(true);
+
+  useEffect(() => {
+    console.log(pointerLocked)
+  }, [pointerLocked])
+
+  document.addEventListener("keyup", function(e) {
+    if (e.key == "Escape") {
+      activarPointer();
+    }
+  });
+  
+
 
   return (
     <>
