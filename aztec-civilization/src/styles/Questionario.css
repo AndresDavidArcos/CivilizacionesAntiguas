@@ -17,6 +17,7 @@
     /* background-image: url('../../public/imagenes/fondo_azteca.jpg'); */
     background-color: #fff;
     padding: 20px;
+    display: inline-block;
 }
 
 .topDiv {
@@ -50,7 +51,11 @@
 }
 
 .pregunta {
-    display: flex; 
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .preguntas {
@@ -61,6 +66,10 @@
     display: none;
 }
 
+.final {
+    display: none;
+}
+
 .textoEvaluar {
     width: 100%;
     text-align: center;
@@ -68,4 +77,16 @@
 
 .temas {
     width: 100%;
+}
+
+.opcionRespuesta {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.puntajes {
+    display: none;
 }

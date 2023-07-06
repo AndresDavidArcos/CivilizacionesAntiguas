@@ -99,9 +99,9 @@ function App() {
                   </Canvas>
                   <Menu />
                   <RetroDialog />
+                  <div className="dot" />
                   <Questionario />
                   <VolumeSlider />
-                  <div className="dot" />
                 </Suspense>
               </>
             } />

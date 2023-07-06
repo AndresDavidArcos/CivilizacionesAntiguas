@@ -13,8 +13,13 @@ import { useMenuSelectionData } from '../contexts/menuSelection';
 export default function SelectionMenu() {
 
   const controlsRef = useRef();
-  const { pointerLocked, setPointerLocked} = useMenuSelectionData()
+  const { pointerLocked, setPointerLocked } = useMenuSelectionData()
   const { user } = useUserData();
+
+  useEffect(() => {
+    setPointerLocked(true);
+  }, [])
+
   console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
   const tPathI = '../../imagenes/'
   const painting = useTexture({
@@ -62,7 +67,8 @@ export default function SelectionMenu() {
     setPointerLocked(false);
     document.getElementById('modal').style.display = 'flex';
     document.getElementById('topicos').style.display = 'flex';
-    document.getElementById('pregunta').style.display = 'none';
+    document.getElementById('pregunta').style.display = 'flex';
+    document.getElementById('preguntas').style.display = 'none';
     document.getElementById('resultado').style.display = 'none';
   };
 
@@ -75,13 +81,11 @@ export default function SelectionMenu() {
     console.log(pointerLocked)
   }, [pointerLocked])
 
-  document.addEventListener("keyup", function(e) {
+  document.addEventListener("keyup", function (e) {
     if (e.key == "Escape") {
       activarPointer();
     }
   });
-  
-
 
   return (
     <>
