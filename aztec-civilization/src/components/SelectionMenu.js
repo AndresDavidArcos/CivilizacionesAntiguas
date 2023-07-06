@@ -119,7 +119,25 @@ export default function SelectionMenu() {
               handleNavCollision('agricultura');
             }}
           >
+            <group>
             <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
+            <Html position={[1, 15, 4]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              AGRICULTURA
+            </div>
+          </Html>
+            </group>
           </RigidBody>
           <RigidBody
             type="fixed"
@@ -129,7 +147,25 @@ export default function SelectionMenu() {
               handleNavCollision('instrumentos');
             }}
           >
+            <group>
             <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
+            <Html position={[-3, 13, -4]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              INSTRUMENTOS
+            </div>
+          </Html>
+            </group>
           </RigidBody>
           <RigidBody
             type="fixed"
@@ -138,8 +174,26 @@ export default function SelectionMenu() {
               console.log("Collision at world position ", manifold.solverContactPoint(0));
               handleNavCollision('arquitectura');
             }}
-          >
+          > 
+          <group>
             <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
+            <Html position={[4, 14, -3]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              ARQUITECTURA
+            </div>
+          </Html>
+            </group>
           </RigidBody>
         </group>
 
