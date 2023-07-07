@@ -116,21 +116,25 @@ const Questionario = () => {
                 console.log("Agricultura")
                 preguntas = data.filter((d) => d.nombre === 'agricultura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'agricultura');
+                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Agricultura';
                 break;
             case 'instrumentos':
                 console.log("Instrumentos")
                 preguntas = data.filter((d) => d.nombre === 'Instrumentos')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Instrumentos');
+                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Instrumentos';
                 break;
             case 'arte':
                 console.log("Arte")
                 preguntas = data.filter((d) => d.nombre === 'Arte')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arte');
+                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Arte';
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
                 preguntas = data.filter((d) => d.nombre === 'Arquitectura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arquitectura');
+                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Arquitectura';
                 break;
             default:
                 break;
@@ -139,8 +143,8 @@ const Questionario = () => {
         const quizBuenos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].aciertos : 0;
         const quizMalos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].fallos : 0;
 
-        document.getElementById('aciertosQuiz').innerHTML = '¡Has superado este quiz: ' + quizBuenos + ' veces!';
-        document.getElementById('fallosQuiz').innerHTML = 'Has fallado este quiz: : ' + quizMalos + ' veces';
+        document.getElementById('aciertosQuiz').innerHTML = '¡Has superado este quiz: \n' + quizBuenos + ' veces!';
+        document.getElementById('fallosQuiz').innerHTML = 'Has fallado este quiz: \n' + quizMalos + ' veces';
 
         aciertos = 0;
         fallos = 0;
@@ -150,8 +154,8 @@ const Questionario = () => {
         mostrarPreguntas();
 
         document.getElementById('topicos').style.display = 'none';
-        document.getElementById('puntajes').style.display = 'flex';
-        await delay(3000);
+        document.getElementById('puntajes').style.display = 'block';
+        await delay(2000);
         document.getElementById('puntajes').style.display = 'none';
         document.getElementById('preguntas').style.display = 'block';
     }
@@ -160,6 +164,8 @@ const Questionario = () => {
 
     return (
         <div id='modal' className="modalQ">
+            <link href="https://fonts.cdnfonts.com/css/ambystoma-mexicanum" rel="stylesheet">
+            </link>
             <div className="modal-contentQ">
                 <div className='topDiv'>
                     <img
@@ -177,7 +183,7 @@ const Questionario = () => {
                         onClick={mostrarInfo}
 
                     />
-                    <h1>{Object.keys(user).length !== 0 ? user.data.nombre : 'Logueate para guardar progreso'}</h1>
+                    <h1>{Object.keys(user).length !== 0 ? user.data.nombre : 'Inicia sesión para guardar progreso'}</h1>
 
                     <button className="buttonCerrar" onClick={ocultar}>
                         <span className="close">&times;</span>
@@ -187,7 +193,7 @@ const Questionario = () => {
                 <div id='topicos' className='divContainer'>
                     <h1 className="textoEvaluar">Selecciona el tópico para evaluarte</h1>
                     <div className='temas'>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura</button>
+                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura </button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { seleccionarTema('instrumentos') }}>Instrumentos</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { seleccionarTema('arte') }}>Arte</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/estadioTlachtli.png)' }} onClick={() => { seleccionarTema('arquitectura') }}>Arquitectura</button>
@@ -195,8 +201,13 @@ const Questionario = () => {
                 </div>
 
                 <div id='puntajes' className='puntajes'>
-                    <h1 id='aciertosQuiz' className='aciertosQuiz'>Aciertos: </h1>
-                    <h1 id='fallosQuiz' className='fallosQuiz'>Fallos: </h1>
+                    <div style={{ width: '100%' }}>
+                        <p id='textoTemaEvaluar' className='textoTemaEvaluar'>Tema: </p>
+                    </div>
+                    <div>
+                        <p id='aciertosQuiz' className='aciertosQuiz'>Aciertos: </p>
+                        <p id='fallosQuiz' className='fallosQuiz'>Fallos: </p>
+                    </div>
                 </div>
 
                 <div id='preguntas' className='preguntas'>
@@ -224,7 +235,7 @@ const Questionario = () => {
                 </div>
 
             </div>
-        </div>
+        </div >
     );
 };
 
