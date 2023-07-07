@@ -35,25 +35,25 @@ describe("Arquitectura", () => {
     });
 
     it("Se debe mostrar el botón Ver modelo", async () => {
-        const { getByText } = render(
+        const { queryByTestId } = render(
             <MemoryRouter>
                 <Arquitectura />
             </MemoryRouter>
         );
         await waitFor(() => {
-            const boton = getByText("Ver modelo");
+            const boton = queryByTestId("overlay");
             expect(boton).toBeInTheDocument();
         });
     });
 
     it("Se debe mostrar el primer titulo", async () => {
-        const { getByText } = render(
+        const { queryByTestId } = render(
             <MemoryRouter>
                 <Arquitectura />
             </MemoryRouter>
         );
         await waitFor(() => {
-            const title = getByText("Templo Mayor");
+            const title = queryByTestId("titulo");
             expect(title).toBeInTheDocument();
         });
     });
@@ -62,13 +62,13 @@ describe("Arquitectura", () => {
 
 describe("Arquitecturas", () => {
     it("Se debe mostrar las instrucciones del modelo", async () => {
-        const { getByText, queryByTestId } = render(
+        const { queryByTestId } = render(
             <MemoryRouter>
                 <Arquitectura />
             </MemoryRouter>
         );
 
-        const button = getByText('Ver modelo');
+        const button = queryByTestId('overlay');
         fireEvent.click(button);
 
         expect(queryByTestId('instrucciones')).toBeInTheDocument();

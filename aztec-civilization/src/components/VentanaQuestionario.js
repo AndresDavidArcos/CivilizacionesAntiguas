@@ -228,10 +228,10 @@ const Questionario = () => {
                 </div>
 
                 <div id="resultado" className='resultado'>
-                    <div style={{ width: '100%', justifyItems: 'center' }}>
+                    <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                         <img id="imagenResultado" className="imagenResultado" src="" alt=""></img>
                     </div>
-                    <div style={{ width: '100%', justifyItems: 'center' }}>
+                    <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} >
                         <h1 id="textoResultado">Resultado</h1>
                     </div>
                 </div>
@@ -250,8 +250,8 @@ const Questionario = () => {
                         </div>
                     </div>
 
-                    <div style={{ width: '100%'}}>
-                        <button id='volverInicio' className="buttonCerrar" style={{justifySelf: 'center', alignSelf: 'center'}} onClick={volverInicio}>Volver al inicio de los quices</button>
+                    <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                        <button id='volverInicio' className="buttonCerrarQ" onClick={volverInicio}>Volver al inicio de los quices</button>
                     </div>
                 </div>
 
