@@ -28,6 +28,9 @@ import ProfileViewer from './components/Profile';
 import { angleToRadians } from './utils/angle';
 
 function App() {
+  const ocultar = () => {
+    document.getElementById('volverCamara').style.display = 'none';
+  }
   return (
     <div className="App">
       <Router>
@@ -140,7 +143,7 @@ function App() {
                   <Menu />
                   <RetroDialog />
                   <div className="dot" />
-                  <button id='volverCamara' style={{  position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} onClick={() => SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A LA CÁMARA</button>
+                  <button id='volverCamara' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                   <Questionario />
                   <VolumeSlider />
                   <ProfileViewer/>                  

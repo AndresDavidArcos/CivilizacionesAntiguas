@@ -37,6 +37,7 @@ const Questionario = () => {
 
     const ocultar = () => {
         document.querySelector('.modalQ').style.display = 'none';
+        document.getElementById('volverCamara').style.display = 'flex';
         setPointerLocked(true)
     }
 
@@ -177,7 +178,7 @@ const Questionario = () => {
     console.log(user)
 
     return (
-        <div id='modal' className="modalQ">
+        <div id='modal' className="modalQ" style={{zIndex: '1'}}>
             <Modal
                 open={open}
                 onClose={handleClose}
