@@ -30,18 +30,27 @@ function App() {
       <Router>
         <Routes>
           {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
-          <Route path="/getQuestionary" element={<Questionnaires />} />
+          {/* <Route path="/getQuestionary" element={<Questionnaires />} /> */}
           <Route path='/addQuestionary' element={
           <>
           <Menu/>
           <QuestionaireForm />
+          <ProfileViewer/>                  
           </>} />
-          <Route path='/pagina-principal' element={<PaginaPrincipal />} />
+          <Route path='/pagina-principal' element={
+          <>
+          <PaginaPrincipal />
+          <ProfileViewer/>                  
+          </>
+          } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Navigate to="/pagina-principal" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
-          <Route path="/arquitectura" element={<Arquitectura />} />
+          <Route path="/arquitectura" element={
+          <><Arquitectura />
+          <ProfileViewer/></>                  
+            } />
           <Route
             path="/galeria"
             element={
@@ -59,6 +68,7 @@ function App() {
                       castShadow
                     />
                     <GaleriaNavigation />
+                    <ProfileViewer/>                  
                   </Canvas>
                   <Galery />
                   <div className="dot" />
@@ -72,6 +82,7 @@ function App() {
             element={
               <>
                 <Instrumentos />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -80,6 +91,7 @@ function App() {
             element={
               <>
                 <ArteOInstrumentos />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -88,6 +100,7 @@ function App() {
             element={
               <>
                 <PaginaPrincipal />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -121,6 +134,7 @@ function App() {
                 </Canvas>
                 <div className="dot" />
                 <BCAgricultura />
+                <ProfileViewer/>                  
               </Suspense>
 
             </>
@@ -133,6 +147,7 @@ function App() {
                   <ambientLight intensity={0.9} />
                   <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
                   <ArteNavigation />
+                  <ProfileViewer/>                  
                 </Canvas>
                 <Art />
                 <div className="dot" />
