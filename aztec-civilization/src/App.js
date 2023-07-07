@@ -71,8 +71,8 @@ function App() {
                       castShadow
                     />
                     <GaleriaNavigation />
-                    <ProfileViewer/>                  
                   </Canvas>
+                  <ProfileViewer/>                  
                   <Galery />
                   <div className="dot" />
                 </Suspense>
@@ -94,6 +94,7 @@ function App() {
             element={
               <>
                 <ArteInfo />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -102,6 +103,7 @@ function App() {
             element={
               <>
                 <AgriculturaInfo />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -139,9 +141,10 @@ function App() {
                   <RetroDialog />
                   <Questionario />
                   <VolumeSlider />
-                  <ProfileViewer/>                  
                   <div className="dot" />
+                  <ProfileViewer/>                  
                 </Suspense>
+
               </>
             } />
 
@@ -166,8 +169,8 @@ function App() {
                   <ambientLight intensity={0.9} />
                   <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
                   <ArteNavigation />
-                  <ProfileViewer/>                  
                 </Canvas>
+                <ProfileViewer/>                  
                 <Art />
                 <div className="dot" />
               </Suspense>
