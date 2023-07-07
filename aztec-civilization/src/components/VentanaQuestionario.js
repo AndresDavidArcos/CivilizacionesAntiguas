@@ -73,20 +73,23 @@ const Questionario = () => {
     }
 
     const mostrarFinal = async () => {
-        var porcentaje = (aciertos / preguntas.length) * 100;
+        // var porcentaje = ((aciertos / preguntas.length) * 100).toFixed(0);
+        var porcentaje = ((aciertos / 2) * 100).toFixed(0);
 
-        document.getElementById('aciertos').innerText = 'Has acertado' + aciertos + ' de ' + preguntas.length + ' preguntas';
+        document.getElementById('aciertos').innerText = 'Has acertado ' + aciertos + ' de ' + preguntas.length + ' preguntas';
         // document.getElementById('fallos').innerText = 'Respuestas incorrectas: ' + fallos;
 
         if (porcentaje >= 70) {
-            document.getElementById('porcentaje').innerText = '¡Has aprobado este questionario! obtuviste un ' + porcentaje + '%';
+            document.getElementById('imagenFinal').src = process.env.PUBLIC_URL + "/imagenes/aztecaGano.png";
+            document.getElementById('porcentaje').innerText = '¡Aprobaste este questionario! obtuviste un ' + porcentaje + '%';
             if (Object.keys(user).length !== 0) {
                 await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${true}`, {
                     method: 'PUT',
                 })
             }
         } else {
-            document.getElementById('porcentaje').innerText = 'Has reprobado este questionario, obtuviste un ' + porcentaje.toFixed(2) + '%';
+            document.getElementById('imagenFinal').src = process.env.PUBLIC_URL + "/imagenes/aztecaPerdio.png";
+            document.getElementById('porcentaje').innerText = 'Reprobaste este questionario, obtuviste un ' + porcentaje + '%';
             if (Object.keys(user).length !== 0) {
                 await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${false}`, {
                     method: 'PUT',
@@ -229,20 +232,20 @@ const Questionario = () => {
                 </div>
 
                 <div id='final' className='final'>
-                    <div>
-                        <div style={{ width: '100%', alignContent: 'center', justifyContent: 'center' }}>
-                            <h1 id='aciertos'>Aciertos: </h1>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ width: '60%' }}>
+                            <h1 style={{ height: '30%' }} id='aciertos'>Aciertos: </h1>
                             {/* <h1 id='fallos'>Fallos: </h1> */}
 
-                            <h1 id='porcentaje'>Porcentaje: </h1>
+                            <h1 style={{ height: '30%' }} id='porcentaje'>Porcentaje: </h1>
                         </div>
 
-                        <div>
+                        <div style={{ width: '40%' }}>
                             <img id='imagenFinal' className='imagenFinal' src={process.env.PUBLIC_URL + "/imagenes/resultado.png"} alt=""></img>
                         </div>
                     </div>
 
-                    <div style={{ width: '100%', alignItems: 'center', justifyItems: 'center' }}>
+                    <div style={{ width: '100%' }}>
                         <button id='volverInicio' className="buttonCerrar" onClick={volverInicio}>Volver al inicio de los quices</button>
                     </div>
                 </div>
