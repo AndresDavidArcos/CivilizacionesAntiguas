@@ -13,6 +13,10 @@ import { useMenuSelectionData } from '../contexts/menuSelection';
 export default function SelectionMenu() {
 
   const controlsRef = useRef();
+  useEffect(()=>{
+    console.log("ola", controlsRef.current)
+
+  }, [controlsRef])
   const { pointerLocked, setPointerLocked} = useMenuSelectionData()
   const { user } = useUserData();
   console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
@@ -77,7 +81,8 @@ export default function SelectionMenu() {
 
   document.addEventListener("keyup", function(e) {
     if (e.key == "Escape") {
-      activarPointer();
+      controlsRef.current.unlock();
+      setPointerLocked(false);
     }
   });
   
