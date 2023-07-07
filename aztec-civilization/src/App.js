@@ -3,33 +3,42 @@ import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Login from "./components/Login";
 import Register from './components/Register';
-import SelectionMenu from './components/SelectionMenu';
+import SelectionMenu from './Models/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
-import Agricultura from './components/Agricultura';
+import Agricultura from './Models/Agricultura';
 import Instrumentos from './components/Instrumentos';
 import Arquitectura from './components/Arquitectura';
 import VolumeSlider from './components/VolumeSlider';
 import Menu from './components/BreadCrumb';
 import Galery from './components/BreadCrumbGalery';
-import GaleriaNavigation from './components/GaleriaNavigation';
+import GaleriaNavigation from './Models/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import AgriculturaInfo from './components/AgriculturaInfo';
 import BCAgricultura from './components/BreadCrumbAgricultura';
-import PaginaPrincipal from './components/PaginaPrincipal'; import Art from './components/BreadCrumbArt';
-import ArteNavigation from './components/ArteNavigation';
+import PaginaPrincipal from './components/PaginaPrincipal';
+import ArteInfo from './components/ArteInfo';
+import Art from './components/BreadCrumbArt';
+import ArteNavigation from './Models/ArteNavigation';
 import QuestionaireForm from './components/Questionaire';
 import Questionnaires from './components/Questionary';
 import Questionario from './components/VentanaQuestionario';
+import ProfileViewer from './components/Profile';
+import { angleToRadians } from './utils/angle';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route path="/testingComponents" element={<QuestionaireForm/>}/> */}
+          {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
           <Route path="/getQuestionary" element={<Questionnaires />} />
-          <Route path='/addQuestionary' element={<QuestionaireForm />} />
+          <Route path='/addQuestionary' element={
+            <>
+              <Menu />
+              <QuestionaireForm />
+            </>} />
           <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -70,6 +79,22 @@ function App() {
             }
           />
           <Route
+            path="/arte-info"
+            element={
+              <>
+                <ArteInfo />
+              </>
+            }
+          />
+          <Route
+            path="/agricultura-info"
+            element={
+              <>
+                <AgriculturaInfo />
+              </>
+            }
+          />
+          <Route
             path="/arte-instrumentos"
             element={
               <>
@@ -92,17 +117,18 @@ function App() {
                 <Suspense fallback={<LoaderScreen />}>
                   <Canvas
                     id="three-canvas-container"
-                    camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                    camera={{ position: [1, 1.5, 4.5], fov: 50, rotation: [angleToRadians(0), angleToRadians(-90), angleToRadians(0)] }}
                     shadows
                   >
                     <SelectionMenu />
                   </Canvas>
                   <Menu />
                   <RetroDialog />
-                  <button style={{ position: 'absolute', top: '0px', right: '0px' }} onClick={SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A LA CÁMARA</button>
                   <div className="dot" />
+                  <button id='volverCamara' style={{  position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} onClick={() => SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A LA CÁMARA</button>
                   <Questionario />
                   <VolumeSlider />
+                  <ProfileViewer />
                 </Suspense>
               </>
             } />
@@ -113,6 +139,7 @@ function App() {
                 <Canvas id="three-canvas-container" camera={{ position: [1, 10, 2.5], fov: 50 }} shadows>
                   <Agricultura />
                 </Canvas>
+                <div className="dot" />
                 <BCAgricultura />
               </Suspense>
 

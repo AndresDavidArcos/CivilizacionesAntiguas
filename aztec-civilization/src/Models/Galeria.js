@@ -5,10 +5,10 @@ import {
 } from "@react-three/drei";
 import { AudioListener, AudioLoader, Audio } from "three";
 import { useLoader } from "react-three-fiber";
-import ocarinaMusic from "../musica/ocarina.mp3";
-import teponaztliMusic from "../musica/Teponaztli.mp3";
-import TlapitzalliMusic from "../musica/Tlapitzalli.mp3";
-import AyoyoteMusic from "../musica/ayoyote.mp3";
+import ocarinaMusic from "../Music/ocarina.mp3";
+import teponaztliMusic from "../Music/Teponaztli.mp3";
+import TlapitzalliMusic from "../Music/Tlapitzalli.mp3";
+import AyoyoteMusic from "../Music/ayoyote.mp3";
 import "../styles/Instrumentos.css";
 
 {/** este componente carga el modelo de la galería que contiene todos los instrumentos 

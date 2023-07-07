@@ -65,6 +65,7 @@
     font-size: 30px;
     font-family: fantasy;
     -webkit-text-stroke: 1px white;
+    color: #000;
     /* width and color */
     cursor: pointer;
 }

@@ -4,10 +4,19 @@ import NavBarClean from './NavBarClean'
 import { Box, Button, TextField } from '@mui/material';
 import errorIcon from "../icons/advertencia.png";
 import { useUserData } from '../contexts/user';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 export default function Login() {
-  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
-  // const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#ff6f00",
+      },
+    },
+  });
+  
+  // const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
   const {setUser} = useUserData();
   const [nombre, setUsername] = useState('');
   const [clave, setPassword] = useState('');
@@ -44,6 +53,8 @@ export default function Login() {
 
   return (
     <>
+    <ThemeProvider theme={theme}>
+
       <NavBarClean></NavBarClean>
       <Box
         sx={{display:'grid', alignItems:'center', justifyContent:'center', gap:'5px'}}
@@ -72,13 +83,15 @@ export default function Login() {
                              <p>{errors}</p>
                           </div>
                         )}
-        <Button variant="contained" onClick={handleSubmit}>Iniciar sesión</Button>
+        <Button  variant="contained"   onClick={handleSubmit}>Iniciar sesión</Button>
         <br></br>
-        <Button variant="text">
+        <Button  variant="text">
           <Link to="/register">Registrarse</Link>
         </Button>
 
       </Box>
+      </ThemeProvider>
+
     </>
   );
 }

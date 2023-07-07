@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBarClean from './NavBarClean';
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, TextField, ThemeProvider, createTheme } from '@mui/material';
 import errorIcon from '../icons/advertencia.png'
 
 export default function Register() {
-  const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
-  // const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#ff6f00",
+      },
+    },
+  });  
+  // const baseUrl = window.location.protocol + "//" + window.location.hostname + ":4000/api/";
+  const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
 
   const [nombre, setNombre] = useState('');
   const [clave, setPassword] = useState('');
@@ -45,6 +52,8 @@ export default function Register() {
 
   return (
     <>
+    <ThemeProvider theme={theme}>
+
       <NavBarClean></NavBarClean>
       <Box className='registerForm'
         sx={{ display: 'grid', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
@@ -76,6 +85,8 @@ export default function Register() {
         </Button>
 
       </Box>
+      </ThemeProvider>
+
     </>
   );
 }

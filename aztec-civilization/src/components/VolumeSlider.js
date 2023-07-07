@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import soundOff from "../iconos/Sound off.png"
 import soundOn from "../iconos/Sound on.png"
-import aztecMusic from "../musica/menuAztecMusic.mp3"
+import aztecMusic from "../Music/menuAztecMusic.mp3"
 import "../styles/volumeslider.css"
 export default function VolumeSlider(){
     

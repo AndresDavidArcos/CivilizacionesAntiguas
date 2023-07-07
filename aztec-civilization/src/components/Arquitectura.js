@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../styles/Arquitectura.css";
-import Modelos from './Arquitecturas';
+import Modelos from '../Models/Arquitecturas';
 
 const Arquitectura = () => {
   // Datos de los slides
@@ -74,10 +74,6 @@ const Arquitectura = () => {
   const handleLogin = () => {
     navigate('/login');
   };
-
-  const handleInicio = () => {
-    navigate('/pagina-principal');
-  }
 
   const handleMenu = () => {
     navigate('/menuSelection');
