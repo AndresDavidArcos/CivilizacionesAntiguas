@@ -99,7 +99,7 @@ function App() {
                   </Canvas>
                   <Menu />
                   <RetroDialog />
-                  <button style={{ position: 'absolute', top: '0px', right: '0px' }} onClick={SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A CAMARA</button>
+                  <button style={{ position: 'absolute', top: '0px', right: '0px' }} onClick={SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A LA CÁMARA</button>
                   <div className="dot" />
                   <Questionario />
                   <VolumeSlider />
