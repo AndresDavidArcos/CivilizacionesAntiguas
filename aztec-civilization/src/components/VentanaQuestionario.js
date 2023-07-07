@@ -62,10 +62,10 @@ const Questionario = () => {
     const mostrarResultado = async (state) => {
         if (state == true) {
             document.getElementById('imagenResultado').src = process.env.PUBLIC_URL + "/imagenes/respuestaCorrecta.png";
-            document.getElementById('textoResultado').innerText = '¡Respuesta correcta!';
+            document.getElementById('textoResultado').innerText = '¡RESPUESTA CORRECTA!';
         } else {
             document.getElementById('imagenResultado').src = process.env.PUBLIC_URL + "/imagenes/respuestaIncorrecta.png";
-            document.getElementById('textoResultado').innerText = 'Respuesta incorrecta';
+            document.getElementById('textoResultado').innerText = 'RESPUESTA INCORRECTA';
         }
 
         document.getElementById('preguntas').style.display = 'none';
@@ -182,6 +182,7 @@ const Questionario = () => {
                             height: "50px",
                             background: 'transparent',
                             borderRadius: '50%',
+                            cursor: 'pointer',
                             // position: "fixed",
                             // top: "0px",
                             // right: "0px",
@@ -227,8 +228,12 @@ const Questionario = () => {
                 </div>
 
                 <div id="resultado" className='resultado'>
-                    <img id="imagenResultado" className="imagenResultado" src="" alt=""></img>
-                    <h1 id="textoResultado">Resultado</h1>
+                    <div style={{ width: '100%', justifyItems: 'center' }}>
+                        <img id="imagenResultado" className="imagenResultado" src="" alt=""></img>
+                    </div>
+                    <div style={{ width: '100%', justifyItems: 'center' }}>
+                        <h1 id="textoResultado">Resultado</h1>
+                    </div>
                 </div>
 
                 <div id='final' className='final'>
@@ -245,8 +250,8 @@ const Questionario = () => {
                         </div>
                     </div>
 
-                    <div style={{ width: '100%' }}>
-                        <button id='volverInicio' className="buttonCerrar" onClick={volverInicio}>Volver al inicio de los quices</button>
+                    <div style={{ width: '100%'}}>
+                        <button id='volverInicio' className="buttonCerrar" style={{justifySelf: 'center', alignSelf: 'center'}} onClick={volverInicio}>Volver al inicio de los quices</button>
                     </div>
                 </div>
 
