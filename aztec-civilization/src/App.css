@@ -4,6 +4,10 @@
   height: 100vh !important;
 }
 
+.login-button {
+  background-color: #ff6f00;
+}
+
 #three-canvas-container-2 {
   box-sizing: border-box;
 
@@ -40,7 +44,7 @@
   align-items: center;
   background-color: #000;
   position: fixed;
-  bottom: 200px;
+  bottom: 300px;
   left: 20p;
   width: 310px;
   height: 150px;
@@ -106,4 +110,8 @@ span {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+}
+
+p {
+  color: black;
 }

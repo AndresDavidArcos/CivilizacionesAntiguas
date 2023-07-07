@@ -24,13 +24,14 @@ import ArteNavigation from './components/ArteNavigation';
 import QuestionaireForm from './components/Questionaire';
 import Questionnaires from './components/Questionary';
 import Questionario from './components/VentanaQuestionario';
+import ProfileViewer from './components/Profile';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route path="/testingComponents" element={<QuestionaireForm/>}/> */}
+          {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
           <Route path="/getQuestionary" element={<Questionnaires />} />
           <Route path='/addQuestionary' element={
           <>
@@ -124,6 +125,7 @@ function App() {
                   <RetroDialog />
                   <Questionario />
                   <VolumeSlider />
+                  <ProfileViewer/>                  
                   <div className="dot" />
                 </Suspense>
               </>
