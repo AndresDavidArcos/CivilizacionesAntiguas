@@ -25,8 +25,8 @@ const Art = () => {
     const handleMenu = () => {
         navigate('/menuSelection');
     }
-    const handleArte = () => {
-        navigate('/arte');
+    const handleInfo = () => {
+        navigate('/arte-info');
     }
 
     return (
@@ -36,6 +36,9 @@ const Art = () => {
         </button>
         <button className="breadCrumb" onClick={handleMenu}>
           Menú de selección
+        </button>
+        <button className="breadCrumb" onClick={handleMenu}>
+          El arte Azteca
         </button>
         <button className="breadCrumbDisabled">Arte</button>
         <img
