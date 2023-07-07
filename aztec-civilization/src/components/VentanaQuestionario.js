@@ -3,6 +3,10 @@ import { Center, Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
 import { useMenuSelectionData } from "../contexts/menuSelection";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 const Questionario = () => {
 
@@ -21,9 +25,15 @@ const Questionario = () => {
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    const mostrarInfo = () => {
-        console.log("Mostrar información")
-    }
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const ocultar = () => {
         document.querySelector('.modalQ').style.display = 'none';
@@ -46,8 +56,7 @@ const Questionario = () => {
         console.log()
 
         preguntaActual++;
-        // if (preguntaActual == preguntas.length) {
-        if (preguntaActual == 2) {
+        if (preguntaActual == preguntas.length) {
             preguntaActual = 0;
             document.getElementById('preguntas').style.display = 'none';
             document.getElementById('resultado').style.display = 'none';
@@ -73,8 +82,7 @@ const Questionario = () => {
     }
 
     const mostrarFinal = async () => {
-        // var porcentaje = ((aciertos / preguntas.length) * 100).toFixed(0);
-        var porcentaje = ((aciertos / 2) * 100).toFixed(0);
+        var porcentaje = ((aciertos / preguntas.length) * 100).toFixed(0);
 
         document.getElementById('aciertos').innerText = 'Has acertado ' + aciertos + ' de ' + preguntas.length + ' preguntas';
         // document.getElementById('fallos').innerText = 'Respuestas incorrectas: ' + fallos;
@@ -122,25 +130,25 @@ const Questionario = () => {
                 console.log("Agricultura")
                 preguntas = data.filter((d) => d.nombre === 'agricultura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'agricultura');
-                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Agricultura';
+                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Agricultura';
                 break;
             case 'instrumentos':
                 console.log("Instrumentos")
                 preguntas = data.filter((d) => d.nombre === 'Instrumentos')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Instrumentos');
-                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Instrumentos';
+                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Instrumentos';
                 break;
             case 'arte':
                 console.log("Arte")
                 preguntas = data.filter((d) => d.nombre === 'Arte')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arte');
-                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Arte';
+                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Arte';
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
                 preguntas = data.filter((d) => d.nombre === 'Arquitectura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arquitectura');
-                document.getElementById('textoTemaEvaluar').innerHTML = 'Questionario de Arquitectura';
+                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Arquitectura';
                 break;
             default:
                 break;
@@ -149,8 +157,8 @@ const Questionario = () => {
         const quizBuenos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].aciertos : 0;
         const quizMalos = Object.keys(user).length !== 0 ? user.data.evaluaciones[quiz].fallos : 0;
 
-        document.getElementById('aciertosQuiz').innerHTML = '¡Has superado este quiz: \n' + quizBuenos + ' veces!';
-        document.getElementById('fallosQuiz').innerHTML = 'Has fallado este quiz: \n' + quizMalos + ' veces';
+        document.getElementById('aciertosQuiz').innerText = '¡Has superado este quiz: \n' + quizBuenos + ' veces!';
+        document.getElementById('fallosQuiz').innerText = 'Has fallado este quiz: \n' + quizMalos + ' veces';
 
         aciertos = 0;
         fallos = 0;
@@ -161,7 +169,7 @@ const Questionario = () => {
 
         document.getElementById('topicos').style.display = 'none';
         document.getElementById('puntajes').style.display = 'block';
-        await delay(2000);
+        await delay(3000);
         document.getElementById('puntajes').style.display = 'none';
         document.getElementById('preguntas').style.display = 'block';
     }
@@ -170,8 +178,43 @@ const Questionario = () => {
 
     return (
         <div id='modal' className="modalQ">
-            <link href="https://fonts.cdnfonts.com/css/ambystoma-mexicanum" rel="stylesheet">
-            </link>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+                <Box className="instruccionesQ">
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Intrucciones
+                    </Typography>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Aquí podrás evaluar tus conocimientos sobre lo visto en nuestra aplicación.
+                    </Typography>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Primero deberás seleccionar un tópico para evaluar. Te dirá cuantas veces has superado el quiz y cuantas veces lo has fallado. 0 en ambas en caso de estar como invitado.
+                    </Typography>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Después irás respondiendo las preguntas, si aciertas se te mostrará un mensaje de respuesta correcta, de lo contrario se te mostrará un mensaje de respuesta incorrecta.
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        size="small"
+                        className="boton"
+                        style={{
+                            position: "relative",
+                            // top: "400px",
+                            // left: "500px",
+                            background: "red",
+                        }}
+                        onClick={() => setOpen(false)}
+                    >
+                        Cerrar
+                    </Button>
+                </Box>
+            </Modal>
+            <link href="https://fonts.cdnfonts.com/css/ambystoma-mexicanum" rel="stylesheet"></link>
             <div className="modal-contentQ">
                 <div className='topDiv'>
                     <img
@@ -190,10 +233,10 @@ const Questionario = () => {
                             // top: "0px",
                             // right: "0px",
                         }}
-                        onClick={mostrarInfo}
+                        onClick={handleOpen}
 
                     />
-                    <h1>{Object.keys(user).length !== 0 ? user.data.nombre : 'Inicia sesión para guardar progreso'}</h1>
+                    <h1 className="usuario">{Object.keys(user).length !== 0 ? user.data.nombre : 'Inicia sesión para guardar progreso'}</h1>
 
                     <button className="buttonCerrar" onClick={ocultar}>
                         <span className="close">&times;</span>
@@ -212,9 +255,9 @@ const Questionario = () => {
 
                 <div id='puntajes' className='puntajes'>
                     <div style={{ width: '100%' }}>
-                        <p id='textoTemaEvaluar' className='textoTemaEvaluar'>Tema: </p>
+                        <h1 id='textoTemaEvaluar' className='textoTemaEvaluar'>Tema: </h1>
                     </div>
-                    <div>
+                    <div style={{ display: 'flex' }}>
                         <p id='aciertosQuiz' className='aciertosQuiz'>Aciertos: </p>
                         <p id='fallosQuiz' className='fallosQuiz'>Fallos: </p>
                     </div>

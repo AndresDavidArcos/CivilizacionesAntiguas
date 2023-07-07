@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Lato:wght@300&display=swap');
+
 .modalQ {
     position: fixed;
     top: 0;
@@ -93,7 +95,7 @@
     text-align: center;
     align-self: center;
     font-size: 40px;
-    /* font-family: 'Ambystoma Mexicanum', sans-serif; */
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 .temas {
@@ -103,8 +105,8 @@
 .opcionRespuesta {
     width: 48%;
     height: auto;
-    padding: 1%; 
-    margin: 1%; 
+    padding: 1%;
+    margin: 1%;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -125,20 +127,31 @@
     display: none;
 }
 
-.aciertosQuiz {
+.usuario {
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 45px;
     font-weight: bold;
     margin-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.aciertosQuiz {
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 .fallosQuiz {
-    width: 100%;
+    width: 50%;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
 .textoTemaEvaluar {
@@ -146,7 +159,7 @@
     text-align: center;
     align-self: center;
     font-size: 40px;
-    /* font-family: 'Ambystoma Mexicanum', sans-serif; */
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 .imagenResultado {
@@ -184,4 +197,12 @@
     position: relative;
     top: 10px;
     cursor: pointer;
+}
+
+.instruccionesQ {
+    width: 390px;
+    background-color: white;
+    border: 2px solid #000;
+    box-shadow: 24px;
+    padding: 4px;
 }

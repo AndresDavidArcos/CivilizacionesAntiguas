@@ -66,7 +66,7 @@ export default function SelectionMenu() {
   const mostrarPreguntas = () => {
     setPointerLocked(false);
     document.getElementById('modal').style.display = 'flex';
-    document.getElementById('topicos').style.display = 'flex';
+    document.getElementById('topicos').style.display = 'block';
     // document.getElementById('pregunta').style.display = 'flex';
     document.getElementById('preguntas').style.display = 'none';
     document.getElementById('resultado').style.display = 'none';
