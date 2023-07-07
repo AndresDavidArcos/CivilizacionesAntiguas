@@ -11,14 +11,21 @@
 }
 
 .modal-contentQ {
-    width: 800px;
+    width: 1000px;
     justify-content: center;
     align-items: center;
-    /* background-image: url('../../public/imagenes/fondo_azteca.jpg'); */
-    background-color: #a01d1d;
-    /* background-image: linear-gradient(rgba(231, 177, 106, 0.5), rgba(255, 197, 37, 0.5)); */
-    /* background-image: url('../../public/imagenes/fondo_azteca.jpg'); */
-    background-repeat: repeat;
+    /* background-image: url('../../public/imagenes/aztec_border.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; */
+
+    background-color: burlywood;
+    border: 10px solid black;
+
+    border-image-source: url('../../public/imagenes/fondo_azteca.jpg');
+    border-image-slice: 50;
+    border-image-repeat: round;
+    border-width: 15px;
+
     padding: 20px;
     display: inline-block;
 }
@@ -41,7 +48,7 @@
     width: 48%;
     height: 80px;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 2px solid #000;
     border-radius: 5px;
     flex-basis: 48%;
     margin: 1%;
@@ -96,7 +103,8 @@
 .opcionRespuesta {
     width: 48%;
     height: auto;
-    margin: 1%;
+    padding: 1%; 
+    margin: 1%; 
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -176,4 +184,4 @@
     position: relative;
     top: 10px;
     cursor: pointer;
-  }
+}

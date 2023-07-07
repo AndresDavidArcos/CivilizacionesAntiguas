@@ -181,7 +181,10 @@ const Questionario = () => {
                             width: "50px",
                             height: "50px",
                             background: 'transparent',
+                            clipPath: 'circle(50%)',
                             borderRadius: '50%',
+                            border: '3px solid black',
+                            // border: '4px solid #000',
                             cursor: 'pointer',
                             // position: "fixed",
                             // top: "0px",
@@ -200,7 +203,7 @@ const Questionario = () => {
                 <div id='topicos' className='divContainer'>
                     <h1 className="textoEvaluar">Selecciona el tópico para evaluarte</h1>
                     <div className='temas'>
-                        <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura </button>
+                        <button className='optionButtom' style={{ backgroundSize: '110%', backgroundImage: 'url(../../imagenes/agricultura.jpg)' }} onClick={() => { seleccionarTema('agricultura') }}>Agricultura </button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/instrumentos.jpg)' }} onClick={() => { seleccionarTema('instrumentos') }}>Instrumentos</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/arte.jpg)' }} onClick={() => { seleccionarTema('arte') }}>Arte</button>
                         <button className='optionButtom' style={{ backgroundImage: 'url(../../imagenes/estadioTlachtli.png)' }} onClick={() => { seleccionarTema('arquitectura') }}>Arquitectura</button>
