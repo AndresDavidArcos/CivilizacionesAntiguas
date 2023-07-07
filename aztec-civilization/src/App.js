@@ -33,18 +33,27 @@ function App() {
       <Router>
         <Routes>
           {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
-          <Route path="/getQuestionary" element={<Questionnaires />} />
+          {/* <Route path="/getQuestionary" element={<Questionnaires />} /> */}
           <Route path='/addQuestionary' element={
-            <>
-              <Menu />
-              <QuestionaireForm />
-            </>} />
-          <Route path='/pagina-principal' element={<PaginaPrincipal />} />
+          <>
+          <Menu/>
+          <QuestionaireForm />
+          <ProfileViewer/>                  
+          </>} />
+          <Route path='/pagina-principal' element={
+          <>
+          <PaginaPrincipal />
+          <ProfileViewer/>                  
+          </>
+          } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Navigate to="/pagina-principal" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
-          <Route path="/arquitectura" element={<Arquitectura />} />
+          <Route path="/arquitectura" element={
+          <><Arquitectura />
+          <ProfileViewer/></>                  
+            } />
           <Route
             path="/galeria"
             element={
@@ -63,6 +72,7 @@ function App() {
                     />
                     <GaleriaNavigation />
                   </Canvas>
+                  <ProfileViewer/>                  
                   <Galery />
                   <div className="dot" />
                 </Suspense>
@@ -75,6 +85,7 @@ function App() {
             element={
               <>
                 <Instrumentos />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -83,6 +94,7 @@ function App() {
             element={
               <>
                 <ArteInfo />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -91,6 +103,7 @@ function App() {
             element={
               <>
                 <AgriculturaInfo />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -99,6 +112,7 @@ function App() {
             element={
               <>
                 <ArteOInstrumentos />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -107,6 +121,7 @@ function App() {
             element={
               <>
                 <PaginaPrincipal />
+                <ProfileViewer/>                  
               </>
             }
           />
@@ -128,8 +143,10 @@ function App() {
                   <button id='volverCamara' style={{  position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} onClick={() => SelectionMenu.activarPointer}>PRESIONAME PARA VOLVER A LA CÁMARA</button>
                   <Questionario />
                   <VolumeSlider />
-                  <ProfileViewer />
+                  <ProfileViewer/>                  
+                  <div className="dot" />
                 </Suspense>
+
               </>
             } />
 
@@ -141,6 +158,7 @@ function App() {
                 </Canvas>
                 <div className="dot" />
                 <BCAgricultura />
+                <ProfileViewer/>                  
               </Suspense>
 
             </>
@@ -154,6 +172,7 @@ function App() {
                   <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
                   <ArteNavigation />
                 </Canvas>
+                <ProfileViewer/>                  
                 <Art />
                 <div className="dot" />
               </Suspense>
