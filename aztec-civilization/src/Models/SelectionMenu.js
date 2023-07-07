@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Html, useGLTF, CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
 import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
-import Guarda from "./Huey_tlatoani";
+import Guarda from "../components/Huey_tlatoani";
 import { React, useEffect, useRef, useState } from 'react';
 import { useMenuSelectionData } from '../contexts/menuSelection';
 

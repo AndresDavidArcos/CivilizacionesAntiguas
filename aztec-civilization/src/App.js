@@ -17,21 +17,15 @@ import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
 import AgriculturaInfo from './components/AgriculturaInfo';
 import BCAgricultura from './components/BreadCrumbAgricultura';
-<<<<<<< HEAD
-import PaginaPrincipal from './components/PaginaPrincipal';import Art from './components/BreadCrumbArt';
-import ArteNavigation from './Models/ArteNavigation';
-
-=======
 import PaginaPrincipal from './components/PaginaPrincipal';
 import ArteInfo from './components/ArteInfo';
 import Art from './components/BreadCrumbArt';
-import ArteNavigation from './components/ArteNavigation';
+import ArteNavigation from './Models/ArteNavigation';
 import QuestionaireForm from './components/Questionaire';
 import Questionnaires from './components/Questionary';
 import Questionario from './components/VentanaQuestionario';
 import ProfileViewer from './components/Profile';
 import { angleToRadians } from './utils/angle';
->>>>>>> main
 
 function App() {
   return (
