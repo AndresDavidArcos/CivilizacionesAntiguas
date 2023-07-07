@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Html } from "@react-three/drei"
+import { Center, Html } from "@react-three/drei"
 import "../styles/Questionario.css";
 import { useUserData } from '../contexts/user';
 import { useMenuSelectionData } from "../contexts/menuSelection";
@@ -46,7 +46,8 @@ const Questionario = () => {
         console.log()
 
         preguntaActual++;
-        if (preguntaActual == preguntas.length) {
+        // if (preguntaActual == preguntas.length) {
+        if (preguntaActual == 2) {
             preguntaActual = 0;
             document.getElementById('preguntas').style.display = 'none';
             document.getElementById('resultado').style.display = 'none';
@@ -60,9 +61,11 @@ const Questionario = () => {
 
     const mostrarResultado = async (state) => {
         if (state == true) {
-            document.getElementById('resultado').innerHTML = 'Has acertado';
+            document.getElementById('imagenResultado').src = process.env.PUBLIC_URL + "/imagenes/respuestaCorrecta.png";
+            document.getElementById('textoResultado').innerText = '¡Respuesta correcta!';
         } else {
-            document.getElementById('resultado').innerHTML = 'Has fallado';
+            document.getElementById('imagenResultado').src = process.env.PUBLIC_URL + "/imagenes/respuestaIncorrecta.png";
+            document.getElementById('textoResultado').innerText = 'Respuesta incorrecta';
         }
 
         document.getElementById('preguntas').style.display = 'none';
@@ -72,18 +75,18 @@ const Questionario = () => {
     const mostrarFinal = async () => {
         var porcentaje = (aciertos / preguntas.length) * 100;
 
-        document.getElementById('aciertos').innerHTML = 'Respuestas correctas: ' + aciertos;
-        document.getElementById('fallos').innerHTML = 'Respuestas incorrectas: ' + fallos;
+        document.getElementById('aciertos').innerText = 'Has acertado' + aciertos + ' de ' + preguntas.length + ' preguntas';
+        // document.getElementById('fallos').innerText = 'Respuestas incorrectas: ' + fallos;
 
         if (porcentaje >= 70) {
-            document.getElementById('porcentaje').innerHTML = '¡Has aprobado este questionario! obtuviste un ' + porcentaje + '%';
+            document.getElementById('porcentaje').innerText = '¡Has aprobado este questionario! obtuviste un ' + porcentaje + '%';
             if (Object.keys(user).length !== 0) {
                 await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${true}`, {
                     method: 'PUT',
                 })
             }
         } else {
-            document.getElementById('porcentaje').innerHTML = 'Has reprobado este questionario, obtuviste un ' + porcentaje + '%';
+            document.getElementById('porcentaje').innerText = 'Has reprobado este questionario, obtuviste un ' + porcentaje.toFixed(2) + '%';
             if (Object.keys(user).length !== 0) {
                 await fetch(`${baseUrl}questionaire/update/${user.data.nombre}/${data[quiz].nombre}/${false}`, {
                     method: 'PUT',
@@ -91,7 +94,7 @@ const Questionario = () => {
             }
         }
 
-        document.getElementById('final').style.display = 'flex';
+        document.getElementById('final').style.display = 'block';
     }
 
     const volverInicio = () => {
@@ -221,17 +224,27 @@ const Questionario = () => {
                 </div>
 
                 <div id="resultado" className='resultado'>
-                    <h1>Resultado</h1>
+                    <img id="imagenResultado" className="imagenResultado" src="" alt=""></img>
+                    <h1 id="textoResultado">Resultado</h1>
                 </div>
 
                 <div id='final' className='final'>
-                    <h1 id='aciertos'>Aciertos: </h1>
-                    <hr></hr>
-                    <h1 id='fallos'>Fallos: </h1>
-                    <hr></hr>
-                    <h1 id='porcentaje'>Porcentaje: </h1>
-                    <hr></hr>
-                    <button id='volverInicio' className="buttonCerrar" onClick={volverInicio}>Volver al inicio de los quices</button>
+                    <div>
+                        <div style={{ width: '100%', alignContent: 'center', justifyContent: 'center' }}>
+                            <h1 id='aciertos'>Aciertos: </h1>
+                            {/* <h1 id='fallos'>Fallos: </h1> */}
+
+                            <h1 id='porcentaje'>Porcentaje: </h1>
+                        </div>
+
+                        <div>
+                            <img id='imagenFinal' className='imagenFinal' src={process.env.PUBLIC_URL + "/imagenes/resultado.png"} alt=""></img>
+                        </div>
+                    </div>
+
+                    <div style={{ width: '100%', alignItems: 'center', justifyItems: 'center' }}>
+                        <button id='volverInicio' className="buttonCerrar" onClick={volverInicio}>Volver al inicio de los quices</button>
+                    </div>
                 </div>
 
             </div>
