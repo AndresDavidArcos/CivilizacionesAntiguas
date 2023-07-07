@@ -75,10 +75,6 @@ const Arquitectura = () => {
     navigate('/login');
   };
 
-  const handleInicio = () => {
-    navigate('/pagina-principal');
-  }
-
   const handleMenu = () => {
     navigate('/menuSelection');
   };

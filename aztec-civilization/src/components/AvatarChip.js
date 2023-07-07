@@ -8,17 +8,39 @@ import {
   MenuList,
   Paper,
   Popper,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
-  AccountCircle,
   ExpandMore,
   ExitToApp,
-  Home,
-  NaturePeople,
   Storefront,
-} from "@material-ui/icons";
-
+  Agriculture,
+  MenuBook,
+  Home,
+  Person,
+  ColorLens,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+{
+  /** este componente es para que el usuario tenga una mejor navegación por la página y pueda ver su progreso */
+}
 const AvatarChip = () => {
+  const navigate = useNavigate();
+
+  const handleMenu = () => {
+    navigate("/menuSelection");
+  };
+
+  const handlePagina = () => {
+    navigate("/pagina-principal");
+  };
+
+  const handleCultura = () => {
+    navigate("/arte-instrumentos");
+  };
+
+  const handleAgricultura = () => {
+    navigate("/agricultura");
+  };
 
   const [isOpen, setIsOpen] = useState(false);
   const anchorRef = React.useRef(null);
@@ -35,14 +57,27 @@ const AvatarChip = () => {
     setIsOpen(false);
   };
 
-  const handleLogout = () => {
-    // Lógica para cerrar sesión
-  };
+  //Lógica para cerrar sesión
+  const handleLogout = () => {};
 
   return (
     <>
       <Chip
-        label="Usuario"
+        sx={{
+          height: "auto",
+          width: "auto",
+          backgroundColor: "yellow",
+          display: "flex",
+          alignItems: "center",
+        }}
+        label={
+          <>
+            <Person sx={{ marginRight: "0.5rem" }} />
+            Usuario
+          </>
+        }
+        size="medium"
+        icon={<ExpandMore />}
         onClick={handleToggle}
         deleteIcon={<ExpandMore />}
         ref={anchorRef}
@@ -66,16 +101,28 @@ const AvatarChip = () => {
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={isOpen} id="menu-list-grow">
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem>
+                    <Person />
+                    Perfil
+                  </MenuItem>
+                  <MenuItem onClick={handlePagina}>
                     <Home />
+                    Página principal
+                  </MenuItem>
+                  <MenuItem onClick={handleMenu}>
+                    <MenuBook />
+                    Menú de selección
+                  </MenuItem>
+                  <MenuItem onClick={handleCultura}>
+                    <ColorLens />
                     Cultura
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
                     <Storefront />
                     Arquitectura
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    <NaturePeople />
+                  <MenuItem onClick={handleAgricultura}>
+                    <Agriculture />
                     Agricultura
                   </MenuItem>
                   <MenuItem onClick={handleLogout}>
