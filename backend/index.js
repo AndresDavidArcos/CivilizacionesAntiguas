@@ -5,6 +5,7 @@ const db = require("./database")
 
 //middlewares
 app.use(cors());
+  
 app.use(express.json());
 
 //configuraciones
@@ -12,6 +13,7 @@ app.set("port","4000");
 
 //rutas
 app.use("/api",require("./routes/login"));
+app.use("/api/questionaire",require("./routes/questionaire"));
 
 //manejador de errores
 app.use((err,req,res,next)=>{

@@ -1,0 +1,71 @@
+.modalQ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contentQ {
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url('../../public/imagenes/fondo_azteca.jpg'); */
+    background-color: #6a2c00;
+    padding: 20px;
+}
+
+.topDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bottomDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.optionButtom {
+    width: 48%;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    flex-basis: 48%;
+    margin: 1%;
+    align-self: center;
+    background-position: center;
+    background-size: cover;
+    align-self: auto;
+    text-align: center;
+    text-size-adjust: auto;
+}
+
+.pregunta {
+    display: flex; 
+}
+
+.preguntas {
+    display: none;
+}
+
+.resultado {
+    display: none;
+}
+
+.textoEvaluar {
+    width: 100%;
+    text-align: center;
+}
+
+.temas {
+    width: 100%;
+}

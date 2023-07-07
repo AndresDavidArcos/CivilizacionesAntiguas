@@ -3,10 +3,23 @@ import AncientGate from "./AncientGate";
 import Player from "../Models/Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
-import { Environment, KeyboardControls, PointerLockControls, useEnvironment, useTexture } from "@react-three/drei";
+import { Html, useGLTF, CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
 import { angleToRadians } from "../utils/angle";
+import { useUserData } from "../contexts/user";
+import Guarda from "./Huey_tlatoani";
+import { React, useEffect, useRef, useState } from 'react';
+import { useMenuSelectionData } from '../contexts/menuSelection';
 
 export default function SelectionMenu() {
+
+  const controlsRef = useRef();
+  useEffect(()=>{
+    console.log("ola", controlsRef.current)
+
+  }, [controlsRef])
+  const { pointerLocked, setPointerLocked} = useMenuSelectionData()
+  const { user } = useUserData();
+  console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
   const tPathI = '../../imagenes/'
   const painting = useTexture({
     map: tPathI + "agricultura.jpg",
@@ -36,7 +49,7 @@ export default function SelectionMenu() {
   const handleNavCollision = (topic) => {
     switch (topic) {
       case 'agricultura':
-        navigator('/agricultura')
+        navigator('/agricultura-info')
         break;
       case 'instrumentos':
         navigator('/arte-instrumentos')
@@ -48,6 +61,33 @@ export default function SelectionMenu() {
         break;
     }
   }
+
+  const mostrarPreguntas = () => {
+    setPointerLocked(false);
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('topicos').style.display = 'flex';
+    document.getElementById('pregunta').style.display = 'none';
+    document.getElementById('resultado').style.display = 'none';
+  };
+
+  const activarPointer = () => {
+    setPointerLocked(true);
+  }
+
+
+  useEffect(() => {
+    console.log(pointerLocked)
+  }, [pointerLocked])
+
+  document.addEventListener("keyup", function(e) {
+    if (e.key == "Escape") {
+      controlsRef.current.unlock();
+      setPointerLocked(false);
+    }
+  });
+  
+
+
   return (
     <>
       {/* Camera */}
@@ -60,9 +100,18 @@ export default function SelectionMenu() {
             { name: "right", keys: ["ArrowRight", "d", "D"] },
             { name: "jump", keys: ["Space"] },
           ]}>
-          <Player position={[-11, 5, 0]}/>
+          <Player position={[-11, 5, 0]} />
         </KeyboardControls>
         {/* Models */}
+
+        {/* Guarda */}
+        <group receiveShadow castShadow onClick={mostrarPreguntas}>
+          <RigidBody type="fixed" colliders="cuboid">
+            <Guarda position={[-3.5, 6.5, 3.5]} rotation={[0, angleToRadians(200), 0]} scale={0.25} />
+          </RigidBody>
+        </group>
+
+
         <group position={[0, -0.5, 0]}>
           <RigidBody type="fixed" colliders="hull">
             <AztecPyramid rotation={[0, -3.1, 0]} />
@@ -75,7 +124,25 @@ export default function SelectionMenu() {
               handleNavCollision('agricultura');
             }}
           >
+            <group>
             <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
+            <Html position={[1, 15, 4]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              AGRICULTURA
+            </div>
+          </Html>
+            </group>
           </RigidBody>
           <RigidBody
             type="fixed"
@@ -85,7 +152,25 @@ export default function SelectionMenu() {
               handleNavCollision('instrumentos');
             }}
           >
+            <group>
             <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
+            <Html position={[-3, 13, -4]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              INSTRUMENTOS
+            </div>
+          </Html>
+            </group>
           </RigidBody>
           <RigidBody
             type="fixed"
@@ -94,53 +179,70 @@ export default function SelectionMenu() {
               console.log("Collision at world position ", manifold.solverContactPoint(0));
               handleNavCollision('arquitectura');
             }}
-          >
+          > 
+          <group>
             <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
+            <Html position={[4, 14, -3]}>
+            <div
+              style={{
+                fontFamily: 'Mexcellent',
+                color: '#ff9900', 
+                fontSize: '40px', 
+                background: '#000000', 
+                padding: '10px', 
+                borderRadius: '5px', 
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+                textAlign: 'center',
+              }}
+            >
+              ARQUITECTURA
+            </div>
+          </Html>
+            </group>
           </RigidBody>
         </group>
 
-              
-            {/* Floor */}
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh  rotation={[-(angleToRadians(90)), 0, 0]} position={[0,0,0]} receiveShadow>
-                    <planeGeometry args={[50, 50]}/>
-                    <meshStandardMaterial {...pyramidTextures}/>
-            </mesh> 
-            </RigidBody>
-            {/* Walls */}
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[-25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>   
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[0, 0, 25]} rotation={[0, 0, 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody>               
-            <RigidBody type="fixed" colliders="cuboid">
-            <mesh position={[0, 0, -25]} rotation={[0, 0, 0]}  receiveShadow>
-                    <boxGeometry args={[50, 8, 1]} />
-                    <meshStandardMaterial color="#F5DEB3"
-                      {...wallTexture}
-                        />
-                </mesh>  
-            </RigidBody> 
-                                    
+        {/* Floor */}
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh rotation={[-(angleToRadians(90)), 0, 0]} position={[0, 0, 0]} receiveShadow>
+            <planeGeometry args={[50, 50]} />
+            <meshStandardMaterial {...pyramidTextures} />
+          </mesh>
+        </RigidBody>
+        {/* Walls */}
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[-25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[25, 0, 0]} rotation={[0, (angleToRadians(90)), 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[0, 0, 25]} rotation={[0, 0, 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" colliders="cuboid">
+          <mesh position={[0, 0, -25]} rotation={[0, 0, 0]} receiveShadow>
+            <boxGeometry args={[50, 8, 1]} />
+            <meshStandardMaterial color="#F5DEB3"
+              {...wallTexture}
+            />
+          </mesh>
+        </RigidBody>
+
 
         {/* Floor */}
         <RigidBody type="fixed" colliders="cuboid">
@@ -186,7 +288,7 @@ export default function SelectionMenu() {
 
       </Physics>
 
-      <PointerLockControls />
+      {pointerLocked && <PointerLockControls ref={controlsRef} />}
 
       {/* light */}
       <ambientLight args={["#ffffff", 0.25]} />

@@ -15,17 +15,36 @@ import GaleriaNavigation from './Models/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
 import { Suspense } from 'react';
 import LoaderScreen from './components/LoaderScreen';
+import AgriculturaInfo from './components/AgriculturaInfo';
 import BCAgricultura from './components/BreadCrumbAgricultura';
+<<<<<<< HEAD
 import PaginaPrincipal from './components/PaginaPrincipal';import Art from './components/BreadCrumbArt';
 import ArteNavigation from './Models/ArteNavigation';
 
+=======
+import PaginaPrincipal from './components/PaginaPrincipal';
+import ArteInfo from './components/ArteInfo';
+import Art from './components/BreadCrumbArt';
+import ArteNavigation from './components/ArteNavigation';
+import QuestionaireForm from './components/Questionaire';
+import Questionnaires from './components/Questionary';
+import Questionario from './components/VentanaQuestionario';
+import ProfileViewer from './components/Profile';
+import { angleToRadians } from './utils/angle';
+>>>>>>> main
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route path="/testingComponents" element={<LoaderScreen/>}/> */}
+          {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
+          <Route path="/getQuestionary" element={<Questionnaires />} />
+          <Route path='/addQuestionary' element={
+          <>
+          <Menu/>
+          <QuestionaireForm />
+          </>} />
           <Route path='/pagina-principal' element={<PaginaPrincipal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -66,6 +85,22 @@ function App() {
             }
           />
           <Route
+            path="/arte-info"
+            element={
+              <>
+                <ArteInfo />
+              </>
+            }
+          />
+          <Route
+            path="/agricultura-info"
+            element={
+              <>
+                <AgriculturaInfo />
+              </>
+            }
+          />
+          <Route
             path="/arte-instrumentos"
             element={
               <>
@@ -88,14 +123,17 @@ function App() {
                 <Suspense fallback={<LoaderScreen />}>
                   <Canvas
                     id="three-canvas-container"
-                    camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                    camera={{ position: [1, 1.5, 4.5], fov: 50, rotation: [angleToRadians(0),angleToRadians(-90),angleToRadians(0)] }}
                     shadows
                   >
                     <SelectionMenu />
                   </Canvas>
                   <Menu />
                   <RetroDialog />
+                  <Questionario />
                   <VolumeSlider />
+                  <ProfileViewer/>                  
+                  <div className="dot" />
                 </Suspense>
               </>
             } />
@@ -111,17 +149,17 @@ function App() {
 
             </>
           } />
-          
+
           <Route path='/arte' element={
             <>
-             <Suspense  fallback={<LoaderScreen/>}>
-              <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
-                <ambientLight intensity={0.9} />
-                <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
-                <ArteNavigation />
-              </Canvas>
-              <Art />
-              <div className="dot" />
+              <Suspense fallback={<LoaderScreen />}>
+                <Canvas id="three-canvas-container" camera={{ position: [1, 1.5, 2.5], fov: 50 }} shadows>
+                  <ambientLight intensity={0.9} />
+                  <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
+                  <ArteNavigation />
+                </Canvas>
+                <Art />
+                <div className="dot" />
               </Suspense>
             </>
           }

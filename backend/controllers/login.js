@@ -1,11 +1,12 @@
-const User = require("../models/usuarios")
+const {User, Tema} = require("../models/usuariospreguntas.js")
 const bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
    async register(req, res, next){
-      try {         
+      try {      
          const user = req.body;
          await User.create(user);
+
          res.status(200).send({ message: "Usuario registrado exitosamente"});
       } catch (err) {
          if(err.code === 11000){
@@ -37,7 +38,7 @@ module.exports = {
             if (!isMatch) {
               return res.status(404).send({ message: {detail:"Contraseña incorrecta"} });
             }
-            res.status(200).send({ data: {nombre: userCoincidences[0].nombre, id: userCoincidences[0]._id }});
+            res.status(200).send({ data: userCoincidences[0]});
 
          });
 
