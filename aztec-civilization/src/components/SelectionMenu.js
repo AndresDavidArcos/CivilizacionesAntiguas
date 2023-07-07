@@ -67,9 +67,10 @@ export default function SelectionMenu() {
     setPointerLocked(false);
     document.getElementById('modal').style.display = 'flex';
     document.getElementById('topicos').style.display = 'flex';
-    document.getElementById('pregunta').style.display = 'flex';
+    // document.getElementById('pregunta').style.display = 'flex';
     document.getElementById('preguntas').style.display = 'none';
     document.getElementById('resultado').style.display = 'none';
+    document.getElementById('final').style.display = 'none';
   };
 
   const activarPointer = () => {
