@@ -138,6 +138,7 @@ function App() {
                 <Canvas id="three-canvas-container" camera={{ position: [1, 10, 2.5], fov: 50 }} shadows>
                   <Agricultura />
                 </Canvas>
+                <div className="dot" />
                 <BCAgricultura />
               </Suspense>
 
