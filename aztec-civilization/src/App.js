@@ -25,6 +25,7 @@ import QuestionaireForm from './components/Questionaire';
 import Questionnaires from './components/Questionary';
 import Questionario from './components/VentanaQuestionario';
 import ProfileViewer from './components/Profile';
+import { angleToRadians } from './utils/angle';
 
 function App() {
   return (
@@ -116,7 +117,7 @@ function App() {
                 <Suspense fallback={<LoaderScreen />}>
                   <Canvas
                     id="three-canvas-container"
-                    camera={{ position: [1, 1.5, 2.5], fov: 50 }}
+                    camera={{ position: [1, 1.5, 4.5], fov: 50, rotation: [angleToRadians(0),angleToRadians(-90),angleToRadians(0)] }}
                     shadows
                   >
                     <SelectionMenu />
