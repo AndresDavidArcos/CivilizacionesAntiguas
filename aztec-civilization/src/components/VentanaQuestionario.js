@@ -131,25 +131,25 @@ const Questionario = () => {
                 console.log("Agricultura")
                 preguntas = data.filter((d) => d.nombre === 'agricultura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'agricultura');
-                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Agricultura';
+                document.getElementById('textoTemaEvaluar').innerText = 'Cuestionario de Agricultura';
                 break;
             case 'instrumentos':
                 console.log("Instrumentos")
                 preguntas = data.filter((d) => d.nombre === 'Instrumentos')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Instrumentos');
-                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Instrumentos';
+                document.getElementById('textoTemaEvaluar').innerText = 'Cuestionario de Instrumentos';
                 break;
             case 'arte':
                 console.log("Arte")
                 preguntas = data.filter((d) => d.nombre === 'Arte')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arte');
-                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Arte';
+                document.getElementById('textoTemaEvaluar').innerText = 'Cuestionario de Arte';
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
                 preguntas = data.filter((d) => d.nombre === 'arquitectura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arquitectura');
-                document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Arquitectura';
+                document.getElementById('textoTemaEvaluar').innerText = 'Cuestionario de Arquitectura';
                 break;
             default:
                 break;
