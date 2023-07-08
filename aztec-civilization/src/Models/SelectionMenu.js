@@ -15,7 +15,7 @@ import { useFrame } from "react-three-fiber";
 export default function SelectionMenu() {
 
   const controlsRef = useRef();
-  useEffect(()=>{
+  useEffect(() => {
     console.log("ola", controlsRef.current)
 
   }, [controlsRef])
@@ -23,13 +23,13 @@ export default function SelectionMenu() {
   useFrame(() => {
     if (controlsRef.current.isLocked === true) {
       document.getElementById('volverCamara').style.display = 'none';
-    }else if (controlsRef.current.isLocked === false && document.getElementById('modal').style.display === 'flex'){
+    } else if (controlsRef.current.isLocked === false && document.getElementById('modal').style.display === 'flex') {
       document.getElementById('volverCamara').style.display = 'none';
-    }else{
+    } else {
       document.getElementById('volverCamara').style.display = 'block';
     }
   })
-  
+
   const { user } = useUserData();
 
   console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
@@ -104,7 +104,27 @@ export default function SelectionMenu() {
         {/* Guarda */}
         <group receiveShadow castShadow onClick={mostrarPreguntas}>
           <RigidBody type="fixed" colliders="cuboid">
-            <Guarda position={[-3.5, 6.5, 3.5]} rotation={[0, angleToRadians(200), 0]} scale={0.25} />
+            <Guarda
+              position={[-3.5, 6.5, 3.5]}
+              rotation={[0, angleToRadians(200), 0]}
+              scale={0.25}
+            />
+            <Html position={[-2.5, 9.3, 3.5]}>
+              <div
+                style={{
+                  fontFamily: "Mexcellent",
+                  color: "#ff9900",
+                  fontSize: "40px",
+                  background: "#000000",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                  textAlign: "center",
+                }}
+              >
+                ¡PONTE A PRUEBA!
+              </div>
+            </Html>
           </RigidBody>
         </group>
 
@@ -122,24 +142,24 @@ export default function SelectionMenu() {
             }}
           >
             <group>
-            <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
-            <Html position={[1, 15, 4]}>
-            <div
-              style={{
-                fontFamily: 'Mexcellent',
-                color: '#ff9900', 
-                fontSize: '40px', 
-                background: '#000000', 
-                padding: '10px', 
-                borderRadius: '5px', 
-                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
-                textAlign: 'center',
-              }}
-            >
-              AGRICULTURA
-            </div>
-            <p id='menuSelection' style={{display: 'none'}}></p>
-          </Html>
+              <AncientGate position={[1, 7, 4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, angleToRadians(180)]} map={painting.map} />
+              <Html position={[1, 15, 4]}>
+                <div
+                  style={{
+                    fontFamily: 'Mexcellent',
+                    color: '#ff9900',
+                    fontSize: '40px',
+                    background: '#000000',
+                    padding: '10px',
+                    borderRadius: '5px',
+                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                    textAlign: 'center',
+                  }}
+                >
+                  AGRICULTURA
+                </div>
+                <p id='menuSelection' style={{ display: 'none' }}></p>
+              </Html>
             </group>
           </RigidBody>
           <RigidBody
@@ -151,23 +171,23 @@ export default function SelectionMenu() {
             }}
           >
             <group>
-            <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
-            <Html position={[-3, 13, -4]}>
-            <div
-              style={{
-                fontFamily: 'Mexcellent',
-                color: '#ff9900', 
-                fontSize: '40px', 
-                background: '#000000', 
-                padding: '10px', 
-                borderRadius: '5px', 
-                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
-                textAlign: 'center',
-              }}
-            >
-              INSTRUMENTOS
-            </div>
-          </Html>
+              <AncientGate position={[-3, 7, -4]} scale={[0.05, 0.05, 0.05]} rotation={[angleToRadians(90), 0, 0]} map={painting.map1} />
+              <Html position={[-3, 13, -4]}>
+                <div
+                  style={{
+                    fontFamily: 'Mexcellent',
+                    color: '#ff9900',
+                    fontSize: '40px',
+                    background: '#000000',
+                    padding: '10px',
+                    borderRadius: '5px',
+                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                    textAlign: 'center',
+                  }}
+                >
+                  INSTRUMENTOS
+                </div>
+              </Html>
             </group>
           </RigidBody>
           <RigidBody
@@ -177,25 +197,25 @@ export default function SelectionMenu() {
               console.log("Collision at world position ", manifold.solverContactPoint(0));
               handleNavCollision('arquitectura');
             }}
-          > 
-          <group>
-            <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
-            <Html position={[4, 14, -3]}>
-            <div
-              style={{
-                fontFamily: 'Mexcellent',
-                color: '#ff9900', 
-                fontSize: '40px', 
-                background: '#000000', 
-                padding: '10px', 
-                borderRadius: '5px', 
-                boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
-                textAlign: 'center',
-              }}
-            >
-              ARQUITECTURA
-            </div>
-          </Html>
+          >
+            <group>
+              <AncientGate position={[4, 7, -2]} rotation={[angleToRadians(90), 0, angleToRadians(90)]} scale={[0.05, 0.05, 0.05]} map={painting.map2} />
+              <Html position={[4, 14, -3]}>
+                <div
+                  style={{
+                    fontFamily: 'Mexcellent',
+                    color: '#ff9900',
+                    fontSize: '40px',
+                    background: '#000000',
+                    padding: '10px',
+                    borderRadius: '5px',
+                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+                    textAlign: 'center',
+                  }}
+                >
+                  ARQUITECTURA
+                </div>
+              </Html>
             </group>
           </RigidBody>
         </group>
@@ -286,7 +306,7 @@ export default function SelectionMenu() {
 
       </Physics>
 
-      <PointerLockControls ref={controlsRef} selector="#volverCamara"/>
+      <PointerLockControls ref={controlsRef} selector="#volverCamara" />
 
       {/* light */}
       <ambientLight args={["#ffffff", 0.25]} />
