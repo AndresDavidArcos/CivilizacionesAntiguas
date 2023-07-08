@@ -1,9 +1,22 @@
 import { Physics, RigidBody } from "@react-three/rapier";
-import Galeria from "./Galeria";
+import Arte from "./Arte";
 import { KeyboardControls, PointerLockControls } from "@react-three/drei";
 import Player from "./Player";
+import { useFrame } from "react-three-fiber";
+import { useRef } from "react";
 
-export default function GaleriaNavigation(){
+export default function ArteNavigation(){
+
+    const controlsRef = useRef();
+
+    useFrame(() => {
+      if (controlsRef.current.isLocked === true) {
+        document.getElementById('volverCamaraArte').style.display = 'none';
+      }else{
+        document.getElementById('volverCamaraArte').style.display = 'block';
+      }
+    })
+
     return (
         <>
       <Physics>
@@ -15,13 +28,13 @@ export default function GaleriaNavigation(){
             { name: "right", keys: ["ArrowRight", "d", "D"] },
             { name: "jump", keys: ["Space"] },
           ]}>
-          <Player position={[0, 3, 0]}/>
+          <Player position={[-9, 1, 5]}/>
         </KeyboardControls>
         <RigidBody type="fixed" colliders="trimesh">
-        <Galeria/>
+        <Arte/>
         </RigidBody>
         </Physics>
-        <PointerLockControls />
+        <PointerLockControls ref={controlsRef} selector="#volverCamaraArte"/>
 
         </>
     )

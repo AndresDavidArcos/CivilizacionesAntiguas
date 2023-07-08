@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../styles/Arquitectura.css";
-import Modelos from './Arquitecturas';
+import Modelos from '../Models/Arquitecturas';
 
 const Arquitectura = () => {
   // Datos de los slides
@@ -75,10 +75,6 @@ const Arquitectura = () => {
     navigate('/login');
   };
 
-  const handleInicio = () => {
-    navigate('/pagina-principal');
-  }
-
   const handleMenu = () => {
     navigate('/menuSelection');
   };
@@ -104,7 +100,7 @@ const Arquitectura = () => {
           </div>
 
           {/* Información de estructura */}
-          <h2 className="titulo">{title}</h2>
+          <h2 data-testid='titulo' className="titulo">{title}</h2>
           <p className="texto">{content}</p>
 
           {/* Botones para ver otras estructuras */}
@@ -131,7 +127,7 @@ const Arquitectura = () => {
         <div className="content_columnar" id="column_rightar">
           {/* Imagen de cada arquitectura */}
           <img className="imagen" src={image} alt={title} />
-          <div className="image_overlay" onClick={handleButtonClick}>
+          <div data-testid='overlay' className="image_overlay" onClick={handleButtonClick}>
             <div className="image_title">{title}</div>
             <p className="image_hovering">Haz click para ver este modelo</p>
           </div>

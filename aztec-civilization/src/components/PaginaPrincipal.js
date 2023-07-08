@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/PaginaPrincipal.css";
+import AvatarChip from "./AvatarChip";
 
 const PaginaPrincipal = () => {
   const navigate = useNavigate();
@@ -19,6 +20,9 @@ const PaginaPrincipal = () => {
 
   return (
     <>
+      <div style={{ position: "fixed", top: "50px", left: "700px", width: "100", height:"100" }}>
+        <AvatarChip />
+      </div>
       <div>
         <button className="breadCrumb" onClick={handleLogin}>
           Login

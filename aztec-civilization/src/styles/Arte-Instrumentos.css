@@ -14,6 +14,7 @@
     justify-content: center;
     opacity: 0;
     transition: opacity 0.25s;
+    color: white
 }
 
 .imageoverlay:hover {
@@ -29,6 +30,7 @@
 .imagehovering {
     font-size: 1.25em;
     margin-top: 0.25em;
+    color: white
 }
 
 .imageCultura {
@@ -67,5 +69,5 @@
     top: 0px;
     height: 100%;
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
 }

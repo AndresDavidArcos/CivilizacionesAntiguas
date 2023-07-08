@@ -1,14 +1,16 @@
 import AztecPyramid from "./AztecPyramid";
 import AncientGate from "./AncientGate";
-import Player from "./Player";
+import Player from "../Models/Player";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { useNavigate } from "react-router-dom";
 import { Html, useGLTF, CameraControls, Environment, KeyboardControls, PerspectiveCamera, PointerLockControls, useEnvironment, useTexture } from '@react-three/drei';
 import { angleToRadians } from "../utils/angle";
 import { useUserData } from "../contexts/user";
-import Guarda from "./Huey_tlatoani";
+import Guarda from "../components/Huey_tlatoani";
 import { React, useEffect, useRef, useState } from 'react';
 import { useMenuSelectionData } from '../contexts/menuSelection';
+import App from "../App";
+import { useFrame } from "react-three-fiber";
 
 export default function SelectionMenu() {
 
@@ -17,8 +19,19 @@ export default function SelectionMenu() {
     console.log("ola", controlsRef.current)
 
   }, [controlsRef])
-  const { pointerLocked, setPointerLocked} = useMenuSelectionData()
+
+  useFrame(() => {
+    if (controlsRef.current.isLocked === true) {
+      document.getElementById('volverCamara').style.display = 'none';
+    }else if (controlsRef.current.isLocked === false && document.getElementById('modal').style.display === 'flex'){
+      document.getElementById('volverCamara').style.display = 'none';
+    }else{
+      document.getElementById('volverCamara').style.display = 'block';
+    }
+  })
+  
   const { user } = useUserData();
+
   console.log("Este es el usuario donde tiene los aciertos y los fallos que ha tenido en una evaluacion: ", user)
   const tPathI = '../../imagenes/'
   const painting = useTexture({
@@ -63,30 +76,14 @@ export default function SelectionMenu() {
   }
 
   const mostrarPreguntas = () => {
-    setPointerLocked(false);
+    controlsRef.current.unlock();
     document.getElementById('modal').style.display = 'flex';
-    document.getElementById('topicos').style.display = 'flex';
-    document.getElementById('pregunta').style.display = 'none';
+    document.getElementById('topicos').style.display = 'block';
+    // document.getElementById('pregunta').style.display = 'flex';
+    document.getElementById('preguntas').style.display = 'none';
     document.getElementById('resultado').style.display = 'none';
+    document.getElementById('final').style.display = 'none';
   };
-
-  const activarPointer = () => {
-    setPointerLocked(true);
-  }
-
-
-  useEffect(() => {
-    console.log(pointerLocked)
-  }, [pointerLocked])
-
-  document.addEventListener("keyup", function(e) {
-    if (e.key == "Escape") {
-      controlsRef.current.unlock();
-      setPointerLocked(false);
-    }
-  });
-  
-
 
   return (
     <>
@@ -288,7 +285,7 @@ export default function SelectionMenu() {
 
       </Physics>
 
-      {pointerLocked && <PointerLockControls ref={controlsRef} />}
+      <PointerLockControls ref={controlsRef} selector="#volverCamara"/>
 
       {/* light */}
       <ambientLight args={["#ffffff", 0.25]} />
