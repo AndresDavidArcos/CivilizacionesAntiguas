@@ -31,16 +31,6 @@ const Art = () => {
 
     return (
       <div className="breadCrumb-Container">
-        <button className="breadCrumb" onClick={handleLogin}>
-          Login
-        </button>
-        <button className="breadCrumb" onClick={handleMenu}>
-          Menú de selección
-        </button>
-        <button className="breadCrumb" onClick={handleMenu}>
-          El arte Azteca
-        </button>
-        <button className="breadCrumbDisabled">Arte</button>
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
           alt="Imagen"

@@ -54,13 +54,6 @@ const AgriculturaInfo = () => {
         />
       </div>
       <div>
-        {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
-         * a cualquiera.
-         */}
-        <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
-        <button className='breadCrumb' onClick={handleLogin}>Login</button>
-        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-        <button className='breadCrumbDisabled' >La agricultura azteca</button>
         {/** aquí se carga el icono de ayuda y se le añade un escucha */}
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
@@ -108,8 +101,8 @@ const AgriculturaInfo = () => {
       </div>
 
       {/** aquí se escribe toda la información del arte */}
-      <div className="content_row">
-        <div className="content_column" id="column_right">
+      <div className="content_row" style={{ background: "linear-gradient(135deg, #FF9B00, #1c3344"}}>
+        <div className="content_column" id="column_left">
           <div className="title">¡Agricultura de la civilización azteca!</div>
           <div className="intro" data-testid="intro-element">
             La agricultura fue una actividad fundamental para la civilización azteca. Su sociedad dependía en 

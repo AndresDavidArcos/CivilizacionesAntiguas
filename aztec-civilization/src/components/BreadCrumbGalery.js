@@ -35,17 +35,6 @@ const Galery = () => {
 
   return (
     <div className="breadCrumb-Container">
-      <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
-      <button className="breadCrumb" onClick={handleLogin}>
-        Login
-      </button>
-      <button className="breadCrumb" onClick={handleMenu}>
-        Menú de selección
-      </button>
-      <button className="breadCrumb" onClick={handleInstrumentos}>
-        Instrumentos
-      </button>
-      <button className="breadCrumbDisabled">Galeria</button>
       <img
         src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
         alt="Imagen"

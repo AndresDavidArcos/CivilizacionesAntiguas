@@ -34,7 +34,7 @@ export default function GaleriaNavigation(){
         <Galeria/>
         </RigidBody>
         </Physics>
-        <PointerLockControls ref={controlsRef} selector="#volverCamaraArte"/>
+        <PointerLockControls ref={controlsRef} selector="#volverCamaraInstrumentos"/>
 
         </>
     )

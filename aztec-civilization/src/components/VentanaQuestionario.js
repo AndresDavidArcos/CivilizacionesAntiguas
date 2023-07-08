@@ -111,7 +111,7 @@ const Questionario = () => {
 
     const volverInicio = () => {
         document.getElementById('final').style.display = 'none';
-        document.getElementById('topicos').style.display = 'flex';
+        document.getElementById('topicos').style.display = 'block';
     }
 
     const mostrarPreguntas = () => {
@@ -147,7 +147,7 @@ const Questionario = () => {
                 break;
             case 'arquitectura':
                 console.log("Arquitectura")
-                preguntas = data.filter((d) => d.nombre === 'Arquitectura')[0]['preguntasRespuestas'];
+                preguntas = data.filter((d) => d.nombre === 'arquitectura')[0]['preguntasRespuestas'];
                 quiz = data.findIndex((d) => d.nombre === 'Arquitectura');
                 document.getElementById('textoTemaEvaluar').innerText = 'Questionario de Arquitectura';
                 break;
@@ -178,7 +178,7 @@ const Questionario = () => {
     console.log(user)
 
     return (
-        <div id='modal' className="modalQ" style={{zIndex: '1'}}>
+        <div id='modal' className="modalQ" style={{zIndex: '4'}}>
             <Modal
                 open={open}
                 onClose={handleClose}
