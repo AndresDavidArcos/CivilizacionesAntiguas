@@ -201,7 +201,8 @@ export default function Galeria(props) {
             receiveShadow
             geometry={nodes.Object_2.geometry}
             material={materials["material_0.002"]}
-            onClick={textoFlautaRara}
+            onPointerEnter={textoFlautaRara}
+            onPointerLeave={textoFlautaRara}
             onDoubleClick={handleClickAyoyote}
           />
           <Html>
@@ -240,7 +241,8 @@ export default function Galeria(props) {
               receiveShadow
               geometry={nodes.Object_2001.geometry}
               material={materials["material_0.003"]}
-              onClick={textoOcarina}
+              onPointerEnter={textoOcarina}
+              onPointerLeave={textoOcarina}
               onDoubleClick={handleClickOcarina}
             />
             <Html>
@@ -323,7 +325,8 @@ export default function Galeria(props) {
           material={nodes.Цилиндр001.material}
           position={[2.05, 0.32, 1.75]}
           rotation={[Math.PI, -1.45 * 3, Math.PI]}
-          onClick={textoPercusion}
+          onPointerEnter={textoPercusion}
+          onPointerLeave={textoPercusion}
           onDoubleClick={handleClickTeponaztli}
         />
         <mesh //tambor peque
@@ -334,7 +337,8 @@ export default function Galeria(props) {
           position={[2.12, 1.4968, 1.06]}
           rotation={[Math.PI, -1.45, Math.PI]}
           scale={0.95}
-          onClick={textoPercusion}
+          onPointerEnter={textoPercusion}
+          onPointerLeave={textoPercusion}
           onDoubleClick={handleClickTeponaztli}
         />
         <mesh //tambor mediano
@@ -345,7 +349,8 @@ export default function Galeria(props) {
           position={[1.82, 0.4, 0.65]}
           rotation={[Math.PI, -1.45, Math.PI]}
           scale={0.93}
-          onClick={textoPercusion}
+          onPointerEnter={textoPercusion}
+          onPointerLeave={textoPercusion}
           onDoubleClick={handleClickTeponaztli}
         />
         <Html position={[1.88, 1.414, 1.27]}>
@@ -380,7 +385,8 @@ export default function Galeria(props) {
           material={materials.Material}
           position={[1.84, 1.414, 2.66]}
           rotation={[Math.PI, -1.55, Math.PI]}
-          onClick={textoFlautaDePan}
+          onPointerEnter={textoFlautaDePan}
+          onPointerLeave={textoFlautaDePan}
           onDoubleClick={handleClickTlapitzalli}
         />
         <Html position={[1.74, 1.414, 2.66]}>
@@ -417,7 +423,8 @@ export default function Galeria(props) {
           position={[-5.8, -0.464507, -6.44]}
           rotation={[-Math.PI, 0.84, -Math.PI]}
           scale={3}
-          onClick={textoFlauta}
+          onPointerEnter={textoFlauta}
+          onPointerLeave={textoFlauta}
           onDoubleClick={handleClickTlapitzalli}
         />
         <Html position={[2.1, 1.414, 2.66]}>
@@ -454,7 +461,8 @@ export default function Galeria(props) {
           material={nodes.Куб001.material}
           position={[-0.49, 0.794, 2.85]}
           rotation={[-Math.PI, 0.19, -Math.PI]}
-          onClick={textoMaraca}
+          onPointerEnter={textoMaraca}
+          onPointerLeave={textoMaraca}
           onDoubleClick={handleClickAyoyote}
         />
         <mesh //maraca
@@ -464,7 +472,8 @@ export default function Galeria(props) {
           material={nodes.Куб002.material}
           position={[-0.56, 0.794, 2.91]}
           rotation={[-Math.PI, 0.19, -Math.PI]}
-          onClick={textoMaraca}
+          onPointerEnter={textoMaraca}
+          onPointerLeave={textoMaraca}
           onDoubleClick={handleClickAyoyote}
         />
         <Html position={[-2, 1.3, 2.8]}>
@@ -502,7 +511,8 @@ export default function Galeria(props) {
           position={[2.04, 0.682, 0.731]}
           rotation={[-2.83, 0.43, 3.13]}
           scale={0.02}
-          onClick={textoPercusion}
+          onPointerEnter={textoPercusion}
+          onPointerLeave={textoPercusion}
         />
       </group>
     </>
