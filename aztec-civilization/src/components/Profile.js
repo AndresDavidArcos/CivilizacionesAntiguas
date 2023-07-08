@@ -27,25 +27,31 @@ const ProfileViewer = () => {
 
   const handleLogin = () => {
     navigate("/login")
+    setShowLogout(!showLogout);
   };
 
   const handleMenu = () => {
     navigate("/menuSelection");
+    setShowLogout(!showLogout);
   };
 
   const handlePagina = () => {
     navigate("/pagina-principal");
+    setShowLogout(!showLogout);
   };
 
   const handleCultura = () => {
     navigate("/arte-instrumentos");
+    setShowLogout(!showLogout);
   };
 
   const handleAgricultura = () => {
+    setShowLogout(!showLogout);
     navigate("/agricultura");
   };
 
   const handleArquitectura = () => {
+    setShowLogout(!showLogout);
     navigate("/arquitectura")
   }
 

@@ -78,63 +78,65 @@ const QuestionaireForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="aztec-form">
-      <div>
-        <label htmlFor="nombre" className="aztec-label">
-          Nombre del cuestionario:
-        </label>
-        <input type="text" id="nombre" value={questionaire.nombre} onChange={handleNombreChange} className="aztec-input" />
-      </div>
-      <div>
-        <h3 className="aztec-heading">Preguntas y respuestas:</h3>
-        {questionaire.preguntasRespuestas.map((preguntaRespuesta, index) => (
-          <div key={index} className="aztec-question-container">
-            <input
-              type="text"
-              value={preguntaRespuesta.pregunta}
-              onChange={(e) => handlePreguntaChange(index, e)}
-              placeholder="Ingrese la pregunta"
-              className="aztec-question-input"
-            />
-            {preguntaRespuesta.respuestas.map((respuesta, respuestaIndex) => (
-              <div key={respuestaIndex} className="aztec-answer-container">
-                <input
-                  type="text"
-                  value={respuesta}
-                  onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
-                  placeholder="Ingrese una respuesta"
-                  className="aztec-answer-input"
-                />
-                <label htmlFor={`respuestaCorrecta-${index}-${respuestaIndex}`} className="aztec-radio-label">
-                  Respuesta Correcta:
-                </label>
-                <input
-                  type="radio"
-                  id={`respuestaCorrecta-${index}-${respuestaIndex}`}
-                  name={`respuestaCorrecta-${index}`}
-                  value={respuestaIndex}
-                  onChange={(e) => handleRespuestaCorrectaChange(index, e)}
-                  className="aztec-radio-input"
-                />
-              </div>
-            ))}
+    <div style={{ width: '100%', height: '100vh', top: '0', position: 'absolute', background: "linear-gradient(135deg, #FF9B00, #1c3344)" }}>
+      <form onSubmit={handleSubmit} className="aztec-form">
+        <div>
+          <label htmlFor="nombre" className="aztec-label">
+            Nombre del cuestionario:
+          </label>
+          <input type="text" id="nombre" value={questionaire.nombre} onChange={handleNombreChange} className="aztec-input" />
+        </div>
+        <div>
+          <h3 className="aztec-heading">Preguntas y respuestas:</h3>
+          {questionaire.preguntasRespuestas.map((preguntaRespuesta, index) => (
+            <div key={index} className="aztec-question-container">
+              <input
+                type="text"
+                value={preguntaRespuesta.pregunta}
+                onChange={(e) => handlePreguntaChange(index, e)}
+                placeholder="Ingrese la pregunta"
+                className="aztec-question-input"
+              />
+              {preguntaRespuesta.respuestas.map((respuesta, respuestaIndex) => (
+                <div key={respuestaIndex} className="aztec-answer-container">
+                  <input
+                    type="text"
+                    value={respuesta}
+                    onChange={(e) => handleRespuestaChange(index, respuestaIndex, e)}
+                    placeholder="Ingrese una respuesta"
+                    className="aztec-answer-input"
+                  />
+                  <label htmlFor={`respuestaCorrecta-${index}-${respuestaIndex}`} className="aztec-radio-label">
+                    Respuesta Correcta:
+                  </label>
+                  <input
+                    type="radio"
+                    id={`respuestaCorrecta-${index}-${respuestaIndex}`}
+                    name={`respuestaCorrecta-${index}`}
+                    value={respuestaIndex}
+                    onChange={(e) => handleRespuestaCorrectaChange(index, e)}
+                    className="aztec-radio-input"
+                  />
+                </div>
+              ))}
 
-            <button type="button" onClick={() => handleAgregarRespuesta(index)} className="aztec-add-answer-button">
-              Agregar respuesta
-            </button>
-          </div>
-        ))}
-        <button type="button" onClick={handleAgregarPregunta} className="aztec-add-question-button">
-          Agregar pregunta
-        </button>
-      </div>
-      <div>
-        <button type="submit" className="aztec-submit-button">Subir cuestionario</button>
-        <button type="button" onClick={handleLimpiarCuestionarios} className="aztec-clear-button">
-          Limpiar cuestionarios
-        </button>
-      </div>
-    </form>
+              <button type="button" onClick={() => handleAgregarRespuesta(index)} className="aztec-add-answer-button">
+                Agregar respuesta
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAgregarPregunta} className="aztec-add-question-button">
+            Agregar pregunta
+          </button>
+        </div>
+        <div>
+          <button type="submit" className="aztec-submit-button">Subir cuestionario</button>
+          <button type="button" onClick={handleLimpiarCuestionarios} className="aztec-clear-button">
+            Limpiar cuestionarios
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
