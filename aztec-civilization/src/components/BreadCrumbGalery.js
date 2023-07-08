@@ -69,8 +69,7 @@ const Galery = () => {
             Intrucciones
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Puede explorar la habitación manteniendo presionado el click
-            izquierdo y deslizando el mouse.
+              Puede explorar la habitación con las letras a w s d.
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Para leer más acerca del instrumento haga click en el de su

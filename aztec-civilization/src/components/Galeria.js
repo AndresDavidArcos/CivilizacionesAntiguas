@@ -1,7 +1,7 @@
 import React, { useRef, useMemo } from "react";
 import {
   useGLTF,
-  Html
+  Html, useTexture 
 } from "@react-three/drei";
 import { AudioListener, AudioLoader, Audio } from "three";
 import { useLoader } from "react-three-fiber";
@@ -16,7 +16,16 @@ con su descripción y sonido respectivo */}
 export default function Galeria(props) {
 
   const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos2.glb");
-
+  
+  const tPathP = '../../texturas/arteEnv/';
+  const floorTextures = useTexture({
+    map: tPathP + 'Stylized_Stone_Floor_005_basecolor.jpg',
+    aoMap: tPathP + 'Stylized_Stone_Floor_005_ao.jpg',
+    displacementMap: tPathP + 'Stylized_Stone_Floor_005_height.png',
+    normalMap: tPathP + "Stylized_Stone_Floor_005_normal.jpg",
+    roughnessMap: tPathP + "Stylized_Stone_Floor_005_roughness.jpg",
+  })
+  
   {
     /** Aqui se crea el listener */
   }

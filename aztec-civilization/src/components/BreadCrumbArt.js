@@ -70,9 +70,6 @@ const Art = () => {
               Para leer más acerca del arte dirija su mirada
               hacia el objeto de interes.
             </Typography>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Para escuchar el sonido del instrumento haga doble click.
-            </Typography>
             <Button
               variant="contained"
               size="small"
