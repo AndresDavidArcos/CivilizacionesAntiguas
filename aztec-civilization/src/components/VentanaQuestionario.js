@@ -12,7 +12,7 @@ const Questionario = () => {
 
     const { pointerLocked, setPointerLocked } = useMenuSelectionData()
 
-    const baseUrl = "http://localhost:4000/api/";
+    const baseUrl = "https://civilizaciones-antiguas.vercel.app/api/";
 
     var preguntaActual = 0;
     var quiz = 0;
