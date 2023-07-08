@@ -1,7 +1,7 @@
 import React, { useRef, useMemo } from "react";
 import {
   useGLTF,
-  Html
+  Html, useTexture 
 } from "@react-three/drei";
 import { AudioListener, AudioLoader, Audio } from "three";
 import { useLoader } from "react-three-fiber";
@@ -15,8 +15,17 @@ import "../styles/Instrumentos.css";
 con su descripción y sonido respectivo */}
 export default function Galeria(props) {
 
-  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos1.glb");
-
+  const { nodes, materials } = useGLTF("../../modelos/galeria_de_instrumentos2.glb");
+  
+  const tPathP = '../../texturas/arteEnv/';
+  const floorTextures = useTexture({
+    map: tPathP + 'Stylized_Stone_Floor_005_basecolor.jpg',
+    aoMap: tPathP + 'Stylized_Stone_Floor_005_ao.jpg',
+    displacementMap: tPathP + 'Stylized_Stone_Floor_005_height.png',
+    normalMap: tPathP + "Stylized_Stone_Floor_005_normal.jpg",
+    roughnessMap: tPathP + "Stylized_Stone_Floor_005_roughness.jpg",
+  })
+  
   {
     /** Aqui se crea el listener */
   }
@@ -297,14 +306,16 @@ export default function Galeria(props) {
             />
           </group>
         </group>
-        <mesh //circulo central en la pared
-          castShadow
-          receiveShadow
-          geometry={nodes.uploads_files_629209_aztec.geometry}
-          material={nodes.uploads_files_629209_aztec.material}
-          position={[-1.49, 1.46, 4.21]}
-          scale={0.02}
-        />
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <mesh //circulo dorado central
+              castShadow
+              receiveShadow
+              geometry={nodes.defaultMaterial005.geometry}
+              material={materials["DefaultMaterial.001"]}
+            />
+          </group>
+        </group>
         <mesh //tambor grande
           castShadow
           receiveShadow

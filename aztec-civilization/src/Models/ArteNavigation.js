@@ -28,7 +28,7 @@ export default function ArteNavigation(){
             { name: "right", keys: ["ArrowRight", "d", "D"] },
             { name: "jump", keys: ["Space"] },
           ]}>
-          <Player position={[0, 3, 0]}/>
+          <Player position={[-9, 1, 5]}/>
         </KeyboardControls>
         <RigidBody type="fixed" colliders="trimesh">
         <Arte/>
