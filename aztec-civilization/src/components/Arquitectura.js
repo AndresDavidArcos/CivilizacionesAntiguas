@@ -104,7 +104,7 @@ const Arquitectura = () => {
           <p className="texto">{content}</p>
 
           {/* Botones para ver otras estructuras */}
-          <div className="container">
+          <div className="containerA">
             <button className="boton" id="anterior" onClick={handlePrevSlide}>
               <img
                 className="icono"

@@ -108,8 +108,8 @@ const AgriculturaInfo = () => {
       </div>
 
       {/** aquí se escribe toda la información del arte */}
-      <div className="content_row">
-        <div className="content_column" id="column_right">
+      <div className="content_row" style={{ background: "linear-gradient(135deg, #FF9B00, #1c3344"}}>
+        <div className="content_column" id="column_left">
           <div className="title">¡Agricultura de la civilización azteca!</div>
           <div className="intro" data-testid="intro-element">
             La agricultura fue una actividad fundamental para la civilización azteca. Su sociedad dependía en 
