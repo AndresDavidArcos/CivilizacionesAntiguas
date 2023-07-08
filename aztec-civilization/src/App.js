@@ -6,7 +6,7 @@ import Register from './components/Register';
 import SelectionMenu from './Models/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
 import Agricultura from './Models/Agricultura';
-import Instrumentos from './components/Instrumentos';
+import Instrumentos from './components/Instrumentos'; 
 import Arquitectura from './components/Arquitectura';
 import VolumeSlider from './components/VolumeSlider';
 import Menu from './components/BreadCrumb';

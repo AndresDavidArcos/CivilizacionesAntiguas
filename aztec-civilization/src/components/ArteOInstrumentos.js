@@ -30,6 +30,7 @@ const ArteOInstrumentos = () => {
   }
   return (
     <div className='backgroundArte'>
+      <p id='cultura' style={{ display: 'none' }}></p>
       <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
       <button className='breadCrumb' onClick={handleLogin}>Login</button>
       <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>

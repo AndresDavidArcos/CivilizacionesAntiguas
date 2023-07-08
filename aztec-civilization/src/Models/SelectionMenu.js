@@ -138,6 +138,7 @@ export default function SelectionMenu() {
             >
               AGRICULTURA
             </div>
+            <p id='menuSelection' style={{display: 'none'}}></p>
           </Html>
             </group>
           </RigidBody>

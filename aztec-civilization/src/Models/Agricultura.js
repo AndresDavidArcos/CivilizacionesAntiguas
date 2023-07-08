@@ -287,6 +287,7 @@ const Agricultura = () => {
                 Los aztecas cultivaban tomates de tamaño pequeño y forma
                 redonda, similares a las cerezas.
               </p>
+              <p id='agricultura' style={{display: 'none'}}></p>
               <p
                 style={{
                   fontFamily: "Arial",

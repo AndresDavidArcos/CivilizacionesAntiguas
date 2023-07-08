@@ -85,6 +85,7 @@ const Arquitectura = () => {
 
   return (
     <div className="background">
+      <p id='arquitectura' style={{ display: 'none' }}></p>
       <div className="content_rowar">
         <div className="content_columnar" id="column_leftar">
           {/* Breadcrumbs para dirrecionamiento */}

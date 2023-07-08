@@ -55,7 +55,7 @@ const PaginaPrincipal = () => {
             </div>
           </div>
 
-          <div className="section">
+          <div id='principal' className="section">
             <div className="article">
               <img
                 src={process.env.PUBLIC_URL + "/imagenes/historia.jpeg"}
