@@ -6,10 +6,9 @@ import Register from './components/Register';
 import SelectionMenu from './Models/SelectionMenu';
 import RetroDialog from './components/RetroDialog';
 import Agricultura from './Models/Agricultura';
-import Instrumentos from './components/Instrumentos'; 
+import Instrumentos from './components/Instrumentos';
 import Arquitectura from './components/Arquitectura';
 import VolumeSlider from './components/VolumeSlider';
-import Menu from './components/BreadCrumb';
 import Galery from './components/BreadCrumbGalery';
 import GaleriaNavigation from './Models/GaleriaNavigation';
 import ArteOInstrumentos from './components/ArteOInstrumentos';
@@ -38,25 +37,24 @@ function App() {
           {/* <Route path="/testingComponents" element={<ProfileViewer/>}/> */}
           {/* <Route path="/getQuestionary" element={<Questionnaires />} /> */}
           <Route path='/addQuestionary' element={
-          <>
-          <Menu/>
-          <QuestionaireForm />
-          <ProfileViewer/>                  
-          </>} />
+            <>
+              <QuestionaireForm />
+              <ProfileViewer />
+            </>} />
           <Route path='/pagina-principal' element={
-          <>
-          <PaginaPrincipal />
-          <ProfileViewer/>                  
-          </>
+            <>
+              <PaginaPrincipal />
+              <ProfileViewer />
+            </>
           } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Navigate to="/pagina-principal" />} />
           {/* Ruta que nos permite llamar al componente Arquitectura */}
           <Route path="/arquitectura" element={
-          <><Arquitectura />
-          <ProfileViewer/></>                  
-            } />
+            <><Arquitectura />
+              <ProfileViewer /></>
+          } />
           <Route
             path="/galeria"
             element={
@@ -75,11 +73,11 @@ function App() {
                     />
                     <GaleriaNavigation />
                   </Canvas>
-                  <ProfileViewer/>                  
+                  <ProfileViewer />
                   <Galery />
                   <div className="dot" />
-                  <button id='volverCamaraInstrumentos' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
-                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                  <button id='volverCamaraInstrumentos' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }}
+                    onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                 </Suspense>
               </>
             }
@@ -90,7 +88,7 @@ function App() {
             element={
               <>
                 <Instrumentos />
-                <ProfileViewer/>                  
+                <ProfileViewer />
               </>
             }
           />
@@ -99,7 +97,7 @@ function App() {
             element={
               <>
                 <ArteInfo />
-                <ProfileViewer/>                  
+                <ProfileViewer />
               </>
             }
           />
@@ -108,7 +106,7 @@ function App() {
             element={
               <>
                 <AgriculturaInfo />
-                <ProfileViewer/>                  
+                <ProfileViewer />
               </>
             }
           />
@@ -117,7 +115,7 @@ function App() {
             element={
               <>
                 <ArteOInstrumentos />
-                <ProfileViewer/>                  
+                <ProfileViewer />
               </>
             }
           />
@@ -126,7 +124,7 @@ function App() {
             element={
               <>
                 <PaginaPrincipal />
-                <ProfileViewer/>                  
+                <ProfileViewer />
               </>
             }
           />
@@ -142,14 +140,13 @@ function App() {
                   >
                     <SelectionMenu />
                   </Canvas>
-                  <Menu />
+                  <ProfileViewer />
                   <RetroDialog />
                   <div className="dot" />
-                  <button id='volverCamara' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
-                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                  <button id='volverCamara' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }}
+                    onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                   <Questionario />
                   <VolumeSlider />
-                  <ProfileViewer/>                  
                   <div className="dot" />
                 </Suspense>
 
@@ -163,10 +160,10 @@ function App() {
                   <Agricultura />
                 </Canvas>
                 <div className="dot" />
-                <button id='volverCamaraAgri' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
-                onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                <button id='volverCamaraAgri' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }}
+                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                <ProfileViewer />
                 <BCAgricultura />
-                <ProfileViewer/>                  
               </Suspense>
 
             </>
@@ -180,11 +177,11 @@ function App() {
                   <pointLight position={[0, 3.8, -1]} intensity={0.9} castShadow />
                   <ArteNavigation />
                 </Canvas>
-                <ProfileViewer/>                  
-                <Art />
+                <ProfileViewer />
                 <div className="dot" />
-                <button id='volverCamaraArte' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
-                onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                <Art />
+                <button id='volverCamaraArte' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }}
+                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
               </Suspense>
             </>
           }

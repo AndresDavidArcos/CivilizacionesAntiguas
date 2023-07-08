@@ -31,10 +31,6 @@ const ArteOInstrumentos = () => {
   return (
     <div className='backgroundArte'>
       <p id='cultura' style={{ display: 'none' }}></p>
-      <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
-      <button className='breadCrumb' onClick={handleLogin}>Login</button>
-      <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-      <button className='breadCrumbDisabled'>Cultura</button>
       <div className='contentrow'>
         <div className="contentcolumn" id="columnleft">
           {/** aquí se carga la imagen que visualiza instrumentos */}

@@ -88,11 +88,6 @@ const Arquitectura = () => {
       <p id='arquitectura' style={{ display: 'none' }}></p>
       <div className="content_rowar">
         <div className="content_columnar" id="column_leftar">
-          {/* Breadcrumbs para dirrecionamiento */}
-          <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
-          <button className='breadCrumb' onClick={handleLogin}>Login</button>
-          <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-          <button className='breadCrumbDisabled' >Arquitectura</button>
 
           {/* Header con titulo de civilización */}
           <div className="header">

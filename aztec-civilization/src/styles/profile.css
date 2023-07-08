@@ -1,12 +1,13 @@
 .profile-container {
   position: fixed;
-  width: 200px;
+  width: 150px;
   background-color: #fafafa;
   top: 0%;
-  right: 10%;
+  right: 3%;
   border-radius: 10px;
   border: 2px solid #000;
-}
+  z-index: 3;
+} 
 
 .profile {
   display: flex;

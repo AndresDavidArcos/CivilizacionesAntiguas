@@ -62,14 +62,6 @@ const ArteInfo = () => {
         />
       </div>
       <div>
-        {/** estos botones son para indicar al usuario lo que ha visitado y pueda regresar
-         * a cualquiera.
-         */}
-        <button className='breadCrumb' onClick={handlePagina}>Página principal</button>
-        <button className='breadCrumb' onClick={handleLogin}>Login</button>
-        <button className='breadCrumb' onClick={handleMenu}>Menú de selección</button>
-        <button className='breadCrumb' onClick={handleArteOInstrumentos}>Cultura</button>
-        <button className='breadCrumbDisabled' >El arte Azteca</button>
         {/** aquí se carga el icono de ayuda y se le añade un escucha */}
         <img
           src={process.env.PUBLIC_URL + "/imagenes/ayuda.png"}
