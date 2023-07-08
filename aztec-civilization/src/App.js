@@ -28,8 +28,8 @@ import ProfileViewer from './components/Profile';
 import { angleToRadians } from './utils/angle';
 
 function App() {
-  const ocultar = () => {
-    document.getElementById('volverCamara').style.display = 'none';
+  const ocultar = (e) => {
+    e.target.style.display = 'none';
   }
   return (
     <div className="App">
@@ -78,6 +78,8 @@ function App() {
                   <ProfileViewer/>                  
                   <Galery />
                   <div className="dot" />
+                  <button id='volverCamaraInstrumentos' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
+                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                 </Suspense>
               </>
             }
@@ -143,7 +145,8 @@ function App() {
                   <Menu />
                   <RetroDialog />
                   <div className="dot" />
-                  <button id='volverCamara' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
+                  <button id='volverCamara' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
+                  onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                   <Questionario />
                   <VolumeSlider />
                   <ProfileViewer/>                  
@@ -160,6 +163,8 @@ function App() {
                   <Agricultura />
                 </Canvas>
                 <div className="dot" />
+                <button id='volverCamaraAgri' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
+                onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
                 <BCAgricultura />
                 <ProfileViewer/>                  
               </Suspense>
@@ -178,6 +183,8 @@ function App() {
                 <ProfileViewer/>                  
                 <Art />
                 <div className="dot" />
+                <button id='volverCamaraArte' style={{ zIndex: '2', position: 'absolute', height: '80px', width: '120px', top: '50%', left: '50%', margin: '-40px 0 0 -60px' }} 
+                onClick={ocultar}>PRESIONAME PARA INGRESAR A LA CÁMARA</button>
               </Suspense>
             </>
           }

@@ -9,7 +9,7 @@ import {
   useEnvironment,
   useTexture,
 } from "@react-three/drei";
-import React from "react";
+import React, {useRef} from "react";
 import { angleToRadians } from "../utils/angle";
 import Fence from "./Fence";
 import Boat from "./Boat";
@@ -23,6 +23,7 @@ import Pumpkin from "./Pumpkin";
 import Pepper from "./Pepper";
 import Cotton from "./Cottonplant";
 import { randInt } from "three/src/math/MathUtils";
+import { useFrame } from "react-three-fiber";
 
 const Agricultura = () => {
   const envMap = useEnvironment({
@@ -61,6 +62,16 @@ const Agricultura = () => {
     setTextoAlgodon(!mostrarTextoAlgodon);
   };
 
+  const controlsRef = useRef();
+
+  useFrame(() => {
+    if (controlsRef.current.isLocked === true) {
+      document.getElementById('volverCamaraAgri').style.display = 'none';
+    }else{
+      document.getElementById('volverCamaraAgri').style.display = 'block';
+    }
+  })
+
   return (
     <>
       {/* Testing Camera */}
@@ -69,7 +80,7 @@ const Agricultura = () => {
       <ambientLight args={["#ffffff", 0.25]} />
 
       {/* Camera */}
-      <PointerLockControls />
+      <PointerLockControls ref={controlsRef} selector="#volverCamaraAgri"/>
 
       <Physics>
         <KeyboardControls
